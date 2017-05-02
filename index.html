@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="zh-Hans">
+<html class="theme-next mist use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -90,12 +90,15 @@
 
 
 
+<meta name="description" content="最好的种树时间是十年前，其次是现在。永远不会太迟，除非你已经放弃了。">
 <meta property="og:type" content="website">
 <meta property="og:title" content="JolieYang | Blog">
 <meta property="og:url" content="https://jolieyang.github.io/index.html">
 <meta property="og:site_name" content="JolieYang | Blog">
+<meta property="og:description" content="最好的种树时间是十年前，其次是现在。永远不会太迟，除非你已经放弃了。">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JolieYang | Blog">
+<meta name="twitter:description" content="最好的种树时间是十年前，其次是现在。永远不会太迟，除非你已经放弃了。">
 
 
 
@@ -103,7 +106,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Mist',
     sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
     fancybox: true,
     motion: true,
@@ -250,12 +253,12 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://jolieyang.github.io/2017/05/02/hello-world/">
+    <link itemprop="mainEntityOfPage" href="https://jolieyang.github.io/2017/05/02/change-to-hexo/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="JolieYang">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -272,8 +275,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/05/02/hello-world/" itemprop="url">
-                  Hello World
+                <a class="post-title-link" href="/2017/05/02/change-to-hexo/" itemprop="url">
+                  更改为Hexo搭建博客
                 </a>
               
             
@@ -289,7 +292,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-02T14:59:31+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-02T16:39:44+08:00">
                 2017-05-02
               </time>
             
@@ -326,15 +329,43 @@
       
         
           
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+            <h2 id="1-Quick-Help"><a href="#1-Quick-Help" class="headerlink" title="1. Quick Help"></a>1. Quick Help</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span> 新建文章</div><div class="line"><span class="meta">$</span> hexo new "文章名称"</div><div class="line"><span class="meta">#</span> 运行本地服务,开启预览访问端口</div><div class="line"><span class="meta">$</span> hexo s</div><div class="line"><span class="meta">#</span> 生成静态网页</div><div class="line"><span class="meta">$</span> hexo g</div><div class="line"><span class="meta">#</span> 部署到远程服务器</div><div class="line"><span class="meta">$</span> hexo deploy</div></pre></td></tr></table></figure>
+<h2 id="2-配置Hexo基本环境"><a href="#2-配置Hexo基本环境" class="headerlink" title="2.配置Hexo基本环境"></a>2.配置Hexo基本环境</h2><h3 id="2-1-安装node-js"><a href="#2-1-安装node-js" class="headerlink" title="2.1 安装node.js"></a>2.1 安装node.js</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> brew install node # ==&gt; Error: node 7.5.0 is already installed,To upgrade to 7.9.0, run `brew upgrade node`</div><div class="line"><span class="meta">$</span> brew upgrade node</div></pre></td></tr></table></figure>
+<h3 id="2-2-安装hexo"><a href="#2-2-安装hexo" class="headerlink" title="2.2 安装hexo"></a>2.2 安装hexo</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> sudo npm install -g hexo</div></pre></td></tr></table></figure>
+<h3 id="2-3-初始化hexo"><a href="#2-3-初始化hexo" class="headerlink" title="2.3 初始化hexo"></a>2.3 初始化hexo</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span> 进入本地博客目录</div><div class="line"><span class="meta">$</span> cd jolieyang.github.io </div><div class="line"><span class="meta">$</span> hexo init # INFO  Start blogging with Hexo!</div></pre></td></tr></table></figure>
+<h3 id="2-4-生成静态页面"><a href="#2-4-生成静态页面" class="headerlink" title="2.4 生成静态页面"></a>2.4 生成静态页面</h3><p>当前目录下，执行命令，生成静态页面至public</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> hexo g</div></pre></td></tr></table></figure>
+<h3 id="2-5-本地启动预览访问端口"><a href="#2-5-本地启动预览访问端口" class="headerlink" title="2.5 本地启动预览访问端口"></a>2.5 本地启动预览访问端口</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> hexo s # INFO  Start processing INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.</div></pre></td></tr></table></figure>
+<h2 id="3-Github-Page"><a href="#3-Github-Page" class="headerlink" title="3.Github Page"></a>3.Github Page</h2><h3 id="3-1-编辑-config-yml文件"><a href="#3-1-编辑-config-yml文件" class="headerlink" title="3.1 编辑_config.yml文件"></a>3.1 编辑_config.yml文件</h3><figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Site</span></div><div class="line"><span class="attr">title:</span> <span class="string">JolieYang</span> <span class="string">| Blog</span></div><div class="line"><span class="attr">subtitle:</span></div><div class="line"><span class="attr">description:</span><span class="string">最好的种树时间是十年前，其次是现在。永远不会太迟，除非你已经放弃了。</span></div><div class="line"><span class="attr">author:</span> <span class="string">JolieYang</span></div><div class="line"></div><div class="line"><span class="comment"># URL</span></div><div class="line"><span class="comment">## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'</span></div><div class="line"><span class="attr">url:</span> <span class="attr">https://jolieyang.github.io/</span></div><div class="line"></div><div class="line"><span class="string">//</span> <span class="string">...</span></div><div class="line"></div><div class="line"><span class="attr">deploy:</span></div><div class="line"><span class="attr">  type:</span> <span class="string">git</span></div><div class="line"><span class="attr">  repo:</span> <span class="string">git@github.com:JolieYang/JolieYang.github.io.git</span></div><div class="line"><span class="attr">  branch:</span> <span class="string">master</span></div></pre></td></tr></table></figure>
+<h3 id="3-2安装node包-amp-amp-部署到GitHub"><a href="#3-2安装node包-amp-amp-部署到GitHub" class="headerlink" title="3.2安装node包&amp;&amp;部署到GitHub"></a>3.2安装node包&amp;&amp;部署到GitHub</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span> 安装node包</div><div class="line"><span class="meta">$</span> npm install hexo-deployer-git --save</div><div class="line"><span class="meta">#</span> 部署到github仓库</div><div class="line"><span class="meta">$</span> hexo clean </div><div class="line"><span class="meta">$</span> hexo g</div><div class="line"><span class="meta">$</span> hexo d # Branch master set up to track remote branch master from git@github.com:JolieYang/JolieYang.github.io.git. INFO  Deploy done: git</div></pre></td></tr></table></figure>
+<h2 id="4-更改博客主题NexT"><a href="#4-更改博客主题NexT" class="headerlink" title="4.更改博客主题NexT"></a>4.更改博客主题NexT</h2><p>参考资料: <a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="external">开始使用-NexT使用文档</a></p>
+<h3 id="4-1下载主题"><a href="#4-1下载主题" class="headerlink" title="4.1下载主题"></a>4.1下载主题</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> cd jolieyang.github.io</div><div class="line"><span class="meta">$</span> git clone https://github.com/iissnan/hexo-theme-next themes/next</div></pre></td></tr></table></figure>
+<h3 id="4-2启用主题"><a href="#4-2启用主题" class="headerlink" title="4.2启用主题"></a>4.2启用主题</h3><p>更改_config.yml文件，配置主题</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> theme: next</div></pre></td></tr></table></figure>
+<h3 id="4-3-验证主题"><a href="#4-3-验证主题" class="headerlink" title="4.3 验证主题"></a>4.3 验证主题</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> hexo s</div></pre></td></tr></table></figure>
+<p>浏览器访问<code>http://localhost:4000</code>,即可验证主题是否设置成功。此时使用的是NexT默认的Scheme—Muse，还可以修改Scheme</p>
+<h2 id="5-配置博客"><a href="#5-配置博客" class="headerlink" title="5.配置博客"></a>5.配置博客</h2><h3 id="5-1-修改Scheme"><a href="#5-1-修改Scheme" class="headerlink" title="5.1 修改Scheme"></a>5.1 修改Scheme</h3><blockquote>
+<p>Scheme 是 NexT 提供的一种特性，借助于 Scheme，NexT 为你提供多种不同的外观。同时，几乎所有的配置都可以在 Scheme 之间共用。</p>
+</blockquote>
+<p>目前(2017-05-02)支持三种Scheme，分别为:</p>
+<ul>
+<li>Muse - 默认 Scheme，这是 NexT 最初的版本，黑白主调，大量留白</li>
+<li>Mist - Muse 的紧凑版本，整洁有序的单栏外观</li>
+<li>Pisces - 双栏 Scheme，小家碧玉似的清新</li>
+</ul>
+<p>修改<code>主题配置文件</code>(themes/next/_config.yml文件)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">theme: Mist</div></pre></td></tr></table></figure>
+<h3 id="5-2设置代码高亮"><a href="#5-2设置代码高亮" class="headerlink" title="5.2设置代码高亮"></a>5.2设置代码高亮</h3><p>修改<code>主题配置文件</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">highlight_theme: night</div></pre></td></tr></table></figure>
+<h3 id="5-3设置语言"><a href="#5-3设置语言" class="headerlink" title="5.3设置语言"></a>5.3设置语言</h3><p>修改<code>站点配置文件</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">language: zh-Hans</div></pre></td></tr></table></figure>
+<h3 id="5-4设置头像"><a href="#5-4设置头像" class="headerlink" title="5.4设置头像"></a>5.4设置头像</h3><p>编辑<code>主题配置文件</code>, 修改字段<code>avatar</code>,设置成头像的链接地址，可为绝对地址或者站点相对地址</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">avatar: /assets/images/avatar.jpg</div></pre></td></tr></table></figure>
+<h2 id="6-其他"><a href="#6-其他" class="headerlink" title="6.其他"></a>6.其他</h2><p>###hexo常用命令</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">hexo new "postName" #新建文章</div><div class="line">hexo new page "pageName" #新建页面</div><div class="line">hexo server #开启预览访问端口（默认端口4000，'ctrl + c'关闭server）</div><div class="line"></div><div class="line">hexo generate # 缩写: hexo g 生成静态页面至public目录</div><div class="line">hexo deploy # 缩写: hexo g,将.deploy目录部署到GitHub</div><div class="line"></div><div class="line">hexo help  # 查看帮助</div><div class="line">hexo version  #查看Hexo的版本</div></pre></td></tr></table></figure>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="external">Hexo Next 主题Github地址</a></p>
+<p><a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="external">NexT入门文档</a></p>
+<p><a href="http://theme-next.iissnan.com/theme-settings.html" target="_blank" rel="external">NexT主题配置</a></p>
 
           
         
@@ -383,7 +414,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="JolieYang">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -480,7 +511,7 @@
 <li>pop:在当前导航器上添加上一页面的截图覆盖toView，与当前页面的截图覆盖fromView。通过UIView动画进行转场。</li>
 <li>侧滑返回上一页面: 导航栏在push到下一页面时，添加侧滑手势，添加相应的手势动画。</li>
 </ol>
-<div align="center"><br><img src="https://jolieyang.github.io/assets/gifs/ScreenshotNavController.gif" alt="NavController"><br></div>
+<div align="center"><br><img src="/gifs/ScreenshotNavController.gif" alt="NavController"><br></div>
 
 
 <h2 id="ViewController转场"><a href="#ViewController转场" class="headerlink" title="ViewController转场"></a>ViewController转场</h2><h3 id="转场相关协议"><a href="#转场相关协议" class="headerlink" title="转场相关协议"></a>转场相关协议</h3><p>自定义转场相关的API定义在<code>UIViewControllerTransitioning.h</code>中，相关协议为5个</p>
@@ -543,7 +574,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="JolieYang">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -711,7 +742,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="JolieYang">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -905,11 +936,11 @@
       <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
-               src="/images/avatar.gif"
+               src="/images/avatar.jpg"
                alt="JolieYang" />
           <p class="site-author-name" itemprop="name">JolieYang</p>
            
-              <p class="site-description motion-element" itemprop="description"></p>
+              <p class="site-description motion-element" itemprop="description">最好的种树时间是十年前，其次是现在。永远不会太迟，除非你已经放弃了。</p>
           
         </div>
         <nav class="site-state motion-element">
@@ -987,7 +1018,7 @@
 <div class="theme-info">
   主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Muse
+    NexT.Mist
   </a>
 </div>
 

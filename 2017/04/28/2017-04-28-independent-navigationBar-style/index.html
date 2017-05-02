@@ -1,0 +1,718 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="引言使用场景1) 当应用在转场时两个页面的导航栏颜色不同; 如美团的“我的”页面—&amp;gt; 设置页面  2) 转场时前一页面隐藏了导航栏，后一页面显示导航栏;如Twitter“Me”页面 —&amp;gt; 一条Tweet纪录页面 在这两种情况下使用原生的转场效果视觉效果上并不是很友好,很多应用(稍微调查了下手机里使用该转场方式的应用：Mono, Twitter,网易云音乐, 美团,生辰，淘宝等)都是通过">
+<meta property="og:type" content="article">
+<meta property="og:title" content="独立导航器导航栏样式">
+<meta property="og:url" content="https://jolieyang.github.io/2017/04/28/2017-04-28-independent-navigationBar-style/index.html">
+<meta property="og:site_name" content="JolieYang | Blog">
+<meta property="og:description" content="引言使用场景1) 当应用在转场时两个页面的导航栏颜色不同; 如美团的“我的”页面—&amp;gt; 设置页面  2) 转场时前一页面隐藏了导航栏，后一页面显示导航栏;如Twitter“Me”页面 —&amp;gt; 一条Tweet纪录页面 在这两种情况下使用原生的转场效果视觉效果上并不是很友好,很多应用(稍微调查了下手机里使用该转场方式的应用：Mono, Twitter,网易云音乐, 美团,生辰，淘宝等)都是通过">
+<meta property="og:image" content="https://jolieyang.github.io/assets/gifs/ScreenshotNavController.gif">
+<meta property="og:updated_time" content="2017-05-02T06:32:24.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="独立导航器导航栏样式">
+<meta name="twitter:description" content="引言使用场景1) 当应用在转场时两个页面的导航栏颜色不同; 如美团的“我的”页面—&amp;gt; 设置页面  2) 转场时前一页面隐藏了导航栏，后一页面显示导航栏;如Twitter“Me”页面 —&amp;gt; 一条Tweet纪录页面 在这两种情况下使用原生的转场效果视觉效果上并不是很友好,很多应用(稍微调查了下手机里使用该转场方式的应用：Mono, Twitter,网易云音乐, 美团,生辰，淘宝等)都是通过">
+<meta name="twitter:image" content="https://jolieyang.github.io/assets/gifs/ScreenshotNavController.gif">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://jolieyang.github.io/2017/04/28/2017-04-28-independent-navigationBar-style/"/>
+
+
+
+
+
+  <title>独立导航器导航栏样式 | JolieYang | Blog</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">JolieYang | Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://jolieyang.github.io/2017/04/28/2017-04-28-independent-navigationBar-style/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="JolieYang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JolieYang | Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                独立导航器导航栏样式
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-28T00:00:00+08:00">
+                2017-04-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><h4 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h4><p>1) 当应用在转场时两个页面的导航栏颜色不同; 如美团的“我的”页面—&gt; 设置页面 </p>
+<p>2) 转场时前一页面隐藏了导航栏，后一页面显示导航栏;如Twitter“Me”页面 —&gt; 一条Tweet纪录页面</p>
+<p>在这两种情况下使用原生的转场效果视觉效果上并不是很友好,很多应用(稍微调查了下手机里使用该转场方式的应用：Mono, Twitter,网易云音乐, 美团,生辰，淘宝等)都是通过类似所示效果显示转场，并支持全屏侧滑Pop页面。</p>
+<h4 id="实现思路"><a href="#实现思路" class="headerlink" title="实现思路"></a>实现思路</h4><p> 主要有三种:</p>
+<ol>
+<li>自定义导航栏视图: 导航器隐藏导航栏，通过addSubview自定义导航栏，灵活性比较高，缺点是改动很大，原生的很多API都无法使用，比如添加导航栏左右按钮，设置title等都需要自己重写支持。</li>
+<li>截图覆盖: 通过在转场时，保存截图，覆盖原有页面。缺点是由于实现方案本身的局限性，push时无法添加交互手势换场，只支持pop交互换场。</li>
+<li>包裹导航栏控制器: 在转场时，对导航栏控制器就行包裹，A—&gt;B时，将导航栏控制器的导航栏隐藏，B则会通过导航栏控制器包裹，由于push时无法push导航栏控制器，因而在B的导航栏控制器外面用UIViewController包裹。从而实现push视图控制器,实现A，B页面的导航栏相互独立。ps: 该思路from jerry的这篇<a href="http://jerrytian.com/2016/01/07/%E7%94%A8Reveal%E5%88%86%E6%9E%90%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90%E7%9A%84%E5%AF%BC%E8%88%AA%E6%8E%A7%E5%88%B6%E5%99%A8%E5%88%87%E6%8D%A2%E6%95%88%E6%9E%9C/" target="_blank" rel="external">《用Reveal分析网易云音乐的导航控制器切换效果》</a></li>
+</ol>
+<h2 id="JYNavTransition–截图覆盖方式"><a href="#JYNavTransition–截图覆盖方式" class="headerlink" title="JYNavTransition–截图覆盖方式"></a>JYNavTransition–截图覆盖方式</h2><blockquote>
+<p> <a href="http://www.jianshu.com/u/900054aaf585" target="_blank" rel="external">_奔跑的炸鸡</a>在<a href="http://www.jianshu.com/p/31f177158c9e" target="_blank" rel="external">【iOS】让我们一次性解决导航栏的所有问题</a>这篇文章解决了使用导航栏时的一些常见问题：包括自定义返回按钮，调整返回按钮位置，解决自定义返回按钮导致的侧滑手势失效问题，以及全屏侧滑转场效果。作者给出了实现思路并将全屏侧滑转场封装到<a href="https://github.com/RunningChicken-K/KLTAnimateNav" target="_blank" rel="external">KLTAnimateNav</a>中，在跟着写的过程中发现代码中存在一些耦合问题，本着整洁代码的原则进行了重写。</p>
+</blockquote>
+<h3 id="基本介绍"><a href="#基本介绍" class="headerlink" title="基本介绍"></a>基本介绍</h3><h4 id="代码地址-JYNavTransition"><a href="#代码地址-JYNavTransition" class="headerlink" title="代码地址:JYNavTransition"></a>代码地址:<a href="https://github.com/JolieYang/JYNavTransition" target="_blank" rel="external">JYNavTransition</a></h4><p>通过截图覆盖方式独立导航器中的viewControllers之间的导航栏样式，并支持全屏侧滑Pop 方式 <strong>ps: 欢迎拍砖交流</strong></p>
+<h4 id="使用方式"><a href="#使用方式" class="headerlink" title="使用方式"></a>使用方式</h4><p>将JYNavTransition文件夹拖入项目中，导航控制器改用JYNavigationController即可</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">FirstViewController *vc = [[FirstViewController alloc] init];</div><div class="line">JYNavigationController *nav = [[JYNavigationController alloc] initWithRootViewController:vc];</div><div class="line">self.window.rootViewController = nav;</div></pre></td></tr></table></figure>
+<h4 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h4><ul>
+<li>UINavigationController替换为JYNavigationController后，即可支持独立导航器导航栏样式</li>
+<li>支持开启或者禁用全屏侧滑手势；</li>
+<li>push,pop,popToViewController,popToRoot等方法无需做额外操作。</li>
+</ul>
+<h4 id="实现细节"><a href="#实现细节" class="headerlink" title="实现细节"></a>实现细节</h4><p>转场时通过截图覆盖原有的toView。需要注意的是需要在导航控制器所在的视图窗口上添加截图才可以遮盖原有的toView和fromView.</p>
+<ol>
+<li>push:在当前导航器的视图所在的窗口添加当前页面的截图，覆盖当前页面，通过UIView动画将fromView逐渐移出屏幕，动画时间为转场时间。</li>
+<li>pop:在当前导航器上添加上一页面的截图覆盖toView，与当前页面的截图覆盖fromView。通过UIView动画进行转场。</li>
+<li>侧滑返回上一页面: 导航栏在push到下一页面时，添加侧滑手势，添加相应的手势动画。</li>
+</ol>
+<div align="center"><br><img src="https://jolieyang.github.io/assets/gifs/ScreenshotNavController.gif" alt="NavController"><br></div>
+
+
+<h2 id="ViewController转场"><a href="#ViewController转场" class="headerlink" title="ViewController转场"></a>ViewController转场</h2><h3 id="转场相关协议"><a href="#转场相关协议" class="headerlink" title="转场相关协议"></a>转场相关协议</h3><p>自定义转场相关的API定义在<code>UIViewControllerTransitioning.h</code>中，相关协议为5个</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">// UIViewControllerTransitioning.h</div><div class="line">// 1. 转场代理(required),提供动画控制器与交互控制器，设置展示VC和dismiss VC的动画控制器，并可以设置这两个场景的交互</div><div class="line">@protocol UIViewControllerTransitioningDelegate &lt;NSObject&gt;</div><div class="line">// 2. 转场上下文(required)，提供转场过程中视图控制器等相关的属性，比如fromVC,toVC,containerView,fromVC,toVC开始或者结束的位置以及三个跟转场交互相关的方法</div><div class="line">@protocol UIViewControllerContextTransitioning &lt;NSObject&gt;</div><div class="line">// 3. 动画控制器(required),协议中必须设置转场所需时间以及转场时执行的动画</div><div class="line">@protocol UIViewControllerAnimatedTransitioning &lt;NSObject&gt;</div><div class="line">// 4. 交互(optional)，控制交互</div><div class="line">@protocol UIViewControllerInteractiveTransitioning &lt;NSObject&gt; </div><div class="line">//  UIViewControllerTransitionCoordinator.h</div><div class="line">// 5. 转场协调(optional)，协调转场动画与其它动画，可让两者并行执行</div><div class="line">@protocol UIViewControllerTransitionCoordinator &lt;UIViewControllerTransitionCoordinatorContext&gt;</div></pre></td></tr></table></figure>
+<h3 id="UIPercentDrivenInteractiveTransition"><a href="#UIPercentDrivenInteractiveTransition" class="headerlink" title="UIPercentDrivenInteractiveTransition"></a>UIPercentDrivenInteractiveTransition</h3><p>遵循UIViewControllerInteractiveTransitioning协议的一个类，可以用一个百分比控制交互转场的过程。</p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="https://onevcat.com/2013/10/vc-transition-in-ios7/" target="_blank" rel="external">WWDC 2013 Session笔记 - iOS7中的ViewController切换—Onev</a> // 自定义Modal转场Demo</p>
+<p><a href="https://objccn.io/issue-5-3/" target="_blank" rel="external">View Controller 转场—Objc中国</a> // 自定义导航栏控制器转场Demo</p>
+<p><a href="https://github.com/seedante/iOS-Note/wiki/ViewController-Transition" target="_blank" rel="external">iOS 视图控制器转场详解</a> </p>
+<p><a href="http://www.jianshu.com/p/31f177158c9e" target="_blank" rel="external">【iOS】让我们一次性解决导航栏的所有问题</a></p>
+<p><a href="http://jerrytian.com/2016/01/07/%E7%94%A8Reveal%E5%88%86%E6%9E%90%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90%E7%9A%84%E5%AF%BC%E8%88%AA%E6%8E%A7%E5%88%B6%E5%99%A8%E5%88%87%E6%8D%A2%E6%95%88%E6%9E%9C/" target="_blank" rel="external">用Reveal分析网易云音乐的导航控制器切换效果</a></p>
+<h2 id="相关开源项目"><a href="#相关开源项目" class="headerlink" title="相关开源项目"></a>相关开源项目</h2><p><a href="https://github.com/RunningChicken-K/KLTAnimateNav" target="_blank" rel="external">KLTAnimateNav </a> // 通过截图方式实现，支持全屏返回</p>
+<p><a href="https://github.com/JNTian/JTNavigationController" target="_blank" rel="external">JTNavigationController</a> // 通过包裹导航栏控制器实现，支持全屏返回</p>
+<p><a href="https://github.com/forkingdog/FDFullscreenPopGesture" target="_blank" rel="external">FDFullscreenPopGesture</a> // 使用原生的 <em>UINavigationController</em>，在 <code>- (void)viewWillAppear</code> 中做处理，支持全屏返回</p>
+<p><a href="https://github.com/rickytan/RTRootNavigationController" target="_blank" rel="external">RTRootNavigationController</a> // 细节完善的比较好，支持unwind,Interface Bulider</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/04/23/2017-04-23-CocoaPods/" rel="next" title="CocoaPods的那些事儿">
+                <i class="fa fa-chevron-left"></i> CocoaPods的那些事儿
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/05/02/hello-world/" rel="prev" title="Hello World">
+                Hello World <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="JolieYang" />
+          <p class="site-author-name" itemprop="name">JolieYang</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#引言"><span class="nav-number">1.</span> <span class="nav-text">引言</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#使用场景"><span class="nav-number">1.0.1.</span> <span class="nav-text">使用场景</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现思路"><span class="nav-number">1.0.2.</span> <span class="nav-text">实现思路</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JYNavTransition–截图覆盖方式"><span class="nav-number">2.</span> <span class="nav-text">JYNavTransition–截图覆盖方式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本介绍"><span class="nav-number">2.1.</span> <span class="nav-text">基本介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#代码地址-JYNavTransition"><span class="nav-number">2.1.1.</span> <span class="nav-text">代码地址:JYNavTransition</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用方式"><span class="nav-number">2.1.2.</span> <span class="nav-text">使用方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#特性"><span class="nav-number">2.1.3.</span> <span class="nav-text">特性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现细节"><span class="nav-number">2.1.4.</span> <span class="nav-text">实现细节</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ViewController转场"><span class="nav-number">3.</span> <span class="nav-text">ViewController转场</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#转场相关协议"><span class="nav-number">3.1.</span> <span class="nav-text">转场相关协议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UIPercentDrivenInteractiveTransition"><span class="nav-number">3.2.</span> <span class="nav-text">UIPercentDrivenInteractiveTransition</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">4.</span> <span class="nav-text">参考资料</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#相关开源项目"><span class="nav-number">5.</span> <span class="nav-text">相关开源项目</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">JolieYang</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

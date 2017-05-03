@@ -97,7 +97,7 @@
 <meta property="og:site_name" content="JolieYang | Blog">
 <meta property="og:description" content="引言使用场景1) 当应用在转场时两个页面的导航栏颜色不同; 如美团的“我的”页面—&amp;gt; 设置页面  2) 转场时前一页面隐藏了导航栏，后一页面显示导航栏;如Twitter“Me”页面 —&amp;gt; 一条Tweet纪录页面 在这两种情况下使用原生的转场效果视觉效果上并不是很友好,很多应用(稍微调查了下手机里使用该转场方式的应用：Mono, Twitter,网易云音乐, 美团,生辰，淘宝等)都是通过">
 <meta property="og:image" content="https://jolieyang.github.io/gifs/ScreenshotNavController.gif">
-<meta property="og:updated_time" content="2017-05-02T08:56:15.000Z">
+<meta property="og:updated_time" content="2017-05-03T08:32:36.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="独立导航器导航栏样式">
 <meta name="twitter:description" content="引言使用场景1) 当应用在转场时两个页面的导航栏颜色不同; 如美团的“我的”页面—&amp;gt; 设置页面  2) 转场时前一页面隐藏了导航栏，后一页面显示导航栏;如Twitter“Me”页面 —&amp;gt; 一条Tweet纪录页面 在这两种情况下使用原生的转场效果视觉效果上并不是很友好,很多应用(稍微调查了下手机里使用该转场方式的应用：Mono, Twitter,网易云音乐, 美团,生辰，淘宝等)都是通过">
@@ -336,10 +336,10 @@
       
 
       
-        <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><h4 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h4><p>1) 当应用在转场时两个页面的导航栏颜色不同; 如美团的“我的”页面—&gt; 设置页面 </p>
+        <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><h3 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h3><p>1) 当应用在转场时两个页面的导航栏颜色不同; 如美团的“我的”页面—&gt; 设置页面 </p>
 <p>2) 转场时前一页面隐藏了导航栏，后一页面显示导航栏;如Twitter“Me”页面 —&gt; 一条Tweet纪录页面</p>
 <p>在这两种情况下使用原生的转场效果视觉效果上并不是很友好,很多应用(稍微调查了下手机里使用该转场方式的应用：Mono, Twitter,网易云音乐, 美团,生辰，淘宝等)都是通过类似所示效果显示转场，并支持全屏侧滑Pop页面。</p>
-<h4 id="实现思路"><a href="#实现思路" class="headerlink" title="实现思路"></a>实现思路</h4><p> 主要有三种:</p>
+<h3 id="实现思路"><a href="#实现思路" class="headerlink" title="实现思路"></a>实现思路</h3><p> 主要有三种:</p>
 <ol>
 <li>自定义导航栏视图: 导航器隐藏导航栏，通过addSubview自定义导航栏，灵活性比较高，缺点是改动很大，原生的很多API都无法使用，比如添加导航栏左右按钮，设置title等都需要自己重写支持。</li>
 <li>截图覆盖: 通过在转场时，保存截图，覆盖原有页面。缺点是由于实现方案本身的局限性，push时无法添加交互手势换场，只支持pop交互换场。</li>
@@ -348,15 +348,15 @@
 <h2 id="JYNavTransition–截图覆盖方式"><a href="#JYNavTransition–截图覆盖方式" class="headerlink" title="JYNavTransition–截图覆盖方式"></a>JYNavTransition–截图覆盖方式</h2><blockquote>
 <p> <a href="http://www.jianshu.com/u/900054aaf585" target="_blank" rel="external">_奔跑的炸鸡</a>在<a href="http://www.jianshu.com/p/31f177158c9e" target="_blank" rel="external">【iOS】让我们一次性解决导航栏的所有问题</a>这篇文章解决了使用导航栏时的一些常见问题：包括自定义返回按钮，调整返回按钮位置，解决自定义返回按钮导致的侧滑手势失效问题，以及全屏侧滑转场效果。作者给出了实现思路并将全屏侧滑转场封装到<a href="https://github.com/RunningChicken-K/KLTAnimateNav" target="_blank" rel="external">KLTAnimateNav</a>中，在跟着写的过程中发现代码中存在一些耦合问题，本着整洁代码的原则进行了重写。</p>
 </blockquote>
-<h3 id="基本介绍"><a href="#基本介绍" class="headerlink" title="基本介绍"></a>基本介绍</h3><h4 id="代码地址-JYNavTransition"><a href="#代码地址-JYNavTransition" class="headerlink" title="代码地址:JYNavTransition"></a>代码地址:<a href="https://github.com/JolieYang/JYNavTransition" target="_blank" rel="external">JYNavTransition</a></h4><p>通过截图覆盖方式独立导航器中的viewControllers之间的导航栏样式，并支持全屏侧滑Pop 方式 <strong>ps: 欢迎拍砖交流</strong></p>
-<h4 id="使用方式"><a href="#使用方式" class="headerlink" title="使用方式"></a>使用方式</h4><p>将JYNavTransition文件夹拖入项目中，导航控制器改用JYNavigationController即可</p>
+<h3 id="代码地址-JYNavTransition"><a href="#代码地址-JYNavTransition" class="headerlink" title="代码地址:JYNavTransition"></a>代码地址:<a href="https://github.com/JolieYang/JYNavTransition" target="_blank" rel="external">JYNavTransition</a></h3><p>通过截图覆盖方式独立导航器中的viewControllers之间的导航栏样式，并支持全屏侧滑Pop 方式 <strong>ps: 欢迎拍砖交流</strong></p>
+<h3 id="使用方式"><a href="#使用方式" class="headerlink" title="使用方式"></a>使用方式</h3><p>将JYNavTransition文件夹拖入项目中，导航控制器改用JYNavigationController即可</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">FirstViewController *vc = [[FirstViewController alloc] init];</div><div class="line">JYNavigationController *nav = [[JYNavigationController alloc] initWithRootViewController:vc];</div><div class="line">self.window.rootViewController = nav;</div></pre></td></tr></table></figure>
-<h4 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h4><ul>
+<h3 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h3><ul>
 <li>UINavigationController替换为JYNavigationController后，即可支持独立导航器导航栏样式</li>
 <li>支持开启或者禁用全屏侧滑手势；</li>
 <li>push,pop,popToViewController,popToRoot等方法无需做额外操作。</li>
 </ul>
-<h4 id="实现细节"><a href="#实现细节" class="headerlink" title="实现细节"></a>实现细节</h4><p>转场时通过截图覆盖原有的toView。需要注意的是需要在导航控制器所在的视图窗口上添加截图才可以遮盖原有的toView和fromView.</p>
+<h3 id="实现细节"><a href="#实现细节" class="headerlink" title="实现细节"></a>实现细节</h3><p>转场时通过截图覆盖原有的toView。需要注意的是需要在导航控制器所在的视图窗口上添加截图才可以遮盖原有的toView和fromView.</p>
 <ol>
 <li>push:在当前导航器的视图所在的窗口添加当前页面的截图，覆盖当前页面，通过UIView动画将fromView逐渐移出屏幕，动画时间为转场时间。</li>
 <li>pop:在当前导航器上添加上一页面的截图覆盖toView，与当前页面的截图覆盖fromView。通过UIView动画进行转场。</li>
@@ -368,6 +368,110 @@
 <h2 id="ViewController转场"><a href="#ViewController转场" class="headerlink" title="ViewController转场"></a>ViewController转场</h2><h3 id="转场相关协议"><a href="#转场相关协议" class="headerlink" title="转场相关协议"></a>转场相关协议</h3><p>自定义转场相关的API定义在<code>UIViewControllerTransitioning.h</code>中，相关协议为5个</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">// UIViewControllerTransitioning.h</div><div class="line">// 1. 转场代理(required),提供动画控制器与交互控制器，设置展示VC和dismiss VC的动画控制器，并可以设置这两个场景的交互</div><div class="line">@protocol UIViewControllerTransitioningDelegate &lt;NSObject&gt;</div><div class="line">// 2. 转场上下文(required)，提供转场过程中视图控制器等相关的属性，比如fromVC,toVC,containerView,fromVC,toVC开始或者结束的位置以及三个跟转场交互相关的方法</div><div class="line">@protocol UIViewControllerContextTransitioning &lt;NSObject&gt;</div><div class="line">// 3. 动画控制器(required),协议中必须设置转场所需时间以及转场时执行的动画</div><div class="line">@protocol UIViewControllerAnimatedTransitioning &lt;NSObject&gt;</div><div class="line">// 4. 交互(optional)，控制交互</div><div class="line">@protocol UIViewControllerInteractiveTransitioning &lt;NSObject&gt; </div><div class="line">//  UIViewControllerTransitionCoordinator.h</div><div class="line">// 5. 转场协调(optional)，协调转场动画与其它动画，可让两者并行执行</div><div class="line">@protocol UIViewControllerTransitionCoordinator &lt;UIViewControllerTransitionCoordinatorContext&gt;</div></pre></td></tr></table></figure>
 <h3 id="UIPercentDrivenInteractiveTransition"><a href="#UIPercentDrivenInteractiveTransition" class="headerlink" title="UIPercentDrivenInteractiveTransition"></a>UIPercentDrivenInteractiveTransition</h3><p>遵循UIViewControllerInteractiveTransitioning协议的一个类，可以用一个百分比控制交互转场的过程。</p>
+<h2 id="模态转场"><a href="#模态转场" class="headerlink" title="模态转场"></a>模态转场</h2><h3 id="Modal转场时识别是Present还是Dismiss"><a href="#Modal转场时识别是Present还是Dismiss" class="headerlink" title="Modal转场时识别是Present还是Dismiss"></a>Modal转场时识别是Present还是Dismiss</h3><p>X1: containerView.subViews;  X2: toVC.isBeingPresented;  X3:fromVC.isBeingDismissed</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center">fromView</th>
+<th style="text-align:center">toView</th>
+<th style="text-align:center">containerView对象</th>
+<th style="text-align:center">X1</th>
+<th style="text-align:center">X2</th>
+<th style="text-align:center">X3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">A—&gt; B</td>
+<td style="text-align:center">A</td>
+<td style="text-align:center">B</td>
+<td style="text-align:center">0x7f8eb945f830</td>
+<td style="text-align:center">A</td>
+<td style="text-align:center">YES</td>
+<td style="text-align:center">NO</td>
+</tr>
+<tr>
+<td style="text-align:center">B —&gt; A</td>
+<td style="text-align:center">B</td>
+<td style="text-align:center">A</td>
+<td style="text-align:center">0x7f8eb945f830</td>
+<td style="text-align:center">B</td>
+<td style="text-align:center">NO</td>
+<td style="text-align:center">YES</td>
+</tr>
+</tbody>
+</table>
+<p>因而可以通过ViewController的isBeingPresented和isBeingDismissed属性识别到底是Present还是dismiss场景。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line">- (void)animateTransition:(id &lt;UIViewControllerContextTransitioning&gt;)transitionContext &#123;</div><div class="line">    UIViewController *fromVC = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];</div><div class="line">    UIViewController *toVC = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];</div><div class="line">    UIView *fromView = fromVC.view;</div><div class="line">    UIView *toView = toVC.view;</div><div class="line">    // 转场发生的容器, A --&gt; B 时则需在containerView中添加B视图</div><div class="line">    UIView *containerView = [transitionContext containerView];</div><div class="line">   </div><div class="line">    CGRect finalToVC = [transitionContext finalFrameForViewController:toVC];// toVC切换结束后的frame</div><div class="line">    </div><div class="line">    NSTimeInterval duration = [self transitionDuration:transitionContext];</div><div class="line">    </div><div class="line">    // A(fromVC) --&gt; B(toVC) 调用presentViewController 因而B的isBeingPresented为YES</div><div class="line">    if (toVC.isBeingPresented) &#123;</div><div class="line">        [containerView addSubview:toView];// 必须将toView添加到containerView容器中，否则黑屏(containerView的背景颜色默认为黑色)。</div><div class="line">        toView.frame = CGRectOffset(finalToVC, 0, [[UIScreen mainScreen] bounds].size.height/2);// 偏移为Y值，因而B将从底下弹起，可以根据offset修改谈起的方向 finalToVC为最后的frame，&#123;0,0,kAppWidth,kAppHeight&#125;</div><div class="line">        [UIView animateWithDuration:duration</div><div class="line">                              delay:0</div><div class="line">             usingSpringWithDamping:0.5</div><div class="line">              initialSpringVelocity:0.5</div><div class="line">                            options:UIViewAnimationOptionCurveLinear</div><div class="line">                         animations:^&#123;</div><div class="line">                             toView.frame = finalToVC;</div><div class="line">                         &#125; completion:^(BOOL finished) &#123;</div><div class="line">                             //动画完成或者取消之后必须得调用的方法，系统接收到这个消息后将对控制器的状态进行维护，参数为向这个context报告切换是否完成</div><div class="line">                             [transitionContext completeTransition:YES];</div><div class="line">                         &#125;];</div><div class="line">    &#125;</div><div class="line">    // B(fromVC) --&gt; A(toVC) B调用了dismissViewControllerAnimated:completion 因而B的isBeingDismissed为YES</div><div class="line">    if (fromVC.isBeingDismissed) &#123;</div><div class="line">        [containerView addSubview:toView];</div><div class="line">        [containerView sendSubviewToBack:toView];</div><div class="line">        </div><div class="line">        [UIView animateWithDuration:duration</div><div class="line">                         animations:^&#123;</div><div class="line">                             fromView.bounds = CGRectMake(0, 0, 1, fromView.frame.size.height);</div><div class="line">                         &#125; completion:^(BOOL finished) &#123;</div><div class="line">                             [transitionContext completeTransition:![transitionContext transitionWasCancelled]];</div><div class="line">                         &#125;];</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="了解转场时的视图结构"><a href="#了解转场时的视图结构" class="headerlink" title="了解转场时的视图结构"></a>了解转场时的视图结构</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">- (void)animateTransition:(id &lt;UIViewControllerContextTransitioning&gt;)transitionContext &#123;</div><div class="line">    UIViewController *toVC = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];</div><div class="line"> </div><div class="line">    CGRect screenBounds = [[UIScreen mainScreen] bounds];</div><div class="line">    CGRect finalFrame = [transitionContext finalFrameForViewController:toVC];</div><div class="line">    toVC.view.frame = CGRectOffset(finalFrame, 0, screenBounds.size.height);</div><div class="line">    </div><div class="line">    UIView *containerView = [transitionContext containerView];</div><div class="line">    // beforeAddSubview</div><div class="line">    [containerView addSubview:toVC.view];</div><div class="line">    // afterAddSubview</div><div class="line">    </div><div class="line">    NSTimeInterval duration = [self transitionDuration:transitionContext];</div><div class="line">    [UIView animateWithDuration:duration</div><div class="line">                          delay:0.0</div><div class="line">         usingSpringWithDamping:0.5</div><div class="line">          initialSpringVelocity:0.5</div><div class="line">                        options:UIViewAnimationOptionCurveLinear</div><div class="line">                     animations:^&#123;</div><div class="line">                         toVC.view.frame = finalFrame;</div><div class="line">                     &#125; completion:^(BOOL finished) &#123;</div><div class="line">                         // Into Completion</div><div class="line">                         [transitionContext completeTransition:YES];</div><div class="line">                		// afterCompleteTransition</div><div class="line">                     &#125;];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>备注:表格中显示的是ContainerView.subviews。X1: beforeAddSubview; X2:afterAddSubview;   X3: Into Completion;  X4: afterCompleteTransition</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left"></th>
+<th style="text-align:center">X1</th>
+<th style="text-align:center">X2</th>
+<th>X3</th>
+<th style="text-align:center">X4</th>
+<th>异常</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">A —&gt; B: (Custom)</td>
+<td style="text-align:center">nil</td>
+<td style="text-align:center">b</td>
+<td>b</td>
+<td style="text-align:center">b</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left">B—&gt;A:(Custom)addSubview</td>
+<td style="text-align:center">b</td>
+<td style="text-align:center">a,b</td>
+<td>a,b</td>
+<td style="text-align:center">a</td>
+<td>白屏</td>
+</tr>
+<tr>
+<td style="text-align:left">B—&gt;A(Custom)不addSubview</td>
+<td style="text-align:center">/</td>
+<td style="text-align:center">/</td>
+<td>b</td>
+<td style="text-align:center">nil</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left">A —&gt; B:(Full)</td>
+<td style="text-align:center">a</td>
+<td style="text-align:center">a,b</td>
+<td>a,b</td>
+<td style="text-align:center">b</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left">B —&gt; A:(Full)addSubview</td>
+<td style="text-align:center">b</td>
+<td style="text-align:center">b,a</td>
+<td>a,b</td>
+<td style="text-align:center">nil</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left">B —&gt; A:(Full)不addSubview</td>
+<td style="text-align:center">/</td>
+<td style="text-align:center">/</td>
+<td>b</td>
+<td style="text-align:center">nil</td>
+<td>闪现白屏</td>
+</tr>
+</tbody>
+</table>
+<h4 id="Custom模式"><a href="#Custom模式" class="headerlink" title="Custom模式"></a>Custom模式</h4><p> Custom模式下containerView并没有担任父视图。Presentation后A视图并没有从视图结构中移除。在Dismissal过程中并不需要将A视图添加到containerView中，即可正常显示。如果添加到containerView，则会出现闪现A视图，然后出现白屏。</p>
+<p>猜测：默认屏幕显示A视图，presentation后，添加containerView在A视图之上。 Dismissal过程中，只需将containerView从视图结构中移除即可正常显示。所以，当把A视图添加到containerView中，则在动画执行过程中会出现A视图，但一旦动画执行完毕，UIkit会将containerView移除，而本身在containerView底下的A视图由于添加到containerView中，因而屏幕上就没有A视图。出现白屏。</p>
+<h4 id="FullScreen模式"><a href="#FullScreen模式" class="headerlink" title="FullScreen模式"></a>FullScreen模式</h4><p>FullScreen模式下containerView担任父视图。 Presentation后A视图会从视图结构(containerView)中移除。dismissal过程中需要将A视图添加到containerView中。 但如果不主动添加也没什么事情,但dismiss的过程中会出现闪现白屏，然后再显示A视图。 猜测是： dismissal过程中，动画执行后执行completeTransition，则会将containerView中的子视图移除，此时屏幕上显示的是白屏。 当animateTransition代理执行完之后，判断containerView是否为空，如果为空，则添加toView到containerView上，因而会闪现A视图。</p>
+<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>Custom模式下,Dismissal时无需添加子视图到containerView.FullScreen模式下，Dismissal需要添加子视图到containerView。</p>
 <h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="https://onevcat.com/2013/10/vc-transition-in-ios7/" target="_blank" rel="external">WWDC 2013 Session笔记 - iOS7中的ViewController切换—Onev</a> // 自定义Modal转场Demo</p>
 <p><a href="https://objccn.io/issue-5-3/" target="_blank" rel="external">View Controller 转场—Objc中国</a> // 自定义导航栏控制器转场Demo</p>
 <p><a href="https://github.com/seedante/iOS-Note/wiki/ViewController-Transition" target="_blank" rel="external">iOS 视图控制器转场详解</a> </p>
@@ -423,8 +527,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/05/02/change-to-hexo/" rel="prev" title="更改为Hexo搭建博客">
-                更改为Hexo搭建博客 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/05/02/change-to-hexo/" rel="prev" title="Hexo搭建博客">
+                Hexo搭建博客 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -545,7 +649,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#引言"><span class="nav-number">1.</span> <span class="nav-text">引言</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#使用场景"><span class="nav-number">1.0.1.</span> <span class="nav-text">使用场景</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现思路"><span class="nav-number">1.0.2.</span> <span class="nav-text">实现思路</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JYNavTransition–截图覆盖方式"><span class="nav-number">2.</span> <span class="nav-text">JYNavTransition–截图覆盖方式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本介绍"><span class="nav-number">2.1.</span> <span class="nav-text">基本介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#代码地址-JYNavTransition"><span class="nav-number">2.1.1.</span> <span class="nav-text">代码地址:JYNavTransition</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用方式"><span class="nav-number">2.1.2.</span> <span class="nav-text">使用方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#特性"><span class="nav-number">2.1.3.</span> <span class="nav-text">特性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现细节"><span class="nav-number">2.1.4.</span> <span class="nav-text">实现细节</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ViewController转场"><span class="nav-number">3.</span> <span class="nav-text">ViewController转场</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#转场相关协议"><span class="nav-number">3.1.</span> <span class="nav-text">转场相关协议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UIPercentDrivenInteractiveTransition"><span class="nav-number">3.2.</span> <span class="nav-text">UIPercentDrivenInteractiveTransition</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">4.</span> <span class="nav-text">参考资料</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#相关开源项目"><span class="nav-number">5.</span> <span class="nav-text">相关开源项目</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#引言"><span class="nav-number">1.</span> <span class="nav-text">引言</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用场景"><span class="nav-number">1.1.</span> <span class="nav-text">使用场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现思路"><span class="nav-number">1.2.</span> <span class="nav-text">实现思路</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JYNavTransition–截图覆盖方式"><span class="nav-number">2.</span> <span class="nav-text">JYNavTransition–截图覆盖方式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#代码地址-JYNavTransition"><span class="nav-number">2.1.</span> <span class="nav-text">代码地址:JYNavTransition</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用方式"><span class="nav-number">2.2.</span> <span class="nav-text">使用方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#特性"><span class="nav-number">2.3.</span> <span class="nav-text">特性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现细节"><span class="nav-number">2.4.</span> <span class="nav-text">实现细节</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ViewController转场"><span class="nav-number">3.</span> <span class="nav-text">ViewController转场</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#转场相关协议"><span class="nav-number">3.1.</span> <span class="nav-text">转场相关协议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UIPercentDrivenInteractiveTransition"><span class="nav-number">3.2.</span> <span class="nav-text">UIPercentDrivenInteractiveTransition</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模态转场"><span class="nav-number">4.</span> <span class="nav-text">模态转场</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Modal转场时识别是Present还是Dismiss"><span class="nav-number">4.1.</span> <span class="nav-text">Modal转场时识别是Present还是Dismiss</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#了解转场时的视图结构"><span class="nav-number">4.2.</span> <span class="nav-text">了解转场时的视图结构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Custom模式"><span class="nav-number">4.2.1.</span> <span class="nav-text">Custom模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#FullScreen模式"><span class="nav-number">4.2.2.</span> <span class="nav-text">FullScreen模式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#小结"><span class="nav-number">4.3.</span> <span class="nav-text">小结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">5.</span> <span class="nav-text">参考资料</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#相关开源项目"><span class="nav-number">6.</span> <span class="nav-text">相关开源项目</span></a></li></ol></div>
             
 
           </div>

@@ -90,16 +90,16 @@
 
 
 
-<meta name="description" content="1. Quick Help1234$ hexo new &quot;文章名称&quot; # 新建文章$ hexo s # 运行本地服务,开启预览访问端口$ hexo g # 生成静态网页$ hexo d # 部署到远程服务器 2.配置Hexo基本环境2.1 安装node.js12$ brew install node # ==&amp;gt; Error: node 7.5.0 is already installed,T">
+<meta name="description" content="Quick Help1234$ hexo new &quot;文章名称&quot; # 新建文章$ hexo s # 运行本地服务,开启预览访问端口$ hexo g # 生成静态网页$ hexo d # 部署到远程服务器 配置Hexo基本环境1 安装node.js12$ brew install node # ==&amp;gt; Error: node 7.5.0 is already installed,To upgra">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo搭建博客">
 <meta property="og:url" content="https://jolieyang.github.io/2017/05/02/change-to-hexo/index.html">
 <meta property="og:site_name" content="JolieYang | Blog">
-<meta property="og:description" content="1. Quick Help1234$ hexo new &quot;文章名称&quot; # 新建文章$ hexo s # 运行本地服务,开启预览访问端口$ hexo g # 生成静态网页$ hexo d # 部署到远程服务器 2.配置Hexo基本环境2.1 安装node.js12$ brew install node # ==&amp;gt; Error: node 7.5.0 is already installed,T">
-<meta property="og:updated_time" content="2017-05-03T07:01:42.000Z">
+<meta property="og:description" content="Quick Help1234$ hexo new &quot;文章名称&quot; # 新建文章$ hexo s # 运行本地服务,开启预览访问端口$ hexo g # 生成静态网页$ hexo d # 部署到远程服务器 配置Hexo基本环境1 安装node.js12$ brew install node # ==&amp;gt; Error: node 7.5.0 is already installed,To upgra">
+<meta property="og:updated_time" content="2017-05-03T08:59:53.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo搭建博客">
-<meta name="twitter:description" content="1. Quick Help1234$ hexo new &quot;文章名称&quot; # 新建文章$ hexo s # 运行本地服务,开启预览访问端口$ hexo g # 生成静态网页$ hexo d # 部署到远程服务器 2.配置Hexo基本环境2.1 安装node.js12$ brew install node # ==&amp;gt; Error: node 7.5.0 is already installed,T">
+<meta name="twitter:description" content="Quick Help1234$ hexo new &quot;文章名称&quot; # 新建文章$ hexo s # 运行本地服务,开启预览访问端口$ hexo g # 生成静态网页$ hexo d # 部署到远程服务器 配置Hexo基本环境1 安装node.js12$ brew install node # ==&amp;gt; Error: node 7.5.0 is already installed,To upgra">
 
 
 
@@ -324,6 +324,17 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/05/02/change-to-hexo/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/05/02/change-to-hexo/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -356,22 +367,22 @@
       
 
       
-        <h2 id="1-Quick-Help"><a href="#1-Quick-Help" class="headerlink" title="1. Quick Help"></a>1. Quick Help</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> hexo new "文章名称" # 新建文章</div><div class="line"><span class="meta">$</span> hexo s # 运行本地服务,开启预览访问端口</div><div class="line"><span class="meta">$</span> hexo g # 生成静态网页</div><div class="line"><span class="meta">$</span> hexo d # 部署到远程服务器</div></pre></td></tr></table></figure>
-<h2 id="2-配置Hexo基本环境"><a href="#2-配置Hexo基本环境" class="headerlink" title="2.配置Hexo基本环境"></a>2.配置Hexo基本环境</h2><h3 id="2-1-安装node-js"><a href="#2-1-安装node-js" class="headerlink" title="2.1 安装node.js"></a>2.1 安装node.js</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> brew install node # ==&gt; Error: node 7.5.0 is already installed,To upgrade to 7.9.0, run `brew upgrade node`</div><div class="line"><span class="meta">$</span> brew upgrade node</div></pre></td></tr></table></figure>
-<h3 id="2-2-安装hexo"><a href="#2-2-安装hexo" class="headerlink" title="2.2 安装hexo"></a>2.2 安装hexo</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> sudo npm install -g hexo</div></pre></td></tr></table></figure>
-<h3 id="2-3-初始化hexo"><a href="#2-3-初始化hexo" class="headerlink" title="2.3 初始化hexo"></a>2.3 初始化hexo</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span> 进入本地博客目录</div><div class="line"><span class="meta">$</span> cd jolieyang.github.io </div><div class="line"><span class="meta">$</span> hexo init # INFO  Start blogging with Hexo!</div></pre></td></tr></table></figure>
-<h3 id="2-4-生成静态页面"><a href="#2-4-生成静态页面" class="headerlink" title="2.4 生成静态页面"></a>2.4 生成静态页面</h3><p>当前目录下，执行命令，生成静态页面至public</p>
+        <h2 id="Quick-Help"><a href="#Quick-Help" class="headerlink" title="Quick Help"></a>Quick Help</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> hexo new "文章名称" # 新建文章</div><div class="line"><span class="meta">$</span> hexo s # 运行本地服务,开启预览访问端口</div><div class="line"><span class="meta">$</span> hexo g # 生成静态网页</div><div class="line"><span class="meta">$</span> hexo d # 部署到远程服务器</div></pre></td></tr></table></figure>
+<h2 id="配置Hexo基本环境"><a href="#配置Hexo基本环境" class="headerlink" title="配置Hexo基本环境"></a>配置Hexo基本环境</h2><h3 id="1-安装node-js"><a href="#1-安装node-js" class="headerlink" title="1 安装node.js"></a>1 安装node.js</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> brew install node # ==&gt; Error: node 7.5.0 is already installed,To upgrade to 7.9.0, run `brew upgrade node`</div><div class="line"><span class="meta">$</span> brew upgrade node</div></pre></td></tr></table></figure>
+<h3 id="2-安装hexo"><a href="#2-安装hexo" class="headerlink" title="2 安装hexo"></a>2 安装hexo</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> sudo npm install -g hexo</div></pre></td></tr></table></figure>
+<h3 id="3-初始化hexo"><a href="#3-初始化hexo" class="headerlink" title="3 初始化hexo"></a>3 初始化hexo</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span> 进入本地博客目录</div><div class="line"><span class="meta">$</span> cd jolieyang.github.io </div><div class="line"><span class="meta">$</span> hexo init # INFO  Start blogging with Hexo!</div></pre></td></tr></table></figure>
+<h3 id="4-生成静态页面"><a href="#4-生成静态页面" class="headerlink" title="4 生成静态页面"></a>4 生成静态页面</h3><p>当前目录下，执行命令，生成静态页面至public</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> hexo g</div></pre></td></tr></table></figure>
-<h3 id="2-5-本地启动预览访问端口"><a href="#2-5-本地启动预览访问端口" class="headerlink" title="2.5 本地启动预览访问端口"></a>2.5 本地启动预览访问端口</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> hexo s # INFO  Start processing INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.</div></pre></td></tr></table></figure>
-<h2 id="3-Github-Page"><a href="#3-Github-Page" class="headerlink" title="3.Github Page"></a>3.Github Page</h2><h3 id="3-1-编辑-config-yml文件"><a href="#3-1-编辑-config-yml文件" class="headerlink" title="3.1 编辑_config.yml文件"></a>3.1 编辑_config.yml文件</h3><figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Site</span></div><div class="line"><span class="attr">title:</span> <span class="string">JolieYang</span> <span class="string">| Blog</span></div><div class="line"><span class="attr">subtitle:</span></div><div class="line"><span class="attr">description:</span><span class="string">最好的种树时间是十年前，其次是现在。永远不会太迟，除非你已经放弃了。</span></div><div class="line"><span class="attr">author:</span> <span class="string">JolieYang</span></div><div class="line"></div><div class="line"><span class="comment"># URL</span></div><div class="line"><span class="comment">## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'</span></div><div class="line"><span class="attr">url:</span> <span class="attr">https://jolieyang.github.io/</span></div><div class="line"></div><div class="line"><span class="string">//</span> <span class="string">...</span></div><div class="line"></div><div class="line"><span class="attr">deploy:</span></div><div class="line"><span class="attr">  type:</span> <span class="string">git</span></div><div class="line"><span class="attr">  repo:</span> <span class="string">git@github.com:JolieYang/JolieYang.github.io.git</span></div><div class="line"><span class="attr">  branch:</span> <span class="string">master</span></div></pre></td></tr></table></figure>
-<h3 id="3-2安装node包-amp-amp-部署到GitHub"><a href="#3-2安装node包-amp-amp-部署到GitHub" class="headerlink" title="3.2安装node包&amp;&amp;部署到GitHub"></a>3.2安装node包&amp;&amp;部署到GitHub</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span> 安装node包</div><div class="line"><span class="meta">$</span> npm install hexo-deployer-git --save</div><div class="line"><span class="meta">#</span> 部署到github仓库</div><div class="line"><span class="meta">$</span> hexo clean </div><div class="line"><span class="meta">$</span> hexo g</div><div class="line"><span class="meta">$</span> hexo d # Branch master set up to track remote branch master from git@github.com:JolieYang/JolieYang.github.io.git. INFO  Deploy done: git</div></pre></td></tr></table></figure>
-<h2 id="4-更改博客主题NexT"><a href="#4-更改博客主题NexT" class="headerlink" title="4.更改博客主题NexT"></a>4.更改博客主题NexT</h2><p>参考资料: <a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="external">开始使用-NexT使用文档</a></p>
-<h3 id="4-1下载主题"><a href="#4-1下载主题" class="headerlink" title="4.1下载主题"></a>4.1下载主题</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> cd jolieyang.github.io</div><div class="line"><span class="meta">$</span> git clone https://github.com/iissnan/hexo-theme-next themes/next</div></pre></td></tr></table></figure>
-<h3 id="4-2启用主题"><a href="#4-2启用主题" class="headerlink" title="4.2启用主题"></a>4.2启用主题</h3><p>更改_config.yml文件，配置主题</p>
+<h3 id="5-本地启动预览访问端口"><a href="#5-本地启动预览访问端口" class="headerlink" title="5 本地启动预览访问端口"></a>5 本地启动预览访问端口</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> hexo s # INFO  Start processing INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.</div></pre></td></tr></table></figure>
+<h2 id="Github-Page"><a href="#Github-Page" class="headerlink" title="Github Page"></a>Github Page</h2><h3 id="1-编辑-config-yml文件"><a href="#1-编辑-config-yml文件" class="headerlink" title="1 编辑_config.yml文件"></a>1 编辑_config.yml文件</h3><figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Site</span></div><div class="line"><span class="attr">title:</span> <span class="string">JolieYang</span> <span class="string">| Blog</span></div><div class="line"><span class="attr">subtitle:</span></div><div class="line"><span class="attr">description:</span><span class="string">最好的种树时间是十年前，其次是现在。永远不会太迟，除非你已经放弃了。</span></div><div class="line"><span class="attr">author:</span> <span class="string">JolieYang</span></div><div class="line"></div><div class="line"><span class="comment"># URL</span></div><div class="line"><span class="comment">## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'</span></div><div class="line"><span class="attr">url:</span> <span class="attr">https://jolieyang.github.io/</span></div><div class="line"></div><div class="line"><span class="string">//</span> <span class="string">...</span></div><div class="line"></div><div class="line"><span class="attr">deploy:</span></div><div class="line"><span class="attr">  type:</span> <span class="string">git</span></div><div class="line"><span class="attr">  repo:</span> <span class="string">git@github.com:JolieYang/JolieYang.github.io.git</span></div><div class="line"><span class="attr">  branch:</span> <span class="string">master</span></div></pre></td></tr></table></figure>
+<h3 id="2-安装node包-amp-amp-部署到GitHub"><a href="#2-安装node包-amp-amp-部署到GitHub" class="headerlink" title="2 安装node包&amp;&amp;部署到GitHub"></a>2 安装node包&amp;&amp;部署到GitHub</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span> 安装node包</div><div class="line"><span class="meta">$</span> npm install hexo-deployer-git --save</div><div class="line"><span class="meta">#</span> 部署到github仓库</div><div class="line"><span class="meta">$</span> hexo clean </div><div class="line"><span class="meta">$</span> hexo g</div><div class="line"><span class="meta">$</span> hexo d # Branch master set up to track remote branch master from git@github.com:JolieYang/JolieYang.github.io.git. INFO  Deploy done: git</div></pre></td></tr></table></figure>
+<h2 id="更改博客主题NexT"><a href="#更改博客主题NexT" class="headerlink" title="更改博客主题NexT"></a>更改博客主题NexT</h2><p>参考资料: <a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="external">开始使用-NexT使用文档</a></p>
+<h3 id="1下载主题"><a href="#1下载主题" class="headerlink" title="1下载主题"></a>1下载主题</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> cd jolieyang.github.io</div><div class="line"><span class="meta">$</span> git clone https://github.com/iissnan/hexo-theme-next themes/next</div></pre></td></tr></table></figure>
+<h3 id="2启用主题"><a href="#2启用主题" class="headerlink" title="2启用主题"></a>2启用主题</h3><p>更改_config.yml文件，配置主题</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> theme: next</div></pre></td></tr></table></figure>
-<h3 id="4-3-验证主题"><a href="#4-3-验证主题" class="headerlink" title="4.3 验证主题"></a>4.3 验证主题</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> hexo s</div></pre></td></tr></table></figure>
+<h3 id="3-验证主题"><a href="#3-验证主题" class="headerlink" title="3 验证主题"></a>3 验证主题</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> hexo s</div></pre></td></tr></table></figure>
 <p>浏览器访问<code>http://localhost:4000</code>,即可验证主题是否设置成功。此时使用的是NexT默认的Scheme—Muse，还可以修改Scheme</p>
-<h2 id="5-配置博客"><a href="#5-配置博客" class="headerlink" title="5.配置博客"></a>5.配置博客</h2><h3 id="5-1-修改Scheme"><a href="#5-1-修改Scheme" class="headerlink" title="5.1 修改Scheme"></a>5.1 修改Scheme</h3><blockquote>
+<h2 id="配置博客"><a href="#配置博客" class="headerlink" title="配置博客"></a>配置博客</h2><h3 id="1-修改Scheme"><a href="#1-修改Scheme" class="headerlink" title="1 修改Scheme"></a>1 修改Scheme</h3><blockquote>
 <p>Scheme 是 NexT 提供的一种特性，借助于 Scheme，NexT 为你提供多种不同的外观。同时，几乎所有的配置都可以在 Scheme 之间共用。</p>
 </blockquote>
 <p>目前(2017-05-02)支持三种Scheme，分别为:</p>
@@ -382,21 +393,24 @@
 </ul>
 <p>修改<code>主题配置文件</code>(themes/next/_config.yml文件)</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">theme: Mist</div></pre></td></tr></table></figure>
-<h3 id="5-2设置代码高亮"><a href="#5-2设置代码高亮" class="headerlink" title="5.2设置代码高亮"></a>5.2设置代码高亮</h3><p>修改<code>主题配置文件</code></p>
+<h3 id="2设置代码高亮"><a href="#2设置代码高亮" class="headerlink" title="2设置代码高亮"></a>2设置代码高亮</h3><p>修改<code>主题配置文件</code></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">highlight_theme: night</div></pre></td></tr></table></figure>
-<h3 id="5-3设置语言"><a href="#5-3设置语言" class="headerlink" title="5.3设置语言"></a>5.3设置语言</h3><p>修改<code>站点配置文件</code></p>
+<h3 id="3设置语言"><a href="#3设置语言" class="headerlink" title="3设置语言"></a>3设置语言</h3><p>修改<code>站点配置文件</code></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">language: zh-Hans</div></pre></td></tr></table></figure>
-<h3 id="5-4设置头像"><a href="#5-4设置头像" class="headerlink" title="5.4设置头像"></a>5.4设置头像</h3><p>编辑<code>主题配置文件</code>, 修改字段<code>avatar</code>,设置成头像的链接地址，可为绝对地址或者站点相对地址</p>
+<h3 id="4设置头像"><a href="#4设置头像" class="headerlink" title="4设置头像"></a>4设置头像</h3><p>编辑<code>主题配置文件</code>, 修改字段<code>avatar</code>,设置成头像的链接地址，可为绝对地址或者站点相对地址</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">avatar: /assets/images/avatar.jpg</div></pre></td></tr></table></figure>
-<h2 id="6-添加文章阅读量统计功能"><a href="#6-添加文章阅读量统计功能" class="headerlink" title="6.添加文章阅读量统计功能"></a>6.添加文章阅读量统计功能</h2><p>3th,May,2017</p>
+<h2 id="添加文章阅读量统计功能"><a href="#添加文章阅读量统计功能" class="headerlink" title="添加文章阅读量统计功能"></a>添加文章阅读量统计功能</h2><p>3th,May,2017</p>
 <p>参考资料: <a href="https://notes.wanghao.work/2015-10-21-%E4%B8%BANexT%E4%B8%BB%E9%A2%98%E6%B7%BB%E5%8A%A0%E6%96%87%E7%AB%A0%E9%98%85%E8%AF%BB%E9%87%8F%E7%BB%9F%E8%AE%A1%E5%8A%9F%E8%83%BD.html#%E9%85%8D%E7%BD%AELeanCloud" target="_blank" rel="external">为NexT主题添加文章阅读量统计功能</a></p>
-<h3 id="6-1-LeanCloud创建应用"><a href="#6-1-LeanCloud创建应用" class="headerlink" title="6.1 LeanCloud创建应用"></a>6.1 LeanCloud创建应用</h3><p>创建应用—&gt; 点击存储—&gt; 新建Class为<code>Counter</code>(默认ACL权限为限制写入)</p>
-<h3 id="6-2-获取App-ID与App-Key"><a href="#6-2-获取App-ID与App-Key" class="headerlink" title="6.2 获取App ID与App Key"></a>6.2 获取App ID与App Key</h3><p>点击设置—&gt; 点击应用Key获取<code>App ID</code>和<code>App Key</code> </p>
-<h3 id="6-3-站点配置"><a href="#6-3-站点配置" class="headerlink" title="6.3 站点配置"></a>6.3 站点配置</h3><p>编辑<code>主题配置文件</code> </p>
+<h3 id="1-LeanCloud创建应用"><a href="#1-LeanCloud创建应用" class="headerlink" title="1 LeanCloud创建应用"></a>1 LeanCloud创建应用</h3><p>创建应用—&gt; 点击存储—&gt; 新建Class为<code>Counter</code>(默认ACL权限为限制写入)</p>
+<h3 id="2-获取App-ID与App-Key"><a href="#2-获取App-ID与App-Key" class="headerlink" title="2 获取App ID与App Key"></a>2 获取App ID与App Key</h3><p>点击设置—&gt; 点击应用Key获取<code>App ID</code>和<code>App Key</code> </p>
+<h3 id="3-站点配置"><a href="#3-站点配置" class="headerlink" title="3 站点配置"></a>3 站点配置</h3><p>编辑<code>主题配置文件</code> </p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">leancloud_visitors:</div><div class="line">  enable: true</div><div class="line">  app_id: #&lt;app_id&gt;</div><div class="line">  app_key: #&lt;app_key&gt;</div></pre></td></tr></table></figure>
-<h3 id="6-4-注意事项"><a href="#6-4-注意事项" class="headerlink" title="6.4 注意事项"></a>6.4 注意事项</h3><blockquote>
+<h3 id="4-注意事项"><a href="#4-注意事项" class="headerlink" title="4 注意事项"></a>4 注意事项</h3><blockquote>
 <p> 需要特别说明的是：记录文章访问量的唯一标识符是文章的<code>发布日期</code>以及<code>文章的标题</code>，因此请确保这两个数值组合的唯一性，如果你更改了这两个数值，会造成文章阅读数值的清零重计。</p>
 </blockquote>
+<h2 id="添加评论系统Disqus"><a href="#添加评论系统Disqus" class="headerlink" title="添加评论系统Disqus"></a>添加评论系统Disqus</h2><h3 id="1-创建Disqus评论账号"><a href="#1-创建Disqus评论账号" class="headerlink" title="1 创建Disqus评论账号"></a>1 创建Disqus评论账号</h3><p>我的另一篇文章中有介绍: <a href="https://jolieyang.github.io/2017/04/21/2017-04-21-my-personal-blog/">CSDN—&gt;Jekyll搭建个人博客</a></p>
+<h3 id="2-Hexo配置"><a href="#2-Hexo配置" class="headerlink" title="2 Hexo配置"></a>2 Hexo配置</h3><p>编辑<code>主题配置文件</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"># Disqus</div><div class="line">disqus:</div><div class="line">  enable: true</div><div class="line">  shortname: https-jolieyang-github-io</div><div class="line">  count: true</div></pre></td></tr></table></figure>
 <h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>###hexo常用命令</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">hexo new "postName" #新建文章</div><div class="line">hexo new page "pageName" #新建页面</div><div class="line">hexo server #开启预览访问端口（默认端口4000，'ctrl + c'关闭server）</div><div class="line"></div><div class="line">hexo generate # 缩写: hexo g 生成静态页面至public目录</div><div class="line">hexo deploy # 缩写: hexo g,将.deploy目录部署到GitHub</div><div class="line"></div><div class="line">hexo help  # 查看帮助</div><div class="line">hexo version  #查看Hexo的版本</div></pre></td></tr></table></figure>
 <h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="external">Hexo Next 主题Github地址</a></p>
@@ -472,6 +486,13 @@
           
   <div class="comments" id="comments">
     
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
   </div>
 
 
@@ -529,7 +550,7 @@
             
             <div class="site-state-item site-state-categories">
               
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">分类</span>
               
             </div>
@@ -566,7 +587,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Quick-Help"><span class="nav-number">1.</span> <span class="nav-text">1. Quick Help</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-配置Hexo基本环境"><span class="nav-number">2.</span> <span class="nav-text">2.配置Hexo基本环境</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-安装node-js"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 安装node.js</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-安装hexo"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 安装hexo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-初始化hexo"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 初始化hexo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-生成静态页面"><span class="nav-number">2.4.</span> <span class="nav-text">2.4 生成静态页面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-5-本地启动预览访问端口"><span class="nav-number">2.5.</span> <span class="nav-text">2.5 本地启动预览访问端口</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Github-Page"><span class="nav-number">3.</span> <span class="nav-text">3.Github Page</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-编辑-config-yml文件"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 编辑_config.yml文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2安装node包-amp-amp-部署到GitHub"><span class="nav-number">3.2.</span> <span class="nav-text">3.2安装node包&&部署到GitHub</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-更改博客主题NexT"><span class="nav-number">4.</span> <span class="nav-text">4.更改博客主题NexT</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1下载主题"><span class="nav-number">4.1.</span> <span class="nav-text">4.1下载主题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2启用主题"><span class="nav-number">4.2.</span> <span class="nav-text">4.2启用主题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-验证主题"><span class="nav-number">4.3.</span> <span class="nav-text">4.3 验证主题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-配置博客"><span class="nav-number">5.</span> <span class="nav-text">5.配置博客</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-修改Scheme"><span class="nav-number">5.1.</span> <span class="nav-text">5.1 修改Scheme</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2设置代码高亮"><span class="nav-number">5.2.</span> <span class="nav-text">5.2设置代码高亮</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-3设置语言"><span class="nav-number">5.3.</span> <span class="nav-text">5.3设置语言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-4设置头像"><span class="nav-number">5.4.</span> <span class="nav-text">5.4设置头像</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-添加文章阅读量统计功能"><span class="nav-number">6.</span> <span class="nav-text">6.添加文章阅读量统计功能</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#6-1-LeanCloud创建应用"><span class="nav-number">6.1.</span> <span class="nav-text">6.1 LeanCloud创建应用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-2-获取App-ID与App-Key"><span class="nav-number">6.2.</span> <span class="nav-text">6.2 获取App ID与App Key</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-3-站点配置"><span class="nav-number">6.3.</span> <span class="nav-text">6.3 站点配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-4-注意事项"><span class="nav-number">6.4.</span> <span class="nav-text">6.4 注意事项</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他"><span class="nav-number">7.</span> <span class="nav-text">其他</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">8.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Help"><span class="nav-number">1.</span> <span class="nav-text">Quick Help</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置Hexo基本环境"><span class="nav-number">2.</span> <span class="nav-text">配置Hexo基本环境</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-安装node-js"><span class="nav-number">2.1.</span> <span class="nav-text">1 安装node.js</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-安装hexo"><span class="nav-number">2.2.</span> <span class="nav-text">2 安装hexo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-初始化hexo"><span class="nav-number">2.3.</span> <span class="nav-text">3 初始化hexo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-生成静态页面"><span class="nav-number">2.4.</span> <span class="nav-text">4 生成静态页面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-本地启动预览访问端口"><span class="nav-number">2.5.</span> <span class="nav-text">5 本地启动预览访问端口</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Github-Page"><span class="nav-number">3.</span> <span class="nav-text">Github Page</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-编辑-config-yml文件"><span class="nav-number">3.1.</span> <span class="nav-text">1 编辑_config.yml文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-安装node包-amp-amp-部署到GitHub"><span class="nav-number">3.2.</span> <span class="nav-text">2 安装node包&&部署到GitHub</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更改博客主题NexT"><span class="nav-number">4.</span> <span class="nav-text">更改博客主题NexT</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1下载主题"><span class="nav-number">4.1.</span> <span class="nav-text">1下载主题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2启用主题"><span class="nav-number">4.2.</span> <span class="nav-text">2启用主题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-验证主题"><span class="nav-number">4.3.</span> <span class="nav-text">3 验证主题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置博客"><span class="nav-number">5.</span> <span class="nav-text">配置博客</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-修改Scheme"><span class="nav-number">5.1.</span> <span class="nav-text">1 修改Scheme</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2设置代码高亮"><span class="nav-number">5.2.</span> <span class="nav-text">2设置代码高亮</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3设置语言"><span class="nav-number">5.3.</span> <span class="nav-text">3设置语言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4设置头像"><span class="nav-number">5.4.</span> <span class="nav-text">4设置头像</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加文章阅读量统计功能"><span class="nav-number">6.</span> <span class="nav-text">添加文章阅读量统计功能</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-LeanCloud创建应用"><span class="nav-number">6.1.</span> <span class="nav-text">1 LeanCloud创建应用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-获取App-ID与App-Key"><span class="nav-number">6.2.</span> <span class="nav-text">2 获取App ID与App Key</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-站点配置"><span class="nav-number">6.3.</span> <span class="nav-text">3 站点配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-注意事项"><span class="nav-number">6.4.</span> <span class="nav-text">4 注意事项</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加评论系统Disqus"><span class="nav-number">7.</span> <span class="nav-text">添加评论系统Disqus</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-创建Disqus评论账号"><span class="nav-number">7.1.</span> <span class="nav-text">1 创建Disqus评论账号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Hexo配置"><span class="nav-number">7.2.</span> <span class="nav-text">2 Hexo配置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他"><span class="nav-number">8.</span> <span class="nav-text">其他</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">9.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
             
 
           </div>
@@ -702,6 +723,26 @@
 
   
 
+    
+      <script id="dsq-count-scr" src="https://https-jolieyang-github-io.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://jolieyang.github.io/2017/05/02/change-to-hexo/';
+          this.page.identifier = '2017/05/02/change-to-hexo/';
+          this.page.title = 'Hexo搭建博客';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://https-jolieyang-github-io.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
 
 
 
@@ -720,10 +761,6 @@
   
 
 
-
-
-
-  
 
 
 

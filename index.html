@@ -699,6 +699,52 @@
 <p>猜测：默认屏幕显示A视图，presentation后，添加containerView在A视图之上。 Dismissal过程中，只需将containerView从视图结构中移除即可正常显示。所以，当把A视图添加到containerView中，则在动画执行过程中会出现A视图，但一旦动画执行完毕，UIkit会将containerView移除，而本身在containerView底下的A视图由于添加到containerView中，因而屏幕上就没有A视图。出现白屏。</p>
 <h4 id="FullScreen模式"><a href="#FullScreen模式" class="headerlink" title="FullScreen模式"></a>FullScreen模式</h4><p>FullScreen模式下containerView担任父视图。 Presentation后A视图会从视图结构(containerView)中移除。dismissal过程中需要将A视图添加到containerView中。 但如果不主动添加也没什么事情,但dismiss的过程中会出现闪现白屏，然后再显示A视图。 猜测是： dismissal过程中，动画执行后执行completeTransition，则会将containerView中的子视图移除，此时屏幕上显示的是白屏。 当animateTransition代理执行完之后，判断containerView是否为空，如果为空，则添加toView到containerView上，因而会闪现A视图。</p>
 <h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>Custom模式下,Dismissal时无需添加子视图到containerView.FullScreen模式下，Dismissal需要添加子视图到containerView。</p>
+<h2 id="导航器转场"><a href="#导航器转场" class="headerlink" title="导航器转场"></a>导航器转场</h2><h3 id="Push时视图上方被遮盖"><a href="#Push时视图上方被遮盖" class="headerlink" title="Push时视图上方被遮盖"></a>Push时视图上方被遮盖</h3><p>在使用过程中，主页面Push到B页面后，明明有3个cell，但在转场过程中只显示2个cell，结束后才显示3个。一开始是以为TableView有问题，后面才发现是转场动画有问题，cell少了一个并不是tableView没有正确显示，而是在转场过程中由于tableView的origin为(0,0)，导致第一行cell被导航栏遮盖。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">CGRect fromVStartFrame = [transitionContext initialFrameForViewController:fromViewController];</div><div class="line">CGRect fromVEndFrame = [transitionContext finalFrameForViewController:fromViewController];</div><div class="line"></div><div class="line">CGRect toVStartFrame = [transitionContext initialFrameForViewController:toViewController];</div><div class="line">CGRect toVEndFrame = [transitionContext finalFrameForViewController:toViewController];</div></pre></td></tr></table></figure>
+<p>以下为转场过程中通过转场上下文获取的FromVStartFrame,fromVEndFrame,toVStartFrame,toVEndFrame。Push时fromVCStartFrame的y为64是因为A页面有导航栏，高度为455是因为A页面有导航栏与TabBar，因而页面高度需减去导航栏与TabBar的高度。toEndFrame的高度为504是因为B页面无TabBar。</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>fromVStartFrame</th>
+<th>toVStartFrame</th>
+<th>fromVEndFrame</th>
+<th>toVEndFrame</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A—&gt;B(present)</td>
+<td>{{0, 0}, {320, 568}}</td>
+<td>{{0, 0}, {0, 0}}</td>
+<td>{{0, 0}, {0, 0}}</td>
+<td>{{0, 0}, { 320, 568}}</td>
+</tr>
+<tr>
+<td>B—&gt;A(dismiss)</td>
+<td>{{0, 0}, { 320, 568}}</td>
+<td>{{0, 0}, {0, 0}}</td>
+<td>{{0, 0}, { 320, 568}}</td>
+<td>{{0, 0}, { 320, 568}}</td>
+</tr>
+<tr>
+<td>A—&gt;B(Push)</td>
+<td>{{0, 64}, { 320, 455}}</td>
+<td>{{0, 0}, {0, 0}}</td>
+<td>{{0, 0}, {0, 0}}</td>
+<td>{{0, 64}, { 320, 504}}</td>
+</tr>
+<tr>
+<td>B—&gt;A(Pop)</td>
+<td>{{0, 64}, { 320, 504}}</td>
+<td>{{0, 0}, {0, 0}}</td>
+<td>{{0, 0}, {0, 0}}</td>
+<td>{{0, 64}, { 320, 455}}</td>
+</tr>
+</tbody>
+</table>
+<p>之前在实现JYNavTransition时由于测试的视图直接设置背景色为单色，没有发现在Push转场时需将toVC.view的位置设为toVEndFrame。修改后如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">// from JYNavTransition</div><div class="line">- (void)animateTransition:(id &lt;UIViewControllerContextTransitioning&gt;)transitionContext &#123;</div><div class="line">    UIViewController *toViewController = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];</div><div class="line">    UIViewController *fromViewController = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];</div><div class="line">    self.navigationController = (JYNavigationController *)toViewController.navigationController;</div><div class="line">    </div><div class="line">    [[transitionContext containerView] addSubview:toViewController.view];</div><div class="line">    </div><div class="line">    UIImageView *fromImageView = [[UIImageView alloc] initWithFrame:[UIScreen mainScreen].bounds];</div><div class="line">    </div><div class="line">    if (self.navigationControllerOperation == UINavigationControllerOperationPush) &#123;</div><div class="line">        CGRect toViewEndFrame = [transitionContext finalFrameForViewController:toViewController];</div><div class="line">        CGRect toViewStartFrame = toViewEndFrame;</div><div class="line">        // 设置toVC.view.frame为toVEndFrame</div><div class="line">        toViewController.view.frame = toViewStartFrame;</div><div class="line">        </div><div class="line">        fromImageView.image = self.navigationController.screenShots.lastObject;</div><div class="line">        [self.navigationController.view.window insertSubview:fromImageView atIndex:0];</div><div class="line">        self.navigationController.view.transform = CGAffineTransformMakeTranslation(kAppWidth, 0);</div><div class="line">        </div><div class="line">        [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^&#123;</div><div class="line">            self.navigationController.view.transform = CGAffineTransformMakeTranslation(0, 0);</div><div class="line">            fromImageView.center = CGPointMake(-kAppWidth/2, kAppHeight/2);</div><div class="line">        &#125; completion:^(BOOL finished) &#123;</div><div class="line">            [fromImageView removeFromSuperview];</div><div class="line">            [transitionContext completeTransition:YES];</div><div class="line">        &#125;];</div><div class="line">    &#125; else &#123;</div><div class="line">      // .... Pop时转场动画</div><div class="line">    &#125;</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
 <h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="https://onevcat.com/2013/10/vc-transition-in-ios7/" target="_blank" rel="external">WWDC 2013 Session笔记 - iOS7中的ViewController切换—Onev</a> // 自定义Modal转场Demo</p>
 <p><a href="https://objccn.io/issue-5-3/" target="_blank" rel="external">View Controller 转场—Objc中国</a> // 自定义导航栏控制器转场Demo</p>
 <p><a href="https://github.com/seedante/iOS-Note/wiki/ViewController-Transition" target="_blank" rel="external">iOS 视图控制器转场详解</a> </p>

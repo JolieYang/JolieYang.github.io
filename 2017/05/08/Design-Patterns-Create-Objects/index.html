@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Design Patters," />
 
 
 
@@ -90,16 +90,17 @@
 
 
 
-<meta name="description" content="其实就是介绍下CocoaPods的基本使用跟安装。 CocoaPods官网： https://cocoapods.org/  4th,Feb,2017 使用CocoaPods 在项目文件夹下也就是与.xcodeproj同一层级新建Podfile文件 Podfile内容格式如下： 12345678910// 以项目名称为a为例子platform :ios, &amp;apos;7.0&amp;apos;// opt">
+<meta name="description" content="对象创建主要涉及到5个设计模式，分别为：原型，工厂方法，抽象工厂，生成器，单例。 原型(Prototype)模式 使用原型实例指定创建对象的种类，并通过复制这个原型创建新的对象—《设计模式》(Addison-Wesley)  初看原型感觉很陌生，但说到拷贝复制可能就比较熟悉了。原型指用于复制的对象，就像克隆人是以人为原型通过克隆创建了克隆人。 优点： 使用原型创建对象更方便且效率更高。就像印刷术，">
+<meta name="keywords" content="Design Patters">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CocoaPods的那些事儿">
-<meta property="og:url" content="https://jolieyang.github.io/2017/04/23/2017-04-23-CocoaPods/index.html">
+<meta property="og:title" content="《Objective-C编程之道:iOS设计模式解析》— 创建对象">
+<meta property="og:url" content="https://jolieyang.github.io/2017/05/08/Design-Patterns-Create-Objects/index.html">
 <meta property="og:site_name" content="JolieYang | Blog">
-<meta property="og:description" content="其实就是介绍下CocoaPods的基本使用跟安装。 CocoaPods官网： https://cocoapods.org/  4th,Feb,2017 使用CocoaPods 在项目文件夹下也就是与.xcodeproj同一层级新建Podfile文件 Podfile内容格式如下： 12345678910// 以项目名称为a为例子platform :ios, &amp;apos;7.0&amp;apos;// opt">
-<meta property="og:updated_time" content="2017-05-03T08:42:44.000Z">
+<meta property="og:description" content="对象创建主要涉及到5个设计模式，分别为：原型，工厂方法，抽象工厂，生成器，单例。 原型(Prototype)模式 使用原型实例指定创建对象的种类，并通过复制这个原型创建新的对象—《设计模式》(Addison-Wesley)  初看原型感觉很陌生，但说到拷贝复制可能就比较熟悉了。原型指用于复制的对象，就像克隆人是以人为原型通过克隆创建了克隆人。 优点： 使用原型创建对象更方便且效率更高。就像印刷术，">
+<meta property="og:updated_time" content="2017-05-08T09:07:48.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CocoaPods的那些事儿">
-<meta name="twitter:description" content="其实就是介绍下CocoaPods的基本使用跟安装。 CocoaPods官网： https://cocoapods.org/  4th,Feb,2017 使用CocoaPods 在项目文件夹下也就是与.xcodeproj同一层级新建Podfile文件 Podfile内容格式如下： 12345678910// 以项目名称为a为例子platform :ios, &amp;apos;7.0&amp;apos;// opt">
+<meta name="twitter:title" content="《Objective-C编程之道:iOS设计模式解析》— 创建对象">
+<meta name="twitter:description" content="对象创建主要涉及到5个设计模式，分别为：原型，工厂方法，抽象工厂，生成器，单例。 原型(Prototype)模式 使用原型实例指定创建对象的种类，并通过复制这个原型创建新的对象—《设计模式》(Addison-Wesley)  初看原型感觉很陌生，但说到拷贝复制可能就比较熟悉了。原型指用于复制的对象，就像克隆人是以人为原型通过克隆创建了克隆人。 优点： 使用原型创建对象更方便且效率更高。就像印刷术，">
 
 
 
@@ -127,13 +128,13 @@
 
 
 
-  <link rel="canonical" href="https://jolieyang.github.io/2017/04/23/2017-04-23-CocoaPods/"/>
+  <link rel="canonical" href="https://jolieyang.github.io/2017/05/08/Design-Patterns-Create-Objects/"/>
 
 
 
 
 
-  <title>CocoaPods的那些事儿 | JolieYang | Blog</title>
+  <title>《Objective-C编程之道:iOS设计模式解析》— 创建对象 | JolieYang | Blog</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -252,7 +253,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://jolieyang.github.io/2017/04/23/2017-04-23-CocoaPods/">
+    <link itemprop="mainEntityOfPage" href="https://jolieyang.github.io/2017/05/08/Design-Patterns-Create-Objects/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="JolieYang">
@@ -273,7 +274,7 @@
             
             
               
-                CocoaPods的那些事儿
+                《Objective-C编程之道:iOS设计模式解析》— 创建对象
               
             
           </h1>
@@ -288,8 +289,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-23T00:00:00+08:00">
-                2017-04-23
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-08T15:47:28+08:00">
+                2017-05-08
               </time>
             
 
@@ -307,9 +308,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/04/23/2017-04-23-CocoaPods/#comments" itemprop="discussionUrl">
+                <a href="/2017/05/08/Design-Patterns-Create-Objects/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/04/23/2017-04-23-CocoaPods/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/05/08/Design-Patterns-Create-Objects/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -317,7 +318,7 @@
 
           
           
-             <span id="/2017/04/23/2017-04-23-CocoaPods/" class="leancloud_visitors" data-flag-title="CocoaPods的那些事儿">
+             <span id="/2017/05/08/Design-Patterns-Create-Objects/" class="leancloud_visitors" data-flag-title="《Objective-C编程之道:iOS设计模式解析》— 创建对象">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -345,55 +346,30 @@
       
 
       
-        <p>其实就是介绍下CocoaPods的基本使用跟安装。</p>
-<p>CocoaPods官网： <a href="https://cocoapods.org/" target="_blank" rel="external">https://cocoapods.org/</a></p>
-<hr>
-<p>4th,Feb,2017</p>
-<h2 id="使用CocoaPods"><a href="#使用CocoaPods" class="headerlink" title="使用CocoaPods"></a>使用CocoaPods</h2><ol>
-<li>在项目文件夹下也就是与.xcodeproj同一层级新建Podfile文件</li>
-<li><p>Podfile内容格式如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">// 以项目名称为a为例子</div><div class="line">platform :ios, &apos;7.0&apos;// optional, 指定支持的iOS系统从哪个版本开始</div><div class="line">target &apos;a&apos; do</div><div class="line">    pod &apos;第三方库名称&apos;, &apos;~&gt; 指定版本号&apos;// 不指定版本号则默认获取最新版本</div><div class="line">    pod &apos;AFNetworking&apos;, &apos;~&gt; 3.1.0&apos;</div><div class="line">end</div><div class="line">target &apos;aTests&apos; do</div><div class="line">    pod &apos;第三方库名称&apos;, &apos;~&gt; 指定版本号&apos;// 不指定版本号则默认获取最新版本</div><div class="line">    pod &apos;AFNetworking&apos;, &apos;~&gt; 3.1.0&apos;</div><div class="line">end</div></pre></td></tr></table></figure>
-</li>
-<li><p>打开Terminal,进入Podfile所在文件夹下，终端执行<br><code>pod install</code>,会生成一个Podfile.lock文件。</p>
-</li>
-<li>安装完成后，打开xcworkspace文件即可。</li>
-</ol>
-<hr>
-<p>15th,August,2016</p>
-<h2 id="安装-Cocoapods"><a href="#安装-Cocoapods" class="headerlink" title="安装 Cocoapods"></a>安装 Cocoapods</h2><h3 id="官网提供方式"><a href="#官网提供方式" class="headerlink" title="官网提供方式"></a>官网提供方式</h3><p><code>$ sudo gem install cocoapods</code><br>由于无法访问外网的缘故，输入该命令可能很久都没有反应。需要修改更换源。</p>
-<h3 id="国内安装"><a href="#国内安装" class="headerlink" title="国内安装"></a>国内安装</h3><ol>
-<li><code>$ gem sources --remove https://rubygems.org/</code></li>
-<li>.<code>$ gem sources -a https://ruby.taobao.org/</code>  // 去年也就是2015年上半年的时候我安装的时候sources链接是http协议，而到12月份安装的时候使用http协议链接则显示该地址不可用，已替换成https协议了</li>
-<li><code>$ gem sources -l</code>// 验证ruby镜像<br>显示以下：<br>  <strong><em> CURRENT SOURCES </em></strong> <a href="https://ruby.taobao.org/" target="_blank" rel="external">https://ruby.taobao.org/</a></li>
-<li><code>$ sudo gem install cocoapods</code></li>
-</ol>
-<p>今天在执行第4步的时候：报错“ERROR:  Error installing cocoapods:<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">active support requires Ruby version &gt;= 2.2.2.</div></pre></td></tr></table></figure></p>
-<p>查看当前ruby版本<code>$ ruby -v</code>。显示当前版本为ruby 2.0.0p648 (2015-12-16 revision 53162) [universal.x86_64-darwin15]<br>所以得升级ruby了</p>
-<h3 id="安装rvm"><a href="#安装rvm" class="headerlink" title="安装rvm"></a>安装rvm</h3><p>接下来应该是安装ruby,而安装ruby使用rvm。未安装需先安装rvm。<br>安装步骤:</p>
-<ol>
-<li><code>$ curl -L get.rvm.io | bash -s stable</code></li>
-<li><code>$ source ~/.rvm/scripts/rvm</code> // 载入RVM环境</li>
-<li><code>$ rvm -v</code>// 可以显示rvm版本，检验是否安装成功</li>
-</ol>
-<h3 id="安装ruby"><a href="#安装ruby" class="headerlink" title="安装ruby"></a>安装ruby</h3><p>安装步骤:</p>
-<ol>
-<li><code>$ rvm list known</code> // 查看已知的ruby版本</li>
-<li><code>$ rvm install 2.3.0</code> // 需要等待一会儿<br> ​</li>
-</ol>
-<p>其他命令</p>
-<p><code>$ rvm list</code> //查看已安装的版本<br><code>$ rvm remove 2.0.0</code> // 卸装一个已安装版本<br><code>$ rvm use 2.3.0 --default</code> // 设置默认版本</p>
-<hr>
-<p color="gray">24th,April,2017</p>
-
-<h2 id="升级-amp-降级CocoaPods"><a href="#升级-amp-降级CocoaPods" class="headerlink" title="升级&amp;降级CocoaPods"></a>升级&amp;降级CocoaPods</h2><p><code>pod install</code>提示”The <code>master</code> repo requires CocoaPods 1.0.0 -  (currently using 0.39.0)”. ps: 如果一直没有反应可以检查下是否是源被墙的问题，参考安装章节切换源。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> sudo gem install cocoapods --pre -n /usr/local/bin cocoa pods</div></pre></td></tr></table></figure>
-<p>指定安装版本为老版本即可降级CocoaPods</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo gem install cocoapods -v 0.39.0 -n /usr/local/bin</div></pre></td></tr></table></figure>
-<hr>
-<p></p><p color="gray">3th,Feb,2017</p><p></p>
-<h2 id="创建私有库"><a href="#创建私有库" class="headerlink" title="创建私有库"></a>创建私有库</h2><p>今天翻崔江涛的博客，发现更了一篇Cocoapods创建私有库的文章，先存着有需要再看.<br><a href="http://blog.csdn.net/kenshincui/article/details/54020810" target="_blank" rel="external">Cocoapods私有仓库创建 </a></p>
-<hr>
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="http://www.07net01.com/2015/09/933234.html" target="_blank" rel="external">如何在Mac 终端升级ruby版本</a><br><a href="http://blog.csdn.net/fairytale_1/article/details/51850734" target="_blank" rel="external"> 关于安装cocoapods遇到的一些坑（ERROR: Error installing cocoapods: activesupport requires Ruby version &gt;= 2.2）</a></p>
+        <p>对象创建主要涉及到5个设计模式，分别为：原型，工厂方法，抽象工厂，生成器，单例。</p>
+<h2 id="原型-Prototype-模式"><a href="#原型-Prototype-模式" class="headerlink" title="原型(Prototype)模式"></a>原型(Prototype)模式</h2><blockquote>
+<p>使用原型实例指定创建对象的种类，并通过复制这个原型创建新的对象—《设计模式》(Addison-Wesley)</p>
+</blockquote>
+<p>初看原型感觉很陌生，但说到拷贝复制可能就比较熟悉了。原型指用于复制的对象，就像克隆人是以人为原型通过克隆创建了克隆人。</p>
+<p><strong>优点</strong>： 使用原型创建对象更方便且效率更高。就像印刷术，写一个字需要有很多的比划，如果通过印章则能快速的构建字。</p>
+<p><strong>CocoaTouch</strong>: 集合对象比如数组，字典等都支持原型模式，不过默认为浅拷贝。</p>
+<h3 id="深复制与浅复制"><a href="#深复制与浅复制" class="headerlink" title="深复制与浅复制"></a>深复制与浅复制</h3><p>深复制不仅复制原型指向的资源地址，还会复制原型的资源，也就是会在内存中开辟一块用于存储原型的资源。浅复制则只复制原型指向的资源地址。</p>
+<p>其中<a href="https://www.zybuluo.com/MicroCai/note/50592" target="_blank" rel="external">iOS 集合的深复制与浅复制</a>指出</p>
+<blockquote>
+<p>在非集合类对象中：对immutable对象进行copy操作，是指针复制，mutableCopy操作时内容复制；对mutable对象进行copy和mutableCopy都是内容复制。用代码简单表示如下：</p>
+<ul>
+<li>[immutableObject copy] // 浅复制</li>
+<li>[immutableObject mutableCopy] //深复制</li>
+<li>[mutableObject copy] //深复制</li>
+<li>[mutableObject mutableCopy] //深复制</li>
+</ul>
+</blockquote>
+<h3 id="深复制协议"><a href="#深复制协议" class="headerlink" title="深复制协议"></a>深复制协议</h3><p>Cocoa中给NSObject提供了NSCopying协议，让对象支持拷贝操作。通过实现NSCopying协议中的copyWithZone方法实现拷贝功能。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">- (id)copyWithZone:(NSZone *)zone &#123;</div><div class="line">  Person *person = [[[self class] allocWithZone:zone] init];</div><div class="line">  person.name = self.name;</div><div class="line">  person.nick = self.nick;</div><div class="line">  person._age = _age;</div><div class="line">  </div><div class="line">  return person;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="工厂方法"><a href="#工厂方法" class="headerlink" title="工厂方法"></a>工厂方法</h2><blockquote>
+<p>定义创建对象的接口，让子类决定实例化哪一个类。工厂方法使得一个类的实例化延迟到其子类。—《设计模式》(Addison-Wesley)</p>
+</blockquote>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="https://www.zybuluo.com/MicroCai/note/50592" target="_blank" rel="external">iOS 集合的深复制与浅复制</a></p>
 
       
     </div>
@@ -421,6 +397,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/Design-Patters/" rel="tag"># Design Patters</a>
+          
+        </div>
+      
 
       
         
@@ -430,8 +412,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/04/21/2017-04-21-my-personal-blog/" rel="next" title="CSDN—>Jekyll搭建个人博客">
-                <i class="fa fa-chevron-left"></i> CSDN—>Jekyll搭建个人博客
+              <a href="/2017/05/02/change-to-hexo/" rel="next" title="Hexo搭建博客">
+                <i class="fa fa-chevron-left"></i> Hexo搭建博客
               </a>
             
           </div>
@@ -439,10 +421,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/04/28/2017-04-28-independent-navigationBar-style/" rel="prev" title="独立导航器导航栏样式">
-                独立导航器导航栏样式 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -589,7 +567,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用CocoaPods"><span class="nav-number">1.</span> <span class="nav-text">使用CocoaPods</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装-Cocoapods"><span class="nav-number">2.</span> <span class="nav-text">安装 Cocoapods</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#官网提供方式"><span class="nav-number">2.1.</span> <span class="nav-text">官网提供方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#国内安装"><span class="nav-number">2.2.</span> <span class="nav-text">国内安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装rvm"><span class="nav-number">2.3.</span> <span class="nav-text">安装rvm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装ruby"><span class="nav-number">2.4.</span> <span class="nav-text">安装ruby</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#升级-amp-降级CocoaPods"><span class="nav-number">3.</span> <span class="nav-text">升级&降级CocoaPods</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建私有库"><span class="nav-number">4.</span> <span class="nav-text">创建私有库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">5.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#原型-Prototype-模式"><span class="nav-number">1.</span> <span class="nav-text">原型(Prototype)模式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#深复制与浅复制"><span class="nav-number">1.1.</span> <span class="nav-text">深复制与浅复制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#深复制协议"><span class="nav-number">1.2.</span> <span class="nav-text">深复制协议</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#工厂方法"><span class="nav-number">2.</span> <span class="nav-text">工厂方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">3.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
             
 
           </div>
@@ -732,9 +710,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'https://jolieyang.github.io/2017/04/23/2017-04-23-CocoaPods/';
-          this.page.identifier = '2017/04/23/2017-04-23-CocoaPods/';
-          this.page.title = 'CocoaPods的那些事儿';
+          this.page.url = 'https://jolieyang.github.io/2017/05/08/Design-Patterns-Create-Objects/';
+          this.page.identifier = '2017/05/08/Design-Patterns-Create-Objects/';
+          this.page.title = '《Objective-C编程之道:iOS设计模式解析》— 创建对象';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://https-jolieyang-github-io.disqus.com/embed.js';

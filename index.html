@@ -253,6 +253,158 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://jolieyang.github.io/2017/05/08/Design-Patterns-Create-Objects/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="JolieYang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JolieYang | Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/05/08/Design-Patterns-Create-Objects/" itemprop="url">
+                  《Objective-C编程之道:iOS设计模式解析》— 创建对象
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-08T15:47:28+08:00">
+                2017-05-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/05/08/Design-Patterns-Create-Objects/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/05/08/Design-Patterns-Create-Objects/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/05/08/Design-Patterns-Create-Objects/" class="leancloud_visitors" data-flag-title="《Objective-C编程之道:iOS设计模式解析》— 创建对象">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          对象创建主要涉及到5个设计模式，分别为：原型，工厂方法，抽象工厂，生成器，单例。
+原型(Prototype)模式
+使用原型实例指定创建对象的种类，并通过复制这个原型创建新的对象—《设计模式》(Addison-Wesley)
+
+初看原型感觉很陌生，但说到拷贝复制可能就比较熟悉了。原型指用于复制的对象，
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/05/08/Design-Patterns-Create-Objects/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="https://jolieyang.github.io/2017/05/02/change-to-hexo/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -303,28 +455,6 @@
           </span>
 
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Blog/" itemprop="url" rel="index">
-                    <span itemprop="name">Blog</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
 
           
             
@@ -373,57 +503,16 @@
       
         
           
-            <h2 id="Quick-Help"><a href="#Quick-Help" class="headerlink" title="Quick Help"></a>Quick Help</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> hexo new "文章名称" # 新建文章</div><div class="line"><span class="meta">$</span> hexo s # 运行本地服务,开启预览访问端口</div><div class="line"><span class="meta">$</span> hexo g # 生成静态网页</div><div class="line"><span class="meta">$</span> hexo d # 部署到远程服务器</div></pre></td></tr></table></figure>
-<h2 id="配置Hexo基本环境"><a href="#配置Hexo基本环境" class="headerlink" title="配置Hexo基本环境"></a>配置Hexo基本环境</h2><h3 id="1-安装node-js"><a href="#1-安装node-js" class="headerlink" title="1 安装node.js"></a>1 安装node.js</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> brew install node # ==&gt; Error: node 7.5.0 is already installed,To upgrade to 7.9.0, run `brew upgrade node`</div><div class="line"><span class="meta">$</span> brew upgrade node</div></pre></td></tr></table></figure>
-<h3 id="2-安装hexo"><a href="#2-安装hexo" class="headerlink" title="2 安装hexo"></a>2 安装hexo</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> sudo npm install -g hexo</div></pre></td></tr></table></figure>
-<h3 id="3-初始化hexo"><a href="#3-初始化hexo" class="headerlink" title="3 初始化hexo"></a>3 初始化hexo</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span> 进入本地博客目录</div><div class="line"><span class="meta">$</span> cd jolieyang.github.io </div><div class="line"><span class="meta">$</span> hexo init # INFO  Start blogging with Hexo!</div></pre></td></tr></table></figure>
-<h3 id="4-生成静态页面"><a href="#4-生成静态页面" class="headerlink" title="4 生成静态页面"></a>4 生成静态页面</h3><p>当前目录下，执行命令，生成静态页面至public</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> hexo g</div></pre></td></tr></table></figure>
-<h3 id="5-本地启动预览访问端口"><a href="#5-本地启动预览访问端口" class="headerlink" title="5 本地启动预览访问端口"></a>5 本地启动预览访问端口</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> hexo s # INFO  Start processing INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.</div></pre></td></tr></table></figure>
-<h2 id="Github-Page"><a href="#Github-Page" class="headerlink" title="Github Page"></a>Github Page</h2><h3 id="1-编辑-config-yml文件"><a href="#1-编辑-config-yml文件" class="headerlink" title="1 编辑_config.yml文件"></a>1 编辑_config.yml文件</h3><figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Site</span></div><div class="line"><span class="attr">title:</span> <span class="string">JolieYang</span> <span class="string">| Blog</span></div><div class="line"><span class="attr">subtitle:</span></div><div class="line"><span class="attr">description:</span><span class="string">最好的种树时间是十年前，其次是现在。永远不会太迟，除非你已经放弃了。</span></div><div class="line"><span class="attr">author:</span> <span class="string">JolieYang</span></div><div class="line"></div><div class="line"><span class="comment"># URL</span></div><div class="line"><span class="comment">## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'</span></div><div class="line"><span class="attr">url:</span> <span class="attr">https://jolieyang.github.io/</span></div><div class="line"></div><div class="line"><span class="string">//</span> <span class="string">...</span></div><div class="line"></div><div class="line"><span class="attr">deploy:</span></div><div class="line"><span class="attr">  type:</span> <span class="string">git</span></div><div class="line"><span class="attr">  repo:</span> <span class="string">git@github.com:JolieYang/JolieYang.github.io.git</span></div><div class="line"><span class="attr">  branch:</span> <span class="string">master</span></div></pre></td></tr></table></figure>
-<h3 id="2-安装node包-amp-amp-部署到GitHub"><a href="#2-安装node包-amp-amp-部署到GitHub" class="headerlink" title="2 安装node包&amp;&amp;部署到GitHub"></a>2 安装node包&amp;&amp;部署到GitHub</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span> 安装node包</div><div class="line"><span class="meta">$</span> npm install hexo-deployer-git --save</div><div class="line"><span class="meta">#</span> 部署到github仓库</div><div class="line"><span class="meta">$</span> hexo clean </div><div class="line"><span class="meta">$</span> hexo g</div><div class="line"><span class="meta">$</span> hexo d # Branch master set up to track remote branch master from git@github.com:JolieYang/JolieYang.github.io.git. INFO  Deploy done: git</div></pre></td></tr></table></figure>
-<h2 id="更改博客主题NexT"><a href="#更改博客主题NexT" class="headerlink" title="更改博客主题NexT"></a>更改博客主题NexT</h2><p>参考资料: <a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="external">开始使用-NexT使用文档</a></p>
-<h3 id="1下载主题"><a href="#1下载主题" class="headerlink" title="1下载主题"></a>1下载主题</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> cd jolieyang.github.io</div><div class="line"><span class="meta">$</span> git clone https://github.com/iissnan/hexo-theme-next themes/next</div></pre></td></tr></table></figure>
-<h3 id="2启用主题"><a href="#2启用主题" class="headerlink" title="2启用主题"></a>2启用主题</h3><p>更改_config.yml文件，配置主题</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> theme: next</div></pre></td></tr></table></figure>
-<h3 id="3-验证主题"><a href="#3-验证主题" class="headerlink" title="3 验证主题"></a>3 验证主题</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> hexo s</div></pre></td></tr></table></figure>
-<p>浏览器访问<code>http://localhost:4000</code>,即可验证主题是否设置成功。此时使用的是NexT默认的Scheme—Muse，还可以修改Scheme</p>
-<h2 id="配置博客"><a href="#配置博客" class="headerlink" title="配置博客"></a>配置博客</h2><h3 id="1-修改Scheme"><a href="#1-修改Scheme" class="headerlink" title="1 修改Scheme"></a>1 修改Scheme</h3><blockquote>
-<p>Scheme 是 NexT 提供的一种特性，借助于 Scheme，NexT 为你提供多种不同的外观。同时，几乎所有的配置都可以在 Scheme 之间共用。</p>
-</blockquote>
-<p>目前(2017-05-02)支持三种Scheme，分别为:</p>
-<ul>
-<li>Muse - 默认 Scheme，这是 NexT 最初的版本，黑白主调，大量留白</li>
-<li>Mist - Muse 的紧凑版本，整洁有序的单栏外观</li>
-<li>Pisces - 双栏 Scheme，小家碧玉似的清新</li>
-</ul>
-<p>修改<code>主题配置文件</code>(themes/next/_config.yml文件)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">theme: Mist</div></pre></td></tr></table></figure>
-<h3 id="2设置代码高亮"><a href="#2设置代码高亮" class="headerlink" title="2设置代码高亮"></a>2设置代码高亮</h3><p>修改<code>主题配置文件</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">highlight_theme: night</div></pre></td></tr></table></figure>
-<h3 id="3设置语言"><a href="#3设置语言" class="headerlink" title="3设置语言"></a>3设置语言</h3><p>修改<code>站点配置文件</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">language: zh-Hans</div></pre></td></tr></table></figure>
-<h3 id="4设置头像"><a href="#4设置头像" class="headerlink" title="4设置头像"></a>4设置头像</h3><p>编辑<code>主题配置文件</code>, 修改字段<code>avatar</code>,设置成头像的链接地址，可为绝对地址或者站点相对地址</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">avatar: /assets/images/avatar.jpg</div></pre></td></tr></table></figure>
-<h2 id="添加文章阅读量统计功能"><a href="#添加文章阅读量统计功能" class="headerlink" title="添加文章阅读量统计功能"></a>添加文章阅读量统计功能</h2><p>3th,May,2017</p>
-<p>参考资料: <a href="https://notes.wanghao.work/2015-10-21-%E4%B8%BANexT%E4%B8%BB%E9%A2%98%E6%B7%BB%E5%8A%A0%E6%96%87%E7%AB%A0%E9%98%85%E8%AF%BB%E9%87%8F%E7%BB%9F%E8%AE%A1%E5%8A%9F%E8%83%BD.html#%E9%85%8D%E7%BD%AELeanCloud" target="_blank" rel="external">为NexT主题添加文章阅读量统计功能</a></p>
-<h3 id="1-LeanCloud创建应用"><a href="#1-LeanCloud创建应用" class="headerlink" title="1 LeanCloud创建应用"></a>1 LeanCloud创建应用</h3><p>创建应用—&gt; 点击存储—&gt; 新建Class为<code>Counter</code>(默认ACL权限为限制写入)</p>
-<h3 id="2-获取App-ID与App-Key"><a href="#2-获取App-ID与App-Key" class="headerlink" title="2 获取App ID与App Key"></a>2 获取App ID与App Key</h3><p>点击设置—&gt; 点击应用Key获取<code>App ID</code>和<code>App Key</code> </p>
-<h3 id="3-站点配置"><a href="#3-站点配置" class="headerlink" title="3 站点配置"></a>3 站点配置</h3><p>编辑<code>主题配置文件</code> </p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">leancloud_visitors:</div><div class="line">  enable: true</div><div class="line">  app_id: #&lt;app_id&gt;</div><div class="line">  app_key: #&lt;app_key&gt;</div></pre></td></tr></table></figure>
-<h3 id="4-注意事项"><a href="#4-注意事项" class="headerlink" title="4 注意事项"></a>4 注意事项</h3><blockquote>
-<p> 需要特别说明的是：记录文章访问量的唯一标识符是文章的<code>发布日期</code>以及<code>文章的标题</code>，因此请确保这两个数值组合的唯一性，如果你更改了这两个数值，会造成文章阅读数值的清零重计。</p>
-</blockquote>
-<h2 id="添加评论系统Disqus"><a href="#添加评论系统Disqus" class="headerlink" title="添加评论系统Disqus"></a>添加评论系统Disqus</h2><h3 id="1-创建Disqus评论账号"><a href="#1-创建Disqus评论账号" class="headerlink" title="1 创建Disqus评论账号"></a>1 创建Disqus评论账号</h3><p>我的另一篇文章中有介绍: <a href="https://jolieyang.github.io/2017/04/21/2017-04-21-my-personal-blog/">CSDN—&gt;Jekyll搭建个人博客</a></p>
-<h3 id="2-Hexo配置"><a href="#2-Hexo配置" class="headerlink" title="2 Hexo配置"></a>2 Hexo配置</h3><p>编辑<code>主题配置文件</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"># Disqus</div><div class="line">disqus:</div><div class="line">  enable: true</div><div class="line">  shortname: https-jolieyang-github-io</div><div class="line">  count: true</div></pre></td></tr></table></figure>
-<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>###hexo常用命令</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">hexo new "postName" #新建文章</div><div class="line">hexo new page "pageName" #新建页面</div><div class="line">hexo server #开启预览访问端口（默认端口4000，'ctrl + c'关闭server）</div><div class="line"></div><div class="line">hexo generate # 缩写: hexo g 生成静态页面至public目录</div><div class="line">hexo deploy # 缩写: hexo g,将.deploy目录部署到GitHub</div><div class="line"></div><div class="line">hexo help  # 查看帮助</div><div class="line">hexo version  #查看Hexo的版本</div></pre></td></tr></table></figure>
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="external">Hexo Next 主题Github地址</a></p>
-<p><a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="external">NexT入门文档</a></p>
-<p><a href="http://theme-next.iissnan.com/theme-settings.html" target="_blank" rel="external">NexT主题配置</a></p>
-
-          
+          Quick Help1234$ hexo new "文章名称" # 新建文章$ hexo s # 运行本地服务,开启预览访问端口$ hexo g # 生成静态网页$ hexo d # 部署到远程服务器
+配置Hexo基本环境1 安装node.js12$ brew install node # ==&g
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/05/02/change-to-hexo/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -563,199 +652,17 @@
       
         
           
-            <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><h3 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h3><p>1) 当应用在转场时两个页面的导航栏颜色不同; 如美团的“我的”页面—&gt; 设置页面 </p>
-<p>2) 转场时前一页面隐藏了导航栏，后一页面显示导航栏;如Twitter“Me”页面 —&gt; 一条Tweet纪录页面</p>
-<p>在这两种情况下使用原生的转场效果视觉效果上并不是很友好,很多应用(稍微调查了下手机里使用该转场方式的应用：Mono, Twitter,网易云音乐, 美团,生辰，淘宝等)都是通过类似所示效果显示转场，并支持全屏侧滑Pop页面。</p>
-<h3 id="实现思路"><a href="#实现思路" class="headerlink" title="实现思路"></a>实现思路</h3><p> 主要有三种:</p>
-<ol>
-<li>自定义导航栏视图: 导航器隐藏导航栏，通过addSubview自定义导航栏，灵活性比较高，缺点是改动很大，原生的很多API都无法使用，比如添加导航栏左右按钮，设置title等都需要自己重写支持。</li>
-<li>截图覆盖: 通过在转场时，保存截图，覆盖原有页面。缺点是由于实现方案本身的局限性，push时无法添加交互手势换场，只支持pop交互换场。</li>
-<li>包裹导航栏控制器: 在转场时，对导航栏控制器就行包裹，A—&gt;B时，将导航栏控制器的导航栏隐藏，B则会通过导航栏控制器包裹，由于push时无法push导航栏控制器，因而在B的导航栏控制器外面用UIViewController包裹。从而实现push视图控制器,实现A，B页面的导航栏相互独立。ps: 该思路from jerry的这篇<a href="http://jerrytian.com/2016/01/07/%E7%94%A8Reveal%E5%88%86%E6%9E%90%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90%E7%9A%84%E5%AF%BC%E8%88%AA%E6%8E%A7%E5%88%B6%E5%99%A8%E5%88%87%E6%8D%A2%E6%95%88%E6%9E%9C/" target="_blank" rel="external">《用Reveal分析网易云音乐的导航控制器切换效果》</a></li>
-</ol>
-<h2 id="JYNavTransition–截图覆盖方式"><a href="#JYNavTransition–截图覆盖方式" class="headerlink" title="JYNavTransition–截图覆盖方式"></a>JYNavTransition–截图覆盖方式</h2><blockquote>
-<p> <a href="http://www.jianshu.com/u/900054aaf585" target="_blank" rel="external">_奔跑的炸鸡</a>在<a href="http://www.jianshu.com/p/31f177158c9e" target="_blank" rel="external">【iOS】让我们一次性解决导航栏的所有问题</a>这篇文章解决了使用导航栏时的一些常见问题：包括自定义返回按钮，调整返回按钮位置，解决自定义返回按钮导致的侧滑手势失效问题，以及全屏侧滑转场效果。作者给出了实现思路并将全屏侧滑转场封装到<a href="https://github.com/RunningChicken-K/KLTAnimateNav" target="_blank" rel="external">KLTAnimateNav</a>中，在跟着写的过程中发现代码中存在一些耦合问题，本着整洁代码的原则进行了重写。</p>
-</blockquote>
-<h3 id="代码地址-JYNavTransition"><a href="#代码地址-JYNavTransition" class="headerlink" title="代码地址:JYNavTransition"></a>代码地址:<a href="https://github.com/JolieYang/JYNavTransition" target="_blank" rel="external">JYNavTransition</a></h3><p>通过截图覆盖方式独立导航器中的viewControllers之间的导航栏样式，并支持全屏侧滑Pop 方式 <strong>ps: 欢迎拍砖交流</strong></p>
-<h3 id="使用方式"><a href="#使用方式" class="headerlink" title="使用方式"></a>使用方式</h3><p>将JYNavTransition文件夹拖入项目中，导航控制器改用JYNavigationController即可</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">FirstViewController *vc = [[FirstViewController alloc] init];</div><div class="line">JYNavigationController *nav = [[JYNavigationController alloc] initWithRootViewController:vc];</div><div class="line">self.window.rootViewController = nav;</div></pre></td></tr></table></figure>
-<h3 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h3><ul>
-<li>UINavigationController替换为JYNavigationController后，即可支持独立导航器导航栏样式</li>
-<li>支持开启或者禁用全屏侧滑手势；</li>
-<li>push,pop,popToViewController,popToRoot等方法无需做额外操作。</li>
-</ul>
-<h3 id="实现细节"><a href="#实现细节" class="headerlink" title="实现细节"></a>实现细节</h3><p>转场时通过截图覆盖原有的toView。需要注意的是需要在导航控制器所在的视图窗口上添加截图才可以遮盖原有的toView和fromView.</p>
-<ol>
-<li>push:在当前导航器的视图所在的窗口添加当前页面的截图，覆盖当前页面，通过UIView动画将fromView逐渐移出屏幕，动画时间为转场时间。</li>
-<li>pop:在当前导航器上添加上一页面的截图覆盖toView，与当前页面的截图覆盖fromView。通过UIView动画进行转场。</li>
-<li>侧滑返回上一页面: 导航栏在push到下一页面时，添加侧滑手势，添加相应的手势动画。</li>
-</ol>
-<div align="center"><br><img src="/gifs/ScreenshotNavController.gif" alt="NavController"><br></div>
-
-
-<h2 id="ViewController转场"><a href="#ViewController转场" class="headerlink" title="ViewController转场"></a>ViewController转场</h2><h3 id="转场相关协议"><a href="#转场相关协议" class="headerlink" title="转场相关协议"></a>转场相关协议</h3><p>自定义转场相关的API定义在<code>UIViewControllerTransitioning.h</code>中，相关协议为5个</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">// UIViewControllerTransitioning.h</div><div class="line">// 1. 转场代理(required),提供动画控制器与交互控制器，设置展示VC和dismiss VC的动画控制器，并可以设置这两个场景的交互</div><div class="line">@protocol UIViewControllerTransitioningDelegate &lt;NSObject&gt;</div><div class="line">// 2. 转场上下文(required)，提供转场过程中视图控制器等相关的属性，比如fromVC,toVC,containerView,fromVC,toVC开始或者结束的位置以及三个跟转场交互相关的方法</div><div class="line">@protocol UIViewControllerContextTransitioning &lt;NSObject&gt;</div><div class="line">// 3. 动画控制器(required),协议中必须设置转场所需时间以及转场时执行的动画</div><div class="line">@protocol UIViewControllerAnimatedTransitioning &lt;NSObject&gt;</div><div class="line">// 4. 交互(optional)，控制交互</div><div class="line">@protocol UIViewControllerInteractiveTransitioning &lt;NSObject&gt; </div><div class="line">//  UIViewControllerTransitionCoordinator.h</div><div class="line">// 5. 转场协调(optional)，协调转场动画与其它动画，可让两者并行执行</div><div class="line">@protocol UIViewControllerTransitionCoordinator &lt;UIViewControllerTransitionCoordinatorContext&gt;</div></pre></td></tr></table></figure>
-<h3 id="UIPercentDrivenInteractiveTransition"><a href="#UIPercentDrivenInteractiveTransition" class="headerlink" title="UIPercentDrivenInteractiveTransition"></a>UIPercentDrivenInteractiveTransition</h3><p>遵循UIViewControllerInteractiveTransitioning协议的一个类，可以用一个百分比控制交互转场的过程。</p>
-<h2 id="模态转场"><a href="#模态转场" class="headerlink" title="模态转场"></a>模态转场</h2><h3 id="Modal转场时识别是Present还是Dismiss"><a href="#Modal转场时识别是Present还是Dismiss" class="headerlink" title="Modal转场时识别是Present还是Dismiss"></a>Modal转场时识别是Present还是Dismiss</h3><p>X1: containerView.subViews;  X2: toVC.isBeingPresented;  X3:fromVC.isBeingDismissed</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center"></th>
-<th style="text-align:center">fromView</th>
-<th style="text-align:center">toView</th>
-<th style="text-align:center">containerView对象</th>
-<th style="text-align:center">X1</th>
-<th style="text-align:center">X2</th>
-<th style="text-align:center">X3</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">A—&gt; B</td>
-<td style="text-align:center">A</td>
-<td style="text-align:center">B</td>
-<td style="text-align:center">0x7f8eb945f830</td>
-<td style="text-align:center">A</td>
-<td style="text-align:center">YES</td>
-<td style="text-align:center">NO</td>
-</tr>
-<tr>
-<td style="text-align:center">B —&gt; A</td>
-<td style="text-align:center">B</td>
-<td style="text-align:center">A</td>
-<td style="text-align:center">0x7f8eb945f830</td>
-<td style="text-align:center">B</td>
-<td style="text-align:center">NO</td>
-<td style="text-align:center">YES</td>
-</tr>
-</tbody>
-</table>
-<p>因而可以通过ViewController的isBeingPresented和isBeingDismissed属性识别到底是Present还是dismiss场景。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line">- (void)animateTransition:(id &lt;UIViewControllerContextTransitioning&gt;)transitionContext &#123;</div><div class="line">    UIViewController *fromVC = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];</div><div class="line">    UIViewController *toVC = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];</div><div class="line">    UIView *fromView = fromVC.view;</div><div class="line">    UIView *toView = toVC.view;</div><div class="line">    // 转场发生的容器, A --&gt; B 时则需在containerView中添加B视图</div><div class="line">    UIView *containerView = [transitionContext containerView];</div><div class="line">   </div><div class="line">    CGRect finalToVC = [transitionContext finalFrameForViewController:toVC];// toVC切换结束后的frame</div><div class="line">    </div><div class="line">    NSTimeInterval duration = [self transitionDuration:transitionContext];</div><div class="line">    </div><div class="line">    // A(fromVC) --&gt; B(toVC) 调用presentViewController 因而B的isBeingPresented为YES</div><div class="line">    if (toVC.isBeingPresented) &#123;</div><div class="line">        [containerView addSubview:toView];// 必须将toView添加到containerView容器中，否则黑屏(containerView的背景颜色默认为黑色)。</div><div class="line">        toView.frame = CGRectOffset(finalToVC, 0, [[UIScreen mainScreen] bounds].size.height/2);// 偏移为Y值，因而B将从底下弹起，可以根据offset修改谈起的方向 finalToVC为最后的frame，&#123;0,0,kAppWidth,kAppHeight&#125;</div><div class="line">        [UIView animateWithDuration:duration</div><div class="line">                              delay:0</div><div class="line">             usingSpringWithDamping:0.5</div><div class="line">              initialSpringVelocity:0.5</div><div class="line">                            options:UIViewAnimationOptionCurveLinear</div><div class="line">                         animations:^&#123;</div><div class="line">                             toView.frame = finalToVC;</div><div class="line">                         &#125; completion:^(BOOL finished) &#123;</div><div class="line">                             //动画完成或者取消之后必须得调用的方法，系统接收到这个消息后将对控制器的状态进行维护，参数为向这个context报告切换是否完成</div><div class="line">                             [transitionContext completeTransition:YES];</div><div class="line">                         &#125;];</div><div class="line">    &#125;</div><div class="line">    // B(fromVC) --&gt; A(toVC) B调用了dismissViewControllerAnimated:completion 因而B的isBeingDismissed为YES</div><div class="line">    if (fromVC.isBeingDismissed) &#123;</div><div class="line">        [containerView addSubview:toView];</div><div class="line">        [containerView sendSubviewToBack:toView];</div><div class="line">        </div><div class="line">        [UIView animateWithDuration:duration</div><div class="line">                         animations:^&#123;</div><div class="line">                             fromView.bounds = CGRectMake(0, 0, 1, fromView.frame.size.height);</div><div class="line">                         &#125; completion:^(BOOL finished) &#123;</div><div class="line">                             [transitionContext completeTransition:![transitionContext transitionWasCancelled]];</div><div class="line">                         &#125;];</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="了解转场时的视图结构"><a href="#了解转场时的视图结构" class="headerlink" title="了解转场时的视图结构"></a>了解转场时的视图结构</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">- (void)animateTransition:(id &lt;UIViewControllerContextTransitioning&gt;)transitionContext &#123;</div><div class="line">    UIViewController *toVC = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];</div><div class="line"> </div><div class="line">    CGRect screenBounds = [[UIScreen mainScreen] bounds];</div><div class="line">    CGRect finalFrame = [transitionContext finalFrameForViewController:toVC];</div><div class="line">    toVC.view.frame = CGRectOffset(finalFrame, 0, screenBounds.size.height);</div><div class="line">    </div><div class="line">    UIView *containerView = [transitionContext containerView];</div><div class="line">    // beforeAddSubview</div><div class="line">    [containerView addSubview:toVC.view];</div><div class="line">    // afterAddSubview</div><div class="line">    </div><div class="line">    NSTimeInterval duration = [self transitionDuration:transitionContext];</div><div class="line">    [UIView animateWithDuration:duration</div><div class="line">                          delay:0.0</div><div class="line">         usingSpringWithDamping:0.5</div><div class="line">          initialSpringVelocity:0.5</div><div class="line">                        options:UIViewAnimationOptionCurveLinear</div><div class="line">                     animations:^&#123;</div><div class="line">                         toVC.view.frame = finalFrame;</div><div class="line">                     &#125; completion:^(BOOL finished) &#123;</div><div class="line">                         // Into Completion</div><div class="line">                         [transitionContext completeTransition:YES];</div><div class="line">                		// afterCompleteTransition</div><div class="line">                     &#125;];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>备注:表格中显示的是ContainerView.subviews。X1: beforeAddSubview; X2:afterAddSubview;   X3: Into Completion;  X4: afterCompleteTransition</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left"></th>
-<th style="text-align:center">X1</th>
-<th style="text-align:center">X2</th>
-<th>X3</th>
-<th style="text-align:center">X4</th>
-<th>异常</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">A —&gt; B: (Custom)</td>
-<td style="text-align:center">nil</td>
-<td style="text-align:center">b</td>
-<td>b</td>
-<td style="text-align:center">b</td>
-<td></td>
-</tr>
-<tr>
-<td style="text-align:left">B—&gt;A:(Custom)addSubview</td>
-<td style="text-align:center">b</td>
-<td style="text-align:center">a,b</td>
-<td>a,b</td>
-<td style="text-align:center">a</td>
-<td>白屏</td>
-</tr>
-<tr>
-<td style="text-align:left">B—&gt;A(Custom)不addSubview</td>
-<td style="text-align:center">/</td>
-<td style="text-align:center">/</td>
-<td>b</td>
-<td style="text-align:center">nil</td>
-<td></td>
-</tr>
-<tr>
-<td style="text-align:left">A —&gt; B:(Full)</td>
-<td style="text-align:center">a</td>
-<td style="text-align:center">a,b</td>
-<td>a,b</td>
-<td style="text-align:center">b</td>
-<td></td>
-</tr>
-<tr>
-<td style="text-align:left">B —&gt; A:(Full)addSubview</td>
-<td style="text-align:center">b</td>
-<td style="text-align:center">b,a</td>
-<td>a,b</td>
-<td style="text-align:center">nil</td>
-<td></td>
-</tr>
-<tr>
-<td style="text-align:left">B —&gt; A:(Full)不addSubview</td>
-<td style="text-align:center">/</td>
-<td style="text-align:center">/</td>
-<td>b</td>
-<td style="text-align:center">nil</td>
-<td>闪现白屏</td>
-</tr>
-</tbody>
-</table>
-<h4 id="Custom模式"><a href="#Custom模式" class="headerlink" title="Custom模式"></a>Custom模式</h4><p> Custom模式下containerView并没有担任父视图。Presentation后A视图并没有从视图结构中移除。在Dismissal过程中并不需要将A视图添加到containerView中，即可正常显示。如果添加到containerView，则会出现闪现A视图，然后出现白屏。</p>
-<p>猜测：默认屏幕显示A视图，presentation后，添加containerView在A视图之上。 Dismissal过程中，只需将containerView从视图结构中移除即可正常显示。所以，当把A视图添加到containerView中，则在动画执行过程中会出现A视图，但一旦动画执行完毕，UIkit会将containerView移除，而本身在containerView底下的A视图由于添加到containerView中，因而屏幕上就没有A视图。出现白屏。</p>
-<h4 id="FullScreen模式"><a href="#FullScreen模式" class="headerlink" title="FullScreen模式"></a>FullScreen模式</h4><p>FullScreen模式下containerView担任父视图。 Presentation后A视图会从视图结构(containerView)中移除。dismissal过程中需要将A视图添加到containerView中。 但如果不主动添加也没什么事情,但dismiss的过程中会出现闪现白屏，然后再显示A视图。 猜测是： dismissal过程中，动画执行后执行completeTransition，则会将containerView中的子视图移除，此时屏幕上显示的是白屏。 当animateTransition代理执行完之后，判断containerView是否为空，如果为空，则添加toView到containerView上，因而会闪现A视图。</p>
-<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>Custom模式下,Dismissal时无需添加子视图到containerView.FullScreen模式下，Dismissal需要添加子视图到containerView。</p>
-<h2 id="导航器转场"><a href="#导航器转场" class="headerlink" title="导航器转场"></a>导航器转场</h2><h3 id="Push时视图上方被遮盖"><a href="#Push时视图上方被遮盖" class="headerlink" title="Push时视图上方被遮盖"></a>Push时视图上方被遮盖</h3><p>在使用过程中，主页面Push到B页面后，明明有3个cell，但在转场过程中只显示2个cell，结束后才显示3个。一开始是以为TableView有问题，后面才发现是转场动画有问题，cell少了一个并不是tableView没有正确显示，而是在转场过程中由于tableView的origin为(0,0)，导致第一行cell被导航栏遮盖。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">CGRect fromVStartFrame = [transitionContext initialFrameForViewController:fromViewController];</div><div class="line">CGRect fromVEndFrame = [transitionContext finalFrameForViewController:fromViewController];</div><div class="line"></div><div class="line">CGRect toVStartFrame = [transitionContext initialFrameForViewController:toViewController];</div><div class="line">CGRect toVEndFrame = [transitionContext finalFrameForViewController:toViewController];</div></pre></td></tr></table></figure>
-<p>以下为转场过程中通过转场上下文获取的FromVStartFrame,fromVEndFrame,toVStartFrame,toVEndFrame。Push时fromVCStartFrame的y为64是因为A页面有导航栏，高度为455是因为A页面有导航栏与TabBar，因而页面高度需减去导航栏与TabBar的高度。toEndFrame的高度为504是因为B页面无TabBar。</p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>fromVStartFrame</th>
-<th>toVStartFrame</th>
-<th>fromVEndFrame</th>
-<th>toVEndFrame</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>A—&gt;B(present)</td>
-<td>{{0, 0}, {320, 568}}</td>
-<td>{{0, 0}, {0, 0}}</td>
-<td>{{0, 0}, {0, 0}}</td>
-<td>{{0, 0}, { 320, 568}}</td>
-</tr>
-<tr>
-<td>B—&gt;A(dismiss)</td>
-<td>{{0, 0}, { 320, 568}}</td>
-<td>{{0, 0}, {0, 0}}</td>
-<td>{{0, 0}, { 320, 568}}</td>
-<td>{{0, 0}, { 320, 568}}</td>
-</tr>
-<tr>
-<td>A—&gt;B(Push)</td>
-<td>{{0, 64}, { 320, 455}}</td>
-<td>{{0, 0}, {0, 0}}</td>
-<td>{{0, 0}, {0, 0}}</td>
-<td>{{0, 64}, { 320, 504}}</td>
-</tr>
-<tr>
-<td>B—&gt;A(Pop)</td>
-<td>{{0, 64}, { 320, 504}}</td>
-<td>{{0, 0}, {0, 0}}</td>
-<td>{{0, 0}, {0, 0}}</td>
-<td>{{0, 64}, { 320, 455}}</td>
-</tr>
-</tbody>
-</table>
-<p>之前在实现JYNavTransition时由于测试的视图直接设置背景色为单色，没有发现在Push转场时需将toVC.view的位置设为toVEndFrame。修改后如下:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">// from JYNavTransition</div><div class="line">- (void)animateTransition:(id &lt;UIViewControllerContextTransitioning&gt;)transitionContext &#123;</div><div class="line">    UIViewController *toViewController = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];</div><div class="line">    UIViewController *fromViewController = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];</div><div class="line">    self.navigationController = (JYNavigationController *)toViewController.navigationController;</div><div class="line">    </div><div class="line">    [[transitionContext containerView] addSubview:toViewController.view];</div><div class="line">    </div><div class="line">    UIImageView *fromImageView = [[UIImageView alloc] initWithFrame:[UIScreen mainScreen].bounds];</div><div class="line">    </div><div class="line">    if (self.navigationControllerOperation == UINavigationControllerOperationPush) &#123;</div><div class="line">        CGRect toViewEndFrame = [transitionContext finalFrameForViewController:toViewController];</div><div class="line">        CGRect toViewStartFrame = toViewEndFrame;</div><div class="line">        // 设置toVC.view.frame为toVEndFrame</div><div class="line">        toViewController.view.frame = toViewStartFrame;</div><div class="line">        </div><div class="line">        fromImageView.image = self.navigationController.screenShots.lastObject;</div><div class="line">        [self.navigationController.view.window insertSubview:fromImageView atIndex:0];</div><div class="line">        self.navigationController.view.transform = CGAffineTransformMakeTranslation(kAppWidth, 0);</div><div class="line">        </div><div class="line">        [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^&#123;</div><div class="line">            self.navigationController.view.transform = CGAffineTransformMakeTranslation(0, 0);</div><div class="line">            fromImageView.center = CGPointMake(-kAppWidth/2, kAppHeight/2);</div><div class="line">        &#125; completion:^(BOOL finished) &#123;</div><div class="line">            [fromImageView removeFromSuperview];</div><div class="line">            [transitionContext completeTransition:YES];</div><div class="line">        &#125;];</div><div class="line">    &#125; else &#123;</div><div class="line">      // .... Pop时转场动画</div><div class="line">    &#125;</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="https://onevcat.com/2013/10/vc-transition-in-ios7/" target="_blank" rel="external">WWDC 2013 Session笔记 - iOS7中的ViewController切换—Onev</a> // 自定义Modal转场Demo</p>
-<p><a href="https://objccn.io/issue-5-3/" target="_blank" rel="external">View Controller 转场—Objc中国</a> // 自定义导航栏控制器转场Demo</p>
-<p><a href="https://github.com/seedante/iOS-Note/wiki/ViewController-Transition" target="_blank" rel="external">iOS 视图控制器转场详解</a> </p>
-<p><a href="http://www.jianshu.com/p/31f177158c9e" target="_blank" rel="external">【iOS】让我们一次性解决导航栏的所有问题</a></p>
-<p><a href="http://jerrytian.com/2016/01/07/%E7%94%A8Reveal%E5%88%86%E6%9E%90%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90%E7%9A%84%E5%AF%BC%E8%88%AA%E6%8E%A7%E5%88%B6%E5%99%A8%E5%88%87%E6%8D%A2%E6%95%88%E6%9E%9C/" target="_blank" rel="external">用Reveal分析网易云音乐的导航控制器切换效果</a></p>
-<h2 id="相关开源项目"><a href="#相关开源项目" class="headerlink" title="相关开源项目"></a>相关开源项目</h2><p><a href="https://github.com/RunningChicken-K/KLTAnimateNav" target="_blank" rel="external">KLTAnimateNav </a> // 通过截图方式实现，支持全屏返回</p>
-<p><a href="https://github.com/JNTian/JTNavigationController" target="_blank" rel="external">JTNavigationController</a> // 通过包裹导航栏控制器实现，支持全屏返回</p>
-<p><a href="https://github.com/forkingdog/FDFullscreenPopGesture" target="_blank" rel="external">FDFullscreenPopGesture</a> // 使用原生的 <em>UINavigationController</em>，在 <code>- (void)viewWillAppear</code> 中做处理，支持全屏返回</p>
-<p><a href="https://github.com/rickytan/RTRootNavigationController" target="_blank" rel="external">RTRootNavigationController</a> // 细节完善的比较好，支持unwind,Interface Bulider</p>
-
-          
+          引言使用场景1) 当应用在转场时两个页面的导航栏颜色不同; 如美团的“我的”页面—&gt; 设置页面 
+2) 转场时前一页面隐藏了导航栏，后一页面显示导航栏;如Twitter“Me”页面 —&gt; 一条Tweet纪录页面
+在这两种情况下使用原生的转场效果视觉效果上并不是很友好,很多应用(稍微调查了
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/04/28/2017-04-28-independent-navigationBar-style/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -847,28 +754,6 @@
           </span>
 
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Tool/" itemprop="url" rel="index">
-                    <span itemprop="name">Tool</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
 
           
             
@@ -917,57 +802,22 @@
       
         
           
-            <p>其实就是介绍下CocoaPods的基本使用跟安装。</p>
-<p>CocoaPods官网： <a href="https://cocoapods.org/" target="_blank" rel="external">https://cocoapods.org/</a></p>
-<hr>
-<p>4th,Feb,2017</p>
-<h2 id="使用CocoaPods"><a href="#使用CocoaPods" class="headerlink" title="使用CocoaPods"></a>使用CocoaPods</h2><ol>
-<li>在项目文件夹下也就是与.xcodeproj同一层级新建Podfile文件</li>
-<li><p>Podfile内容格式如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">// 以项目名称为a为例子</div><div class="line">platform :ios, &apos;7.0&apos;// optional, 指定支持的iOS系统从哪个版本开始</div><div class="line">target &apos;a&apos; do</div><div class="line">    pod &apos;第三方库名称&apos;, &apos;~&gt; 指定版本号&apos;// 不指定版本号则默认获取最新版本</div><div class="line">    pod &apos;AFNetworking&apos;, &apos;~&gt; 3.1.0&apos;</div><div class="line">end</div><div class="line">target &apos;aTests&apos; do</div><div class="line">    pod &apos;第三方库名称&apos;, &apos;~&gt; 指定版本号&apos;// 不指定版本号则默认获取最新版本</div><div class="line">    pod &apos;AFNetworking&apos;, &apos;~&gt; 3.1.0&apos;</div><div class="line">end</div></pre></td></tr></table></figure>
-</li>
-<li><p>打开Terminal,进入Podfile所在文件夹下，终端执行<br><code>pod install</code>,会生成一个Podfile.lock文件。</p>
-</li>
-<li>安装完成后，打开xcworkspace文件即可。</li>
-</ol>
-<hr>
-<p>15th,August,2016</p>
-<h2 id="安装-Cocoapods"><a href="#安装-Cocoapods" class="headerlink" title="安装 Cocoapods"></a>安装 Cocoapods</h2><h3 id="官网提供方式"><a href="#官网提供方式" class="headerlink" title="官网提供方式"></a>官网提供方式</h3><p><code>$ sudo gem install cocoapods</code><br>由于无法访问外网的缘故，输入该命令可能很久都没有反应。需要修改更换源。</p>
-<h3 id="国内安装"><a href="#国内安装" class="headerlink" title="国内安装"></a>国内安装</h3><ol>
-<li><code>$ gem sources --remove https://rubygems.org/</code></li>
-<li>.<code>$ gem sources -a https://ruby.taobao.org/</code>  // 去年也就是2015年上半年的时候我安装的时候sources链接是http协议，而到12月份安装的时候使用http协议链接则显示该地址不可用，已替换成https协议了</li>
-<li><code>$ gem sources -l</code>// 验证ruby镜像<br>显示以下：<br>  <strong><em> CURRENT SOURCES </em></strong> <a href="https://ruby.taobao.org/" target="_blank" rel="external">https://ruby.taobao.org/</a></li>
-<li><code>$ sudo gem install cocoapods</code></li>
-</ol>
-<p>今天在执行第4步的时候：报错“ERROR:  Error installing cocoapods:<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">active support requires Ruby version &gt;= 2.2.2.</div></pre></td></tr></table></figure></p>
-<p>查看当前ruby版本<code>$ ruby -v</code>。显示当前版本为ruby 2.0.0p648 (2015-12-16 revision 53162) [universal.x86_64-darwin15]<br>所以得升级ruby了</p>
-<h3 id="安装rvm"><a href="#安装rvm" class="headerlink" title="安装rvm"></a>安装rvm</h3><p>接下来应该是安装ruby,而安装ruby使用rvm。未安装需先安装rvm。<br>安装步骤:</p>
-<ol>
-<li><code>$ curl -L get.rvm.io | bash -s stable</code></li>
-<li><code>$ source ~/.rvm/scripts/rvm</code> // 载入RVM环境</li>
-<li><code>$ rvm -v</code>// 可以显示rvm版本，检验是否安装成功</li>
-</ol>
-<h3 id="安装ruby"><a href="#安装ruby" class="headerlink" title="安装ruby"></a>安装ruby</h3><p>安装步骤:</p>
-<ol>
-<li><code>$ rvm list known</code> // 查看已知的ruby版本</li>
-<li><code>$ rvm install 2.3.0</code> // 需要等待一会儿<br> ​</li>
-</ol>
-<p>其他命令</p>
-<p><code>$ rvm list</code> //查看已安装的版本<br><code>$ rvm remove 2.0.0</code> // 卸装一个已安装版本<br><code>$ rvm use 2.3.0 --default</code> // 设置默认版本</p>
-<hr>
-<p color="gray">24th,April,2017</p>
+          其实就是介绍下CocoaPods的基本使用跟安装。
+CocoaPods官网： https://cocoapods.org/
 
-<h2 id="升级-amp-降级CocoaPods"><a href="#升级-amp-降级CocoaPods" class="headerlink" title="升级&amp;降级CocoaPods"></a>升级&amp;降级CocoaPods</h2><p><code>pod install</code>提示”The <code>master</code> repo requires CocoaPods 1.0.0 -  (currently using 0.39.0)”. ps: 如果一直没有反应可以检查下是否是源被墙的问题，参考安装章节切换源。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> sudo gem install cocoapods --pre -n /usr/local/bin cocoa pods</div></pre></td></tr></table></figure>
-<p>指定安装版本为老版本即可降级CocoaPods</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo gem install cocoapods -v 0.39.0 -n /usr/local/bin</div></pre></td></tr></table></figure>
-<hr>
-<p></p><p color="gray">3th,Feb,2017</p><p></p>
-<h2 id="创建私有库"><a href="#创建私有库" class="headerlink" title="创建私有库"></a>创建私有库</h2><p>今天翻崔江涛的博客，发现更了一篇Cocoapods创建私有库的文章，先存着有需要再看.<br><a href="http://blog.csdn.net/kenshincui/article/details/54020810" target="_blank" rel="external">Cocoapods私有仓库创建 </a></p>
-<hr>
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="http://www.07net01.com/2015/09/933234.html" target="_blank" rel="external">如何在Mac 终端升级ruby版本</a><br><a href="http://blog.csdn.net/fairytale_1/article/details/51850734" target="_blank" rel="external"> 关于安装cocoapods遇到的一些坑（ERROR: Error installing cocoapods: activesupport requires Ruby version &gt;= 2.2）</a></p>
-
-          
+4th,Feb,2017
+使用CocoaPods
+在项目文件夹下也就是与.xcodeproj同一层级新建Podfile文件
+Podfile内容格式如下：
+1234567891
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/04/23/2017-04-23-CocoaPods/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1059,28 +909,6 @@
           </span>
 
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Blog/" itemprop="url" rel="index">
-                    <span itemprop="name">Blog</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
 
           
             
@@ -1129,43 +957,20 @@
       
         
           
-            <p>先缅怀一下CSDN，从15年开始使用CSDN写技术博客到现在，一年半啦，时间真的过的很快……缅怀结束。</p>
-<p>第一篇记录一下使用Jekyll搭建这个博客的过程。</p>
-<h2 id="安装Jekyll"><a href="#安装Jekyll" class="headerlink" title="安装Jekyll"></a>安装Jekyll</h2><p>官网地址:<a href="https://jekyllrb.com/" target="_blank" rel="external">https://jekyllrb.com/ </a></p>
-<ol>
-<li><p>安装，默认主题是minima</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">~ $ gem install jekyll bundler</div><div class="line">~ $ jekyll new my-awesome-site</div><div class="line">~ $ cd my-awesome-site</div><div class="line">~/my-awesome-site $ bundle exec jekyll serve</div><div class="line"><span class="meta">#</span> =&gt; Now browse to http://localhost:4000</div></pre></td></tr></table></figure>
-</li>
-<li><p>由于需要做定制(比如需要去除RSS功能，调整页面效果)，通过一下命令获取到指定theme的代码，将代码复制到站点目录下</p>
-</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> open $(bundle show minima)</div></pre></td></tr></table></figure>
-<h2 id="jekyll目录结构"><a href="#jekyll目录结构" class="headerlink" title="jekyll目录结构"></a>jekyll目录结构</h2><p><a href="http://jekyllrb.com/docs/structure/" target="_blank" rel="external">http://jekyllrb.com/docs/structure/</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">.</div><div class="line">├── _config.yml // 配置主页的Title，邮箱，描述，站点主题等</div><div class="line">├── _data</div><div class="line">|   └── members.yml</div><div class="line">├── _drafts</div><div class="line">|   ├── begin-with-the-crazy-ideas.md</div><div class="line">|   └── on-simplicity-in-technology.md</div><div class="line">├── _includes // _layout目录下的文件通过liquid可以获取该目录下的部分</div><div class="line">|   ├── footer.html</div><div class="line">|   └── header.html</div><div class="line">├── _layouts // post.html代表文章页面的布局</div><div class="line">|   ├── default.html</div><div class="line">|   └── post.html</div><div class="line">├── _posts // 文章按&quot;年-月-日-标题&quot;的格式命名</div><div class="line">|   ├── 2007-10-29-why-every-programmer-should-play-nethack.md</div><div class="line">|   └── 2009-04-26-barcamp-boston-4-roundup.md</div><div class="line">├── _sass</div><div class="line">|   ├── _base.scss</div><div class="line">|   └── _layout.scss</div><div class="line">├── _site</div><div class="line">├── .jekyll-metadata</div><div class="line">└── index.html # can also be an &apos;index.md&apos; with valid YAML Frontmatter</div></pre></td></tr></table></figure>
-<h2 id="自定义Jekyll主题"><a href="#自定义Jekyll主题" class="headerlink" title="自定义Jekyll主题"></a>自定义Jekyll主题</h2><p><code>Gemfile</code>添加要安装的主题，有点像Podfile文件添加需要pod的项目:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">gem &quot;jekyll-bootflat&quot;</div></pre></td></tr></table></figure>
-<p> <code>_config.yml</code>设置主题:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">theme: jekyll-bootflat</div></pre></td></tr></table></figure>
-<p>终端执行:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> bundle</div><div class="line">// Or install it yourself as</div><div class="line"><span class="meta">$</span> gem install jekyll-bootflat</div></pre></td></tr></table></figure>
-<h2 id="添加评论系统"><a href="#添加评论系统" class="headerlink" title="添加评论系统"></a>添加评论系统</h2><h3 id="创建评论账号"><a href="#创建评论账号" class="headerlink" title="创建评论账号"></a>创建评论账号</h3><ol>
-<li><a href="https://disqus.com" target="_blank" rel="external">https://disqus.com</a> 注册账号，</li>
-<li><a href="http://disqus.com/admin/create" target="_blank" rel="external">register your site</a> 输入网站，类型，语言创建该站点的评论账号</li>
-<li><a href="http://disqus.com/admin/install" target="_blank" rel="external">install Disqus on your site</a> using the shortname registered. </li>
-<li>从该网站的配置中获取到shortname为<code>https-jolieyang-github-io</code></li>
-</ol>
-<h3 id="Jekyll配置"><a href="#Jekyll配置" class="headerlink" title="Jekyll配置"></a>Jekyll配置</h3><ol>
-<li><p>设置page.comments为True，在post.html中头处添加:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">---</div><div class="line">layout: default</div><div class="line">comments: true</div><div class="line">---</div></pre></td></tr></table></figure>
-</li>
-<li><p>设置site.disqus.shortname，在_config.yml添加:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">disqus:</div><div class="line">  shortname: shortname</div></pre></td></tr></table></figure>
-<p>​</p>
-</li>
-</ol>
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="http://jmcglone.com/guides/github-pages/" target="_blank" rel="external">Creating and Hosting a Personal Site on GitHub</a></p>
+          先缅怀一下CSDN，从15年开始使用CSDN写技术博客到现在，一年半啦，时间真的过的很快……缅怀结束。
+第一篇记录一下使用Jekyll搭建这个博客的过程。
+安装Jekyll官网地址:https://jekyllrb.com/ 
 
-          
+安装，默认主题是minima
+12345~ $ gem install
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/04/21/2017-04-21-my-personal-blog/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1243,7 +1048,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1254,12 +1059,21 @@
             
             <div class="site-state-item site-state-categories">
               
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">分类</span>
               
             </div>
           
 
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
           
 
         </nav>
@@ -1267,6 +1081,17 @@
         
 
         <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/jolieyang" target="_blank" title="Github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Github
+                </a>
+              </span>
+            
           
         </div>
 

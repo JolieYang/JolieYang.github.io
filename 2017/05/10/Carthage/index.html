@@ -1,0 +1,787 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="介绍Carthage的Github地址: https://github.com/Carthage/Carthage 文件结构在项目目录下有三个文件，Cartfile描述文件,Cartfile.resolved文件和Carthage文件夹。 Cartfile描述文件: 添加想要集成的第三方库。支持两种类型的源 Cartfile.resolved文件:该文件列出了每个第三方库的版本，确保其他人构建第三">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Carthage的那些事儿">
+<meta property="og:url" content="https://jolieyang.github.io/2017/05/10/Carthage/index.html">
+<meta property="og:site_name" content="JolieYang | Blog">
+<meta property="og:description" content="介绍Carthage的Github地址: https://github.com/Carthage/Carthage 文件结构在项目目录下有三个文件，Cartfile描述文件,Cartfile.resolved文件和Carthage文件夹。 Cartfile描述文件: 添加想要集成的第三方库。支持两种类型的源 Cartfile.resolved文件:该文件列出了每个第三方库的版本，确保其他人构建第三">
+<meta property="og:image" content="https://jolieyang.github.io/images/blogs/Carthages-Run-Script.png">
+<meta property="og:updated_time" content="2017-05-10T09:01:27.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Carthage的那些事儿">
+<meta name="twitter:description" content="介绍Carthage的Github地址: https://github.com/Carthage/Carthage 文件结构在项目目录下有三个文件，Cartfile描述文件,Cartfile.resolved文件和Carthage文件夹。 Cartfile描述文件: 添加想要集成的第三方库。支持两种类型的源 Cartfile.resolved文件:该文件列出了每个第三方库的版本，确保其他人构建第三">
+<meta name="twitter:image" content="https://jolieyang.github.io/images/blogs/Carthages-Run-Script.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://jolieyang.github.io/2017/05/10/Carthage/"/>
+
+
+
+
+
+  <title>Carthage的那些事儿 | JolieYang | Blog</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">JolieYang | Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://jolieyang.github.io/2017/05/10/Carthage/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="JolieYang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JolieYang | Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Carthage的那些事儿
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-10T16:32:22+08:00">
+                2017-05-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Tool/" itemprop="url" rel="index">
+                    <span itemprop="name">Tool</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/05/10/Carthage/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/05/10/Carthage/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p><code>Carthage</code>的Github地址: <a href="https://github.com/Carthage/Carthage" target="_blank" rel="external">https://github.com/Carthage/Carthage</a></p>
+<h3 id="文件结构"><a href="#文件结构" class="headerlink" title="文件结构"></a>文件结构</h3><p>在项目目录下有三个文件，<code>Cartfile</code>描述文件,<code>Cartfile.resolved</code>文件和<code>Carthage</code>文件夹。</p>
+<p><code>Cartfile</code>描述文件: 添加想要集成的第三方库。支持两种类型的源</p>
+<p><code>Cartfile.resolved</code>文件:该文件列出了每个第三方库的版本，确保其他人构建第三方库的时候版本相同。主要是针对版本库协同开发使用。</p>
+<p><code>Carthage</code>文件夹:存放构建好的第三方库的framework包和符号文件(.dSYM)。</p>
+<h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>根据<code>Cartfile</code>描述文件下载第三方库到本地，再使用<code>xcodebuild</code>构建<code>framework</code>文件。最后手动集成这些库到项目中。</p>
+<p>Carthage和Podfile虽然都是包管理器，但<code>Carthage</code>使用的是一种非侵入性的方式集成第三方库。</p>
+<h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><ul>
+<li>轻量；</li>
+</ul>
+<ul>
+<li>非侵入性；不会对项目结构进行改动，相应的也就是需要手动将第三方库的<code>framework</code>文件手动集成到项目中。</li>
+<li>去中心化；不像<code>CocoaPods</code>由中心服务器对包进行管理，因而包管理不再强依赖中心服务器信息量和稳定性，相应的也无法对第三方库进行索引。</li>
+</ul>
+<h2 id="使用Carthage"><a href="#使用Carthage" class="headerlink" title="使用Carthage"></a>使用Carthage</h2><h3 id="使用Carthage添加第三方库"><a href="#使用Carthage添加第三方库" class="headerlink" title="使用Carthage添加第三方库"></a>使用Carthage添加第三方库</h3><h4 id="新建Cartfile描述文件"><a href="#新建Cartfile描述文件" class="headerlink" title="新建Cartfile描述文件"></a>新建Cartfile描述文件</h4><p>项目文件夹下新建描述文件。</p>
+<h4 id="添加第三方库"><a href="#添加第三方库" class="headerlink" title="添加第三方库"></a>添加第三方库</h4><p><code>Cartfile</code>中的格式如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">github &quot;libgit2/objective-git&quot; &quot;0.12.0&quot;</div></pre></td></tr></table></figure>
+<h4 id="下载第三方库"><a href="#下载第三方库" class="headerlink" title="下载第三方库"></a>下载第三方库</h4><p>执行该命令，<code>Carthage</code>就会从该github地址下载第三方库，然后使用<code>xcodebuild</code>构建第三方库。操作完成后，会在项目根目录下生成<code>Carthage</code>目录。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> carthage update</div><div class="line">// ps</div><div class="line">carthage update --platform iOS // 代表只编译iOS版的`framework`</div></pre></td></tr></table></figure>
+<h4 id="手动集成"><a href="#手动集成" class="headerlink" title="手动集成"></a>手动集成</h4><ol>
+<li><p><code>General</code>—&gt; <code>Linked Frameworks and Libraries</code>中添加项目根目录下Carthage/Build/iOS目录下的framework文件；或者<code>Build Settings</code> —&gt; <code>Search Paths</code> —&gt; <code>Header Search Paths</code> 添加“$(SRCROOT)/Carthage/Build/iOS/ObjectiveGit.framework/Headers/”。</p>
+</li>
+<li><p><code>Build Phrases</code> 点击左上角<code>New Run Script Phrase</code>： <code>Build Settings</code>-&gt;<code>Header Search Paths</code> 添加”$(SRCROOT)/Carthage/Build/iOS/ObjectiveGit.framework/Headers”，在脚本区域输入<code>/usr/local/bin/carthage copy-frameworks</code>, 最后在<code>Input Files</code>区域添加<code>$(SRCROOT)/Carthage/Build/iOS/ObjectiveGit.framework</code>。(ps:该操作的目的是为了运行时能够找到该<code>framework</code>)</p>
+<p>最终效果如图所示:</p>
+<div align="center"><br><br><img src="/images/blogs/Carthages-Run-Script.png" alt="Carthage-Run-Script"><br><br>​</div>
+</li>
+<li><p>[optional] <code>Build Phrases</code> 点击左上角<code>New Copy Files Phrase</code>, 然后将Carthage/Build/iOS目录下的二进制库的符号文件(ObjectiveGit.framework.dSYM)拖入。(Ps:该操作的目的是为了能在调试时查看内部代码)。如果该操作导致编译出错，需修改<code>Build Settings</code>—&gt; <code>Deployment</code> —&gt; <code>Strip Debug Symbols During Copy</code> 为NO。该设置为YES代表不对Copy的符号文件处理，Xcode8默认是YES。</p>
+</li>
+</ol>
+<h3 id="更新Carthage第三方库"><a href="#更新Carthage第三方库" class="headerlink" title="更新Carthage第三方库"></a>更新Carthage第三方库</h3><p>更改<code>Cartfile</code>,修改第三方库对应版本，然后在命令行执行</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> carthage update</div></pre></td></tr></table></figure>
+<h2 id="安装Carthage"><a href="#安装Carthage" class="headerlink" title="安装Carthage"></a>安装Carthage</h2><h3 id="Homebrew"><a href="#Homebrew" class="headerlink" title="Homebrew"></a>Homebrew</h3><p>前提是已经安装了<code>brew</code>，没有安装的可以上网找下步骤，或者<a href="https://brew.sh/index_zh-cn.html" target="_blank" rel="external">官网</a>也提供了安装步骤。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ brew install carthage // 安装Carthage</div><div class="line">  </div><div class="line">$ carthage version // 可以查看当前的Carthage版本</div></pre></td></tr></table></figure>
+<h3 id="Installer"><a href="#Installer" class="headerlink" title="Installer"></a>Installer</h3><p>从Github上的release<a href="https://github.com/Carthage/Carthage/releases" target="_blank" rel="external">https://github.com/Carthage/Carthage/releases</a>下载pkg包，双击即可安装。</p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="https://swiftcafe.io/2015/10/25/swift-daily-carthage-package/" target="_blank" rel="external">Carthage 包管理工具，另一种敏捷轻快的 iOS &amp; MAC 开发体验</a></p>
+<p><a href="http://www.jianshu.com/p/a734be794019" target="_blank" rel="external">Carthage的安装和使用</a></p>
+<p><a href="https://github.com/libgit2/objective-git" target="_blank" rel="external"><strong>objective-git</strong></a></p>
+<p><a href="http://devtian.me/2015/08/11/translate-carthage-readme/" target="_blank" rel="external">(译)Carthage 使用说明</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/05/08/Design-Patterns/" rel="next" title="《Objective-C编程之道:iOS设计模式解析》">
+                <i class="fa fa-chevron-left"></i> 《Objective-C编程之道:iOS设计模式解析》
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="JolieYang" />
+          <p class="site-author-name" itemprop="name">JolieYang</p>
+           
+              <p class="site-description motion-element" itemprop="description">最好的种树时间是十年前，其次是现在。永远不会太迟，除非你已经放弃了。</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/jolieyang" target="_blank" title="Github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Github
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#介绍"><span class="nav-number">1.</span> <span class="nav-text">介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#文件结构"><span class="nav-number">1.1.</span> <span class="nav-text">文件结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#原理"><span class="nav-number">1.2.</span> <span class="nav-text">原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#特点"><span class="nav-number">1.3.</span> <span class="nav-text">特点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用Carthage"><span class="nav-number">2.</span> <span class="nav-text">使用Carthage</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用Carthage添加第三方库"><span class="nav-number">2.1.</span> <span class="nav-text">使用Carthage添加第三方库</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#新建Cartfile描述文件"><span class="nav-number">2.1.1.</span> <span class="nav-text">新建Cartfile描述文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加第三方库"><span class="nav-number">2.1.2.</span> <span class="nav-text">添加第三方库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#下载第三方库"><span class="nav-number">2.1.3.</span> <span class="nav-text">下载第三方库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#手动集成"><span class="nav-number">2.1.4.</span> <span class="nav-text">手动集成</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#更新Carthage第三方库"><span class="nav-number">2.2.</span> <span class="nav-text">更新Carthage第三方库</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装Carthage"><span class="nav-number">3.</span> <span class="nav-text">安装Carthage</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Homebrew"><span class="nav-number">3.1.</span> <span class="nav-text">Homebrew</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Installer"><span class="nav-number">3.2.</span> <span class="nav-text">Installer</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">4.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">JolieYang</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://https-jolieyang-github-io.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://jolieyang.github.io/2017/05/10/Carthage/';
+          this.page.identifier = '2017/05/10/Carthage/';
+          this.page.title = 'Carthage的那些事儿';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://https-jolieyang-github-io.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

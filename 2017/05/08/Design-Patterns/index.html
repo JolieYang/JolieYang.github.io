@@ -1,0 +1,829 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Design Patters," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="对象创建对象创建主要涉及到5个设计模式，分别为：原型，工厂方法，抽象工厂，生成器，单例。 原型(Prototype)模式 使用原型实例指定创建对象的种类，并通过复制这个原型创建新的对象—《设计模式》(Addison-Wesley)  初看原型感觉很陌生，但说到拷贝复制可能就比较熟悉了。原型指用于复制的对象，就像克隆人是以人为原型通过克隆创建了克隆人。 优点： 使用原型创建对象更方便且效率更高。就像">
+<meta name="keywords" content="Design Patters">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《Objective-C编程之道:iOS设计模式解析》">
+<meta property="og:url" content="https://jolieyang.github.io/2017/05/08/Design-Patterns/index.html">
+<meta property="og:site_name" content="JolieYang | Blog">
+<meta property="og:description" content="对象创建对象创建主要涉及到5个设计模式，分别为：原型，工厂方法，抽象工厂，生成器，单例。 原型(Prototype)模式 使用原型实例指定创建对象的种类，并通过复制这个原型创建新的对象—《设计模式》(Addison-Wesley)  初看原型感觉很陌生，但说到拷贝复制可能就比较熟悉了。原型指用于复制的对象，就像克隆人是以人为原型通过克隆创建了克隆人。 优点： 使用原型创建对象更方便且效率更高。就像">
+<meta property="og:updated_time" content="2017-05-09T06:57:52.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="《Objective-C编程之道:iOS设计模式解析》">
+<meta name="twitter:description" content="对象创建对象创建主要涉及到5个设计模式，分别为：原型，工厂方法，抽象工厂，生成器，单例。 原型(Prototype)模式 使用原型实例指定创建对象的种类，并通过复制这个原型创建新的对象—《设计模式》(Addison-Wesley)  初看原型感觉很陌生，但说到拷贝复制可能就比较熟悉了。原型指用于复制的对象，就像克隆人是以人为原型通过克隆创建了克隆人。 优点： 使用原型创建对象更方便且效率更高。就像">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://jolieyang.github.io/2017/05/08/Design-Patterns/"/>
+
+
+
+
+
+  <title>《Objective-C编程之道:iOS设计模式解析》 | JolieYang | Blog</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">JolieYang | Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://jolieyang.github.io/2017/05/08/Design-Patterns/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="JolieYang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JolieYang | Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                《Objective-C编程之道:iOS设计模式解析》
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-08T15:47:28+08:00">
+                2017-05-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/读书录/" itemprop="url" rel="index">
+                    <span itemprop="name">读书录</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/05/08/Design-Patterns/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/05/08/Design-Patterns/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="对象创建"><a href="#对象创建" class="headerlink" title="对象创建"></a>对象创建</h1><p>对象创建主要涉及到5个设计模式，分别为：原型，工厂方法，抽象工厂，生成器，单例。</p>
+<h2 id="原型-Prototype-模式"><a href="#原型-Prototype-模式" class="headerlink" title="原型(Prototype)模式"></a>原型(Prototype)模式</h2><blockquote>
+<p>使用原型实例指定创建对象的种类，并通过复制这个原型创建新的对象—《设计模式》(Addison-Wesley)</p>
+</blockquote>
+<p>初看原型感觉很陌生，但说到拷贝复制可能就比较熟悉了。原型指用于复制的对象，就像克隆人是以人为原型通过克隆创建了克隆人。</p>
+<p><strong>优点</strong>： 使用原型创建对象更方便且效率更高。就像印刷术，写一个字需要有很多的比划，如果通过印章则能快速的构建字。</p>
+<p><strong>CocoaTouch</strong>: 集合对象比如数组，字典等都支持原型模式，不过默认为浅拷贝。</p>
+<h3 id="深复制与浅复制"><a href="#深复制与浅复制" class="headerlink" title="深复制与浅复制"></a>深复制与浅复制</h3><p>深复制不仅复制原型指向的资源地址，还会复制原型的资源，也就是会在内存中开辟一块用于存储原型的资源。浅复制则只复制原型指向的资源地址。</p>
+<p>其中<a href="https://www.zybuluo.com/MicroCai/note/50592" target="_blank" rel="external">iOS 集合的深复制与浅复制</a>指出</p>
+<blockquote>
+<p>在非集合类对象中：对immutable对象进行copy操作，是指针复制，mutableCopy操作时内容复制；对mutable对象进行copy和mutableCopy都是内容复制。用代码简单表示如下：</p>
+<ul>
+<li>[immutableObject copy] // 浅复制</li>
+<li>[immutableObject mutableCopy] //深复制</li>
+<li>[mutableObject copy] //深复制</li>
+<li>[mutableObject mutableCopy] //深复制</li>
+</ul>
+</blockquote>
+<h3 id="深复制协议"><a href="#深复制协议" class="headerlink" title="深复制协议"></a>深复制协议</h3><p>Cocoa中给NSObject提供了NSCopying协议，让对象支持拷贝操作。通过实现NSCopying协议中的copyWithZone方法实现拷贝功能。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">- (id)copyWithZone:(NSZone *)zone &#123;</div><div class="line">  Person *person = [[[self class] allocWithZone:zone] init];</div><div class="line">  person.name = self.name;</div><div class="line">  person.nick = self.nick;</div><div class="line">  person._age = _age;</div><div class="line">  </div><div class="line">  return person;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="工厂方法"><a href="#工厂方法" class="headerlink" title="工厂方法"></a>工厂方法</h2><blockquote>
+<p>定义创建对象的接口，让子类决定实例化哪一个类。工厂方法使得一个类的实例化延迟到其子类。—《设计模式》(Addison-Wesley)</p>
+</blockquote>
+<p>特点: 一个工厂对应一个产品，通过工厂生产产品(创建对象)。灵活，相比于抽象工厂更符合开放封闭原则。但会产生过多的类，一个产品对应一个工厂，在OC中相当于每一个产品的创建会多出2个文件。</p>
+<h3 id="核心代码"><a href="#核心代码" class="headerlink" title="核心代码"></a>核心代码</h3><p>一个产品(PaperCanvasView)对应一个工厂(papaerCanvasViewGenerator)。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">// CanvasViewGenerator.h</div><div class="line">- (CanvasView *)canvasViewWithFrame:(CGRect)aFrame;</div><div class="line">// CanvasViewGenerator.m</div><div class="line">- (CanvasView *)canvasViewWithFrame:(CGRect)aFrame &#123;</div><div class="line">  return [[CanvasView alloc] initWithFrame: aFrame];</div><div class="line">&#125;</div><div class="line">// PaperCanvasViewGenerator.m</div><div class="line">- (CanvasView *)canvasViewWithFrame:(CGRect)aFrame &#123;</div><div class="line">  return [[PaperCanvaseView alloc] initWithFrame: aFrame];</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 使用</div><div class="line">- (void)loadCanvasViewWithGenerator:(CanvasViewGenerator *)generator &#123;</div><div class="line">  CanvasView *canvasView = [generator canvasViewWithFrame: aFrame];</div><div class="line">  // ....</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="抽象工厂"><a href="#抽象工厂" class="headerlink" title="抽象工厂"></a>抽象工厂</h2><blockquote>
+<p>提供一个创建一系列相关或相互依赖对象的接口，而无需指定它们具体的类。—《设计模式》(Addison-Wesley)</p>
+</blockquote>
+<p>相比于工厂方法，抽象工厂不单单对应一个产品，可以通过组合的方式对应多个产品。例如小黄堡套餐，套餐里有一个小黄堡，一份薯条，一杯小可。由这三个产品组合形成小黄堡套餐。假设还有豪华大黄堡套餐，套餐里包括一个大黄堡，一份大薯，一杯大可。通过组合就可以形成套餐，但抽象工厂里如果要在套餐里添加一个产品就相对复杂。比如在套餐中添加一份鸡翅，则需在这个系列的所有套餐中都需要添加一份鸡翅。也就是需要修改多个类，从而添加一个产品，违反了开闭原则。</p>
+<p>适用场景： 适用于组合结构不易变更的情况下，需切换系列产品的时候。比如网易云音乐有主题换肤这一功能，换肤包括导航栏颜色，图标颜色等。通过抽象工厂则很方便的切换主题颜色。</p>
+<h3 id="核心代码-1"><a href="#核心代码-1" class="headerlink" title="核心代码"></a>核心代码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">// BrandingFactory.h</div><div class="line">+ (BrandingFactory *)factory;</div><div class="line">- (UIView *)brandedView;</div><div class="line">- (UIButton *)brandedbutton;</div><div class="line">// BrandingFactory.m</div><div class="line">+ (BrandingFactory *)factory &#123;</div><div class="line">  if ([[self class] isSubClass: [AcmeBrandingFactory class]]) &#123;</div><div class="line">    return [[AcmeBrandingFactory alloc] init];</div><div class="line">  &#125; else if () &#123;</div><div class="line">    </div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">// AcmeBrandingFactory.m</div><div class="line">- (UIView *)brandedView &#123;</div><div class="line">  return [[AcmeView alloc] init];</div><div class="line">&#125;</div><div class="line">- (UIButton *)brandedbutton &#123;</div><div class="line">  return [[AcmeButton alloc] init];</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 使用</div><div class="line">BrandingFactory *factory = [BrandingFactory factory];</div><div class="line">UIView *view = [factory brandedView];</div><div class="line">UIButton *button = [factory brandedButton];</div></pre></td></tr></table></figure>
+<h2 id="生成器"><a href="#生成器" class="headerlink" title="生成器"></a>生成器</h2><blockquote>
+<p>将一个复杂对象的构建与它的表现分离，使得同样的构建过程可以创建不同的表现。—《设计模式》(Addison-Wesley)</p>
+</blockquote>
+<p>将复杂对象的构建分解为客户-指导者-生成器，使得对象的创建更易于管理与复用。</p>
+<p>核心代码,其中CharacterBuilder是生成器，ChasingGame是指导者，通过指导者的方法创建不同的复杂对象，其中方法是通过生成器构建对象。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">CharacterBuilder *characterBuilder = [[StandarCharacterBuilder alloc] init];</div><div class="line">ChasingGame *game = [[ChasingGame alloc] init];</div><div class="line"></div><div class="line">Character *player = [chasingGame createPlayer:characterBuilder];</div><div class="line">Character *enemy = [chasingGame createEnemy:characterBuilder];</div></pre></td></tr></table></figure>
+<p>其中生成器中有客户的实例，<code>CharacterBuilder</code>生成器中提供方法对客户进行特征的设置逻辑，<code>StandarCharacterBuilder</code>继承<code>CharacterBuilder</code>则根据相关特征的角色定制具体的特征逻辑。<code>ChasingGame</code>则通过生成器<code>CharacterBuilder</code>构建具体角色，为具体角色做特征的配置。</p>
+<h2 id="单例"><a href="#单例" class="headerlink" title="单例"></a>单例</h2><blockquote>
+<p>保证一个类仅有一个实例，并提供一个访问它的全局访问点。—《设计模式》(Addison-Wesley)</p>
+</blockquote>
+<p>这个模式相对常用，比如<code>UIApplication</code>通过sharedApplication获取的实例，应用中有且只有一个UIApplication实例。</p>
+<h3 id="单例声明"><a href="#单例声明" class="headerlink" title="单例声明"></a>单例声明</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">@implementation Singleton</div><div class="line">static id sharedSingleton = nil;</div><div class="line">+ (id)allocWithZone:(struct _NSZone *)zone &#123;</div><div class="line">    if (!sharedSingleton) &#123;</div><div class="line">        static dispatch_once_t onceToken;</div><div class="line">        dispatch_once(&amp;onceToken, ^&#123;</div><div class="line">            sharedSingleton = [super allocWithZone:zone];</div><div class="line">        &#125;);</div><div class="line">    &#125;</div><div class="line">    return sharedSingleton;</div><div class="line">&#125;</div><div class="line">- (id)init &#123;</div><div class="line">    static dispatch_once_t onceToken;</div><div class="line">    dispatch_once(&amp;onceToken, ^&#123;</div><div class="line">        sharedSingleton = [super init];</div><div class="line">    &#125;);</div><div class="line">    return sharedSingleton;</div><div class="line">&#125;</div><div class="line">+ (instancetype)sharedInstance &#123;</div><div class="line">    return [[self alloc] init];</div><div class="line">&#125;</div><div class="line">+ (id)copyWithZone:(struct _NSZone *)zone &#123;</div><div class="line">    return sharedSingleton;</div><div class="line">&#125;</div><div class="line">+ (id)mutableCopyWithZone:(struct _NSZone *)zone &#123;</div><div class="line">    return sharedSingleton;</div><div class="line">&#125;</div><div class="line">@end</div></pre></td></tr></table></figure>
+<p>需要注意的是，如果单例是在多线程环境下访问，则需考虑线程安全的问题，因而需在判断<code>sharedSingleton</code>是否为nil时，添加互斥锁，以防有两个线程同时访问该实例，且该实例都为nil，则可能会造成两个线程都去创建。</p>
+<h1 id="接口适应"><a href="#接口适应" class="headerlink" title="接口适应"></a>接口适应</h1><h2 id="适配器"><a href="#适配器" class="headerlink" title="适配器"></a>适配器</h2><blockquote>
+<p>将一个类的接口转换成客户希望的另一个接口。适配器模式使得原本由于接口不兼容而不能一起工作的那些类可以一起工作。—《设计模式》(Addison-Wesley)</p>
+</blockquote>
+<p>OC实现适配器分为两种： 类适配器与对象适配器。该模式中由3个角色组成：Target目标接口，Adaptee被适配者与Adapter适配器。将被适配者转换为客户希望的目标接口。适配器模式就是使得原本由于目标接口与被适配者接口不兼容而不能一起工作的类可以一起工作。</p>
+<h3 id="适用场景"><a href="#适用场景" class="headerlink" title="适用场景"></a>适用场景</h3><p>让视图更加强大，可以适配不同的数据，降低耦合性。在遗留代码复用，类库迁移方面使用。</p>
+<h3 id="对象适配器"><a href="#对象适配器" class="headerlink" title="对象适配器"></a>对象适配器</h3><p>对象适配器则是通过组合对被适配者的引用，遵循目标接口协议，实现协议中的方法通过调用被适配者引用调用相应的方法。</p>
+<h3 id="类适配器"><a href="#类适配器" class="headerlink" title="类适配器"></a>类适配器</h3><p>通过适配器继承被适配者，适配器通过重载目标接口，调用超类的相应方法。该方法采用的是多继承的方式，但OC中没有多重继承，目标接口只有为协议时才能用适配器实现。所以一般不推荐使用。</p>
+<h3 id="范例"><a href="#范例" class="headerlink" title="范例"></a>范例</h3><p>Cocoa Touch中的Delegate模式主要是适配器模式， 其中委托协议是Target,实现该协议的类是Adapter，例如VC中实现协议， 而被适配者则是应用程序中的其他类。</p>
+<p>其中田伟宇在这篇文章<a href="https://casatwy.com/iosying-yong-jia-gou-tan-wang-luo-ceng-she-ji-fang-an.html" target="_blank" rel="external">iOS应用架构谈  网络层设计方案</a>中就是通过应用该模式交付数据给业务层：</p>
+<h2 id="桥接"><a href="#桥接" class="headerlink" title="桥接"></a>桥接</h2><blockquote>
+<p>—《设计模式》(Addison-Wesley)</p>
+</blockquote>
+<h2 id="外观"><a href="#外观" class="headerlink" title="外观"></a>外观</h2><blockquote>
+<p>—《设计模式》(Addison-Wesley)</p>
+</blockquote>
+<h1 id="对象去耦合"><a href="#对象去耦合" class="headerlink" title="对象去耦合"></a>对象去耦合</h1><blockquote>
+<p>—《设计模式》(Addison-Wesley)</p>
+</blockquote>
+<p>待补</p>
+<h1 id="抽象集合"><a href="#抽象集合" class="headerlink" title="抽象集合"></a>抽象集合</h1><p>待补</p>
+<h1 id="行为扩展"><a href="#行为扩展" class="headerlink" title="行为扩展"></a>行为扩展</h1><p>待补</p>
+<h1 id="算法封装"><a href="#算法封装" class="headerlink" title="算法封装"></a>算法封装</h1><p>待补</p>
+<h1 id="性能与对象访问"><a href="#性能与对象访问" class="headerlink" title="性能与对象访问"></a>性能与对象访问</h1><p>待补</p>
+<h1 id="对象状态"><a href="#对象状态" class="headerlink" title="对象状态"></a>对象状态</h1><p>待补</p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://www.zybuluo.com/MicroCai/note/50592" target="_blank" rel="external">iOS 集合的深复制与浅复制</a></p>
+<p><a href="http://www.jianshu.com/p/6b302c7fe987#" target="_blank" rel="external">iOS 中的 21 种设计模式</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Design-Patters/" rel="tag"># Design Patters</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/05/02/change-to-hexo/" rel="next" title="Hexo搭建博客">
+                <i class="fa fa-chevron-left"></i> Hexo搭建博客
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/05/10/Carthage/" rel="prev" title="Carthage的那些事儿">
+                Carthage的那些事儿 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="JolieYang" />
+          <p class="site-author-name" itemprop="name">JolieYang</p>
+           
+              <p class="site-description motion-element" itemprop="description">最好的种树时间是十年前，其次是现在。永远不会太迟，除非你已经放弃了。</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/jolieyang" target="_blank" title="Github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Github
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#对象创建"><span class="nav-number">1.</span> <span class="nav-text">对象创建</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#原型-Prototype-模式"><span class="nav-number">1.1.</span> <span class="nav-text">原型(Prototype)模式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#深复制与浅复制"><span class="nav-number">1.1.1.</span> <span class="nav-text">深复制与浅复制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#深复制协议"><span class="nav-number">1.1.2.</span> <span class="nav-text">深复制协议</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#工厂方法"><span class="nav-number">1.2.</span> <span class="nav-text">工厂方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#核心代码"><span class="nav-number">1.2.1.</span> <span class="nav-text">核心代码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#抽象工厂"><span class="nav-number">1.3.</span> <span class="nav-text">抽象工厂</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#核心代码-1"><span class="nav-number">1.3.1.</span> <span class="nav-text">核心代码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#生成器"><span class="nav-number">1.4.</span> <span class="nav-text">生成器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#单例"><span class="nav-number">1.5.</span> <span class="nav-text">单例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#单例声明"><span class="nav-number">1.5.1.</span> <span class="nav-text">单例声明</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#接口适应"><span class="nav-number">2.</span> <span class="nav-text">接口适应</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#适配器"><span class="nav-number">2.1.</span> <span class="nav-text">适配器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#适用场景"><span class="nav-number">2.1.1.</span> <span class="nav-text">适用场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对象适配器"><span class="nav-number">2.1.2.</span> <span class="nav-text">对象适配器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类适配器"><span class="nav-number">2.1.3.</span> <span class="nav-text">类适配器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#范例"><span class="nav-number">2.1.4.</span> <span class="nav-text">范例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#桥接"><span class="nav-number">2.2.</span> <span class="nav-text">桥接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#外观"><span class="nav-number">2.3.</span> <span class="nav-text">外观</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#对象去耦合"><span class="nav-number">3.</span> <span class="nav-text">对象去耦合</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#抽象集合"><span class="nav-number">4.</span> <span class="nav-text">抽象集合</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#行为扩展"><span class="nav-number">5.</span> <span class="nav-text">行为扩展</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#算法封装"><span class="nav-number">6.</span> <span class="nav-text">算法封装</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#性能与对象访问"><span class="nav-number">7.</span> <span class="nav-text">性能与对象访问</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#对象状态"><span class="nav-number">8.</span> <span class="nav-text">对象状态</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考资料"><span class="nav-number">9.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">JolieYang</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://https-jolieyang-github-io.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://jolieyang.github.io/2017/05/08/Design-Patterns/';
+          this.page.identifier = '2017/05/08/Design-Patterns/';
+          this.page.title = '《Objective-C编程之道:iOS设计模式解析》';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://https-jolieyang-github-io.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

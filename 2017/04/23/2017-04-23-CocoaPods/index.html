@@ -96,7 +96,7 @@
 <meta property="og:url" content="https://jolieyang.github.io/2017/04/23/2017-04-23-CocoaPods/index.html">
 <meta property="og:site_name" content="JolieYang | Blog">
 <meta property="og:description" content="其实就是介绍下CocoaPods的基本使用跟安装。 CocoaPods官网： https://cocoapods.org/  4th,Feb,2017 使用CocoaPods 在项目文件夹下也就是与.xcodeproj同一层级新建Podfile文件 Podfile内容格式如下： 12345678910// 以项目名称为a为例子platform :ios, &amp;apos;7.0&amp;apos;// opt">
-<meta property="og:updated_time" content="2017-05-03T08:42:44.000Z">
+<meta property="og:updated_time" content="2017-05-10T08:45:02.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CocoaPods的那些事儿">
 <meta name="twitter:description" content="其实就是介绍下CocoaPods的基本使用跟安装。 CocoaPods官网： https://cocoapods.org/  4th,Feb,2017 使用CocoaPods 在项目文件夹下也就是与.xcodeproj同一层级新建Podfile文件 Podfile内容格式如下： 12345678910// 以项目名称为a为例子platform :ios, &amp;apos;7.0&amp;apos;// opt">
@@ -299,6 +299,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Tool/" itemprop="url" rel="index">
+                    <span itemprop="name">Tool</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -316,17 +338,6 @@
           
 
           
-          
-             <span id="/2017/04/23/2017-04-23-CocoaPods/" class="leancloud_visitors" data-flag-title="CocoaPods的那些事儿">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
           
 
           
@@ -378,7 +389,7 @@
 <h3 id="安装ruby"><a href="#安装ruby" class="headerlink" title="安装ruby"></a>安装ruby</h3><p>安装步骤:</p>
 <ol>
 <li><code>$ rvm list known</code> // 查看已知的ruby版本</li>
-<li><code>$ rvm install 2.3.0</code> // 需要等待一会儿<br> ​</li>
+<li><code>$ rvm install 2.3.0</code> // 需要等待一会儿<br>  ​</li>
 </ol>
 <p>其他命令</p>
 <p><code>$ rvm list</code> //查看已安装的版本<br><code>$ rvm remove 2.0.0</code> // 卸装一个已安装版本<br><code>$ rvm use 2.3.0 --default</code> // 设置默认版本</p>
@@ -394,6 +405,7 @@
 <h2 id="创建私有库"><a href="#创建私有库" class="headerlink" title="创建私有库"></a>创建私有库</h2><p>今天翻崔江涛的博客，发现更了一篇Cocoapods创建私有库的文章，先存着有需要再看.<br><a href="http://blog.csdn.net/kenshincui/article/details/54020810" target="_blank" rel="external">Cocoapods私有仓库创建 </a></p>
 <hr>
 <h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="http://www.07net01.com/2015/09/933234.html" target="_blank" rel="external">如何在Mac 终端升级ruby版本</a><br><a href="http://blog.csdn.net/fairytale_1/article/details/51850734" target="_blank" rel="external"> 关于安装cocoapods遇到的一些坑（ERROR: Error installing cocoapods: activesupport requires Ruby version &gt;= 2.2）</a></p>
+<p><a href="http://www.samirchen.com/about-podfile-lock/" target="_blank" rel="external">关于 Podfile.lock 带来的痛</a></p>
 
       
     </div>
@@ -521,7 +533,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -776,113 +788,6 @@
 
 
   
-
-  
-  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
-  <script>AV.initialize("PhuhycGIq0iL37M2LRCHQKzy-gzGzoHsz", "QVhB84rnqQm8pn4fuq6U07Hr");</script>
-  <script>
-    function showTime(Counter) {
-      var query = new AV.Query(Counter);
-      var entries = [];
-      var $visitors = $(".leancloud_visitors");
-
-      $visitors.each(function () {
-        entries.push( $(this).attr("id").trim() );
-      });
-
-      query.containedIn('url', entries);
-      query.find()
-        .done(function (results) {
-          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
-
-          if (results.length === 0) {
-            $visitors.find(COUNT_CONTAINER_REF).text(0);
-            return;
-          }
-
-          for (var i = 0; i < results.length; i++) {
-            var item = results[i];
-            var url = item.get('url');
-            var time = item.get('time');
-            var element = document.getElementById(url);
-
-            $(element).find(COUNT_CONTAINER_REF).text(time);
-          }
-          for(var i = 0; i < entries.length; i++) {
-            var url = entries[i];
-            var element = document.getElementById(url);
-            var countSpan = $(element).find(COUNT_CONTAINER_REF);
-            if( countSpan.text() == '') {
-              countSpan.text(0);
-            }
-          }
-        })
-        .fail(function (object, error) {
-          console.log("Error: " + error.code + " " + error.message);
-        });
-    }
-
-    function addCount(Counter) {
-      var $visitors = $(".leancloud_visitors");
-      var url = $visitors.attr('id').trim();
-      var title = $visitors.attr('data-flag-title').trim();
-      var query = new AV.Query(Counter);
-
-      query.equalTo("url", url);
-      query.find({
-        success: function(results) {
-          if (results.length > 0) {
-            var counter = results[0];
-            counter.fetchWhenSave(true);
-            counter.increment("time");
-            counter.save(null, {
-              success: function(counter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(counter.get('time'));
-              },
-              error: function(counter, error) {
-                console.log('Failed to save Visitor num, with error message: ' + error.message);
-              }
-            });
-          } else {
-            var newcounter = new Counter();
-            /* Set ACL */
-            var acl = new AV.ACL();
-            acl.setPublicReadAccess(true);
-            acl.setPublicWriteAccess(true);
-            newcounter.setACL(acl);
-            /* End Set ACL */
-            newcounter.set("title", title);
-            newcounter.set("url", url);
-            newcounter.set("time", 1);
-            newcounter.save(null, {
-              success: function(newcounter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
-              },
-              error: function(newcounter, error) {
-                console.log('Failed to create');
-              }
-            });
-          }
-        },
-        error: function(error) {
-          console.log('Error:' + error.code + " " + error.message);
-        }
-      });
-    }
-
-    $(function() {
-      var Counter = AV.Object.extend("Counter");
-      if ($('.leancloud_visitors').length == 1) {
-        addCount(Counter);
-      } else if ($('.post-title-link').length > 1) {
-        showTime(Counter);
-      }
-    });
-  </script>
-
-
 
   
 

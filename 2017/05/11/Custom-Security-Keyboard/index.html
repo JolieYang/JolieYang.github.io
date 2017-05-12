@@ -90,16 +90,16 @@
 
 
 
-<meta name="description" content="自定义键盘通过自定义inputView和inputAccessoryView属性。 [待补] 自定义视图使用键盘官方文档:Custom Views for Data Input [待补] QuickType键盘Apple-iOS8-QuickType QuickType是苹果于iOS8推出的新特性，也是从iOS8开始苹果开始支持第三方输入法，当然这是题外话。 文本输入预测(Predictive I">
+<meta name="description" content="原生键盘键盘通知显示或隐藏键盘时，系统会发送以下4个通知:  UIKeyboardWillShowNotification// 即将显示键盘 UIKeyboardDidShowNotification// 已显示键盘 UIKeyboardWillHideNotification// 即将隐藏键盘 UIKeyboardDidHideNotification// 已隐藏键盘  通知中包括键盘的大小跟位">
 <meta property="og:type" content="article">
 <meta property="og:title" content="自定义安全键盘">
 <meta property="og:url" content="https://jolieyang.github.io/2017/05/11/Custom-Security-Keyboard/index.html">
 <meta property="og:site_name" content="JolieYang | Blog">
-<meta property="og:description" content="自定义键盘通过自定义inputView和inputAccessoryView属性。 [待补] 自定义视图使用键盘官方文档:Custom Views for Data Input [待补] QuickType键盘Apple-iOS8-QuickType QuickType是苹果于iOS8推出的新特性，也是从iOS8开始苹果开始支持第三方输入法，当然这是题外话。 文本输入预测(Predictive I">
-<meta property="og:updated_time" content="2017-05-11T09:03:56.000Z">
+<meta property="og:description" content="原生键盘键盘通知显示或隐藏键盘时，系统会发送以下4个通知:  UIKeyboardWillShowNotification// 即将显示键盘 UIKeyboardDidShowNotification// 已显示键盘 UIKeyboardWillHideNotification// 即将隐藏键盘 UIKeyboardDidHideNotification// 已隐藏键盘  通知中包括键盘的大小跟位">
+<meta property="og:updated_time" content="2017-05-12T05:58:06.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="自定义安全键盘">
-<meta name="twitter:description" content="自定义键盘通过自定义inputView和inputAccessoryView属性。 [待补] 自定义视图使用键盘官方文档:Custom Views for Data Input [待补] QuickType键盘Apple-iOS8-QuickType QuickType是苹果于iOS8推出的新特性，也是从iOS8开始苹果开始支持第三方输入法，当然这是题外话。 文本输入预测(Predictive I">
+<meta name="twitter:description" content="原生键盘键盘通知显示或隐藏键盘时，系统会发送以下4个通知:  UIKeyboardWillShowNotification// 即将显示键盘 UIKeyboardDidShowNotification// 已显示键盘 UIKeyboardWillHideNotification// 即将隐藏键盘 UIKeyboardDidHideNotification// 已隐藏键盘  通知中包括键盘的大小跟位">
 
 
 
@@ -334,29 +334,41 @@
       
 
       
-        <h2 id="自定义键盘"><a href="#自定义键盘" class="headerlink" title="自定义键盘"></a>自定义键盘</h2><p>通过自定义inputView和inputAccessoryView属性。</p>
+        <h2 id="原生键盘"><a href="#原生键盘" class="headerlink" title="原生键盘"></a>原生键盘</h2><h3 id="键盘通知"><a href="#键盘通知" class="headerlink" title="键盘通知"></a>键盘通知</h3><p>显示或隐藏键盘时，系统会发送以下4个通知:</p>
+<ul>
+<li><code>UIKeyboardWillShowNotification</code>// 即将显示键盘</li>
+<li><code>UIKeyboardDidShowNotification</code>// 已显示键盘</li>
+<li><code>UIKeyboardWillHideNotification</code>// 即将隐藏键盘</li>
+<li><code>UIKeyboardDidHideNotification</code>// 已隐藏键盘</li>
+</ul>
+<p>通知中包括键盘的大小跟位置信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">// from 苹果提供的demo-- KeyboardAccessory</div><div class="line">- (void)keyboardWillShow:(NSNotification *)notification &#123;</div><div class="line">    NSDictionary *userInfo = [notification userInfo];</div><div class="line">    </div><div class="line">    // 位置信息</div><div class="line">	NSValue *keyboardFrameVal = [userInfo objectForKey:UIKeyboardFrameEndUserInfoKey];</div><div class="line">	CGRect keyboardFrame = [keyboardFrameVal CGRectValue];</div><div class="line">    // ...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>其中 <code>UIKeyboardFrameBeginUserInfoKey</code> and <code>UIKeyboardFrameEndUserInfoKey</code> 通知可以获取键盘的开始位置和结束位置。<code>UIKeyboardAnimationCurveUserInfoKey</code>和<code>UIKeyboardAnimationDurationUserInfoKey</code>用来获取动画类型与执行动画所用的时间。其中iOS9还添加了<code>UIKeyboardIsLocalUserInfoKey</code>通知，主要是考虑到iPad分屏功能(multitasking)会导致所有可见的应用在键盘弹出和隐藏时都会收到通知，通过该通知判断是否为本应用导致系统发送键盘通知。</p>
+<h2 id="自定义键盘"><a href="#自定义键盘" class="headerlink" title="自定义键盘"></a>自定义键盘</h2><p>通过自定义inputView和inputAccessoryView属性。</p>
 <p>[待补]</p>
 <h2 id="自定义视图使用键盘"><a href="#自定义视图使用键盘" class="headerlink" title="自定义视图使用键盘"></a>自定义视图使用键盘</h2><p>官方文档:<a href="https://developer.apple.com/library/content/documentation/StringsTextFonts/Conceptual/TextAndWebiPhoneOS/InputViews/InputViews.html#//apple_ref/doc/uid/TP40009542-CH12-SW2" target="_blank" rel="external">Custom Views for Data Input</a></p>
 <p>[待补]</p>
-<h2 id="QuickType键盘"><a href="#QuickType键盘" class="headerlink" title="QuickType键盘"></a>QuickType键盘</h2><p><a href="https://www.apple.com/my/ios/whats-new/quicktype/" target="_blank" rel="external">Apple-iOS8-QuickType</a> QuickType是苹果于iOS8推出的新特性，也是从iOS8开始苹果开始支持第三方输入法，当然这是题外话。</p>
-<h3 id="文本输入预测-Predictive-Input"><a href="#文本输入预测-Predictive-Input" class="headerlink" title="文本输入预测(Predictive Input)"></a>文本输入预测(Predictive Input)</h3><p>支持该特性的语言列表：<a href="https://www.apple.com/cn/ios/feature-availability/#quickType-keyboard-predictive-input" target="_blank" rel="external">QuickType 键盘:  文本输入预测</a>, 包括简体中文和繁体中文。</p>
-<p>在输入时键盘上方有一快捷栏显示你可能会输入的单词或句子。并且它会分析以往的输入数据(以往的对话和书写风格)显示你可能使用的字词。输入预测特性会学习你的交流方式，获取你经常使用的词汇以及可能会使用的下一个字词。</p>
-<p>该功能用户可以在“设置-通用-键盘-输入预测“进行启用或者移除。</p>
-<h2 id="安全隐患"><a href="#安全隐患" class="headerlink" title="安全隐患"></a>安全隐患</h2><p>念茜在这篇文章<a href="http://www.voidcn.com/blog/yiyaaixuexi/article/p-379581.html" target="_blank" rel="external">iOS安全攻防（八）：键盘缓存与安全键盘—念茜</a>中指出键盘缓存导致的安全问题。</p>
+<h2 id="安全隐患"><a href="#安全隐患" class="headerlink" title="安全隐患"></a>安全隐患</h2><p>主要有两个：</p>
+<p>1.键盘输入缓存(包括敏感信息)可能被第三方应用读取—&gt;解决方案:自定义键盘。</p>
+<p>2.原生键盘有按键效果，屏幕录制会泄露敏感信息—&gt;解决方案: 自定义键盘的按键不要有点击效果。</p>
+<p>接下来主要介绍下键盘输入缓存导致的安全隐患。其中包括自动更正特性和输入预测特性，使得系统会缓存输入记录。</p>
+<h3 id="自动更正"><a href="#自动更正" class="headerlink" title="自动更正"></a>自动更正</h3><p>念茜在这篇文章<a href="http://www.voidcn.com/blog/yiyaaixuexi/article/p-379581.html" target="_blank" rel="external">iOS安全攻防（八）：键盘缓存与安全键盘—念茜</a>中指出键盘缓存导致的安全问题。</p>
 <blockquote>
 <p>使用简体中文输入法键盘，输入英文字符和数字字符的用户名和密码，会自动启动系统输入法自动更正提示，然后用户的输入纪录会被缓存下来。</p>
 <p><strong>系统键盘缓存</strong>最方便拿到的就是利用系统输入法自动更正的字符串输入记录。</p>
 <p>缓存文件的地址是：/private/var/mobile/Library/Keyboard/dynamic-text.dat</p>
 <p>—念茜</p>
 </blockquote>
+<p>网上搜索到的资料是说模拟器中的键盘缓存地址:~<code>/Library/Application Support/iPhone Simulator/User/Library/Keyboard/dynamic-text.dat</code>，但是并没有找到该地址下的相应文件。只在该目录下 ~/Library/Keyboard/en-dynamic.lm 找到类似的文件。</p>
 <p>同样，<a href="http://www.jianshu.com/p/31f53d63c3f1" target="_blank" rel="external">iOS 开发安全那些事儿</a>也指出输入自动更正机制会缓存键盘输入数据</p>
 <blockquote>
 <p>键盘的自动更正机制会缓存用户的输入，如果在一台越狱设备上的话很可能被第三方应用轻易地读取到缓存中的数据。</p>
 <p>简单来说我们可以把UITextfield的autocorrectionType属性设置为No来关掉这个功能。在一些安全性要求较高的应用当中通常会自定义键盘，这样可以防止缓存被第三方应用读取到也能够防止被录屏（系统键盘按下有效果）。</p>
 </blockquote>
-<p>我的问题是难道只有自动更正机制会缓存键盘输入数据，输入预测特性难道不会吗? </p>
-<p>网上搜索到的资料是说模拟器中的键盘缓存地址:~<code>/Library/Application Support/iPhone Simulator/User/Library/Keyboard/dynamic-text.dat</code>，但是并没有找到该地址下的相应文件。只在该目录下 ~/Library/Keyboard/en-dynamic.lm 找到类似的文件。</p>
-<p><a href="https://support.apple.com/zh-cn/HT207143" target="_blank" rel="external">关于 iOS 10 的安全性内容</a> 介绍了iOS10的安全改进，其中包括对键盘的输入缓存导致的安全问题。</p>
+<h3 id="输入预测-Predictive-Input"><a href="#输入预测-Predictive-Input" class="headerlink" title="输入预测(Predictive Input)"></a>输入预测(Predictive Input)</h3><p><a href="https://www.apple.com/my/ios/whats-new/quicktype/" target="_blank" rel="external">Apple-iOS8-QuickType</a> QuickType是苹果于iOS8推出的新特性，该特性支持文本输入预测，语境预测和表情符号预测。也是从iOS8开始苹果开始支持第三方输入法，当然这是题外话。</p>
+<p>以文本输入预测为例，在输入时键盘上方有一快捷栏显示你可能会输入的单词或句子。并且它会分析以往的输入数据(以往的对话和书写风格)显示你可能使用的字词。输入预测特性会学习你的交流方式，获取你经常使用的词汇以及可能会使用的下一个字词。相应的该特性导致系统会缓存输入数据，iOS10以前是包括敏感信息的，从而埋下安全隐患。</p>
+<p>该功能用户可以在“设置-通用-键盘-输入预测“进行启用或者移除。支持该特性的语言列表：<a href="https://www.apple.com/cn/ios/feature-availability/#quickType-keyboard-predictive-input" target="_blank" rel="external">QuickType 键盘:  文本输入预测</a>, 包括简体中文和繁体中文。</p>
+<h3 id="iOS10输入缓存安全改进"><a href="#iOS10输入缓存安全改进" class="headerlink" title="iOS10输入缓存安全改进"></a>iOS10输入缓存安全改进</h3><p><a href="https://support.apple.com/zh-cn/HT207143" target="_blank" rel="external">关于 iOS 10 的安全性内容</a> 介绍了iOS10的安全改进，其中包括对键盘的输入缓存导致的安全问题。</p>
 <blockquote>
 <p><strong>键盘</strong></p>
 <p>适用于：iPhone 5 及更新机型、iPad 第 4 代及更新机型、iPod touch 第 6 代及更新机型</p>
@@ -364,7 +376,9 @@
 <p>说明：iOS 键盘意外缓存了敏感信息。这个问题已通过改进启发法得到解决。</p>
 <p>CVE-2016-4746：法国的 Antoine M</p>
 </blockquote>
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="http://stackoverflow.com/questions/1955010/iphone-keyboard-security" target="_blank" rel="external">iPhone keyboard security–stackoverflow</a></p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="https://developer.apple.com/library/content/documentation/StringsTextFonts/Conceptual/TextAndWebiPhoneOS/KeyboardManagement/KeyboardManagement.html#//apple_ref/doc/uid/TP40009542-CH5-SW3" target="_blank" rel="external">Text Programming Guide for iOS</a></p>
+<p><a href="https://developer.apple.com/library/content/documentation/StringsTextFonts/Conceptual/TextAndWebiPhoneOS/InputViews/InputViews.html#//apple_ref/doc/uid/TP40009542-CH12-SW2" target="_blank" rel="external">Custom Views for Data Input</a></p>
+<p><a href="http://stackoverflow.com/questions/1955010/iphone-keyboard-security" target="_blank" rel="external">iPhone keyboard security–stackoverflow</a></p>
 <p><a href="http://www.voidcn.com/blog/yiyaaixuexi/article/p-379581.html" target="_blank" rel="external">iOS安全攻防（八）：键盘缓存与安全键盘—念茜</a></p>
 
       
@@ -566,7 +580,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义键盘"><span class="nav-number">1.</span> <span class="nav-text">自定义键盘</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义视图使用键盘"><span class="nav-number">2.</span> <span class="nav-text">自定义视图使用键盘</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#QuickType键盘"><span class="nav-number">3.</span> <span class="nav-text">QuickType键盘</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#文本输入预测-Predictive-Input"><span class="nav-number">3.1.</span> <span class="nav-text">文本输入预测(Predictive Input)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安全隐患"><span class="nav-number">4.</span> <span class="nav-text">安全隐患</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">5.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#原生键盘"><span class="nav-number">1.</span> <span class="nav-text">原生键盘</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#键盘通知"><span class="nav-number">1.1.</span> <span class="nav-text">键盘通知</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义键盘"><span class="nav-number">2.</span> <span class="nav-text">自定义键盘</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义视图使用键盘"><span class="nav-number">3.</span> <span class="nav-text">自定义视图使用键盘</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安全隐患"><span class="nav-number">4.</span> <span class="nav-text">安全隐患</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#自动更正"><span class="nav-number">4.1.</span> <span class="nav-text">自动更正</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输入预测-Predictive-Input"><span class="nav-number">4.2.</span> <span class="nav-text">输入预测(Predictive Input)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#iOS10输入缓存安全改进"><span class="nav-number">4.3.</span> <span class="nav-text">iOS10输入缓存安全改进</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">5.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
             
 
           </div>

@@ -90,16 +90,16 @@
 
 
 
-<meta name="description" content="原生键盘键盘通知显示或隐藏键盘时，系统会发送以下4个通知:  UIKeyboardWillShowNotification// 即将显示键盘 UIKeyboardDidShowNotification// 已显示键盘 UIKeyboardWillHideNotification// 即将隐藏键盘 UIKeyboardDidHideNotification// 已隐藏键盘  通知中包括键盘的大小跟位">
+<meta name="description" content="原生键盘基本介绍原生支持输入的控件有UITextField,UITextView,UISearchBar。控件之间有一些细微的区别，这里就不再一一介绍，只要以UITextField为例介绍下原生具备输入源控件使用键盘的相关知识。 键盘通知显示或隐藏键盘时，系统会发送以下4个通知:  UIKeyboardWillShowNotification// 即将显示键盘 UIKeyboardDidShowN">
 <meta property="og:type" content="article">
 <meta property="og:title" content="自定义安全键盘">
 <meta property="og:url" content="https://jolieyang.github.io/2017/05/11/Custom-Security-Keyboard/index.html">
 <meta property="og:site_name" content="JolieYang | Blog">
-<meta property="og:description" content="原生键盘键盘通知显示或隐藏键盘时，系统会发送以下4个通知:  UIKeyboardWillShowNotification// 即将显示键盘 UIKeyboardDidShowNotification// 已显示键盘 UIKeyboardWillHideNotification// 即将隐藏键盘 UIKeyboardDidHideNotification// 已隐藏键盘  通知中包括键盘的大小跟位">
-<meta property="og:updated_time" content="2017-05-12T05:58:06.000Z">
+<meta property="og:description" content="原生键盘基本介绍原生支持输入的控件有UITextField,UITextView,UISearchBar。控件之间有一些细微的区别，这里就不再一一介绍，只要以UITextField为例介绍下原生具备输入源控件使用键盘的相关知识。 键盘通知显示或隐藏键盘时，系统会发送以下4个通知:  UIKeyboardWillShowNotification// 即将显示键盘 UIKeyboardDidShowN">
+<meta property="og:updated_time" content="2017-05-19T08:59:09.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="自定义安全键盘">
-<meta name="twitter:description" content="原生键盘键盘通知显示或隐藏键盘时，系统会发送以下4个通知:  UIKeyboardWillShowNotification// 即将显示键盘 UIKeyboardDidShowNotification// 已显示键盘 UIKeyboardWillHideNotification// 即将隐藏键盘 UIKeyboardDidHideNotification// 已隐藏键盘  通知中包括键盘的大小跟位">
+<meta name="twitter:description" content="原生键盘基本介绍原生支持输入的控件有UITextField,UITextView,UISearchBar。控件之间有一些细微的区别，这里就不再一一介绍，只要以UITextField为例介绍下原生具备输入源控件使用键盘的相关知识。 键盘通知显示或隐藏键盘时，系统会发送以下4个通知:  UIKeyboardWillShowNotification// 即将显示键盘 UIKeyboardDidShowN">
 
 
 
@@ -334,7 +334,8 @@
       
 
       
-        <h2 id="原生键盘"><a href="#原生键盘" class="headerlink" title="原生键盘"></a>原生键盘</h2><h3 id="键盘通知"><a href="#键盘通知" class="headerlink" title="键盘通知"></a>键盘通知</h3><p>显示或隐藏键盘时，系统会发送以下4个通知:</p>
+        <h2 id="原生键盘基本介绍"><a href="#原生键盘基本介绍" class="headerlink" title="原生键盘基本介绍"></a>原生键盘基本介绍</h2><p>原生支持输入的控件有UITextField,UITextView,UISearchBar。控件之间有一些细微的区别，这里就不再一一介绍，只要以UITextField为例介绍下原生具备输入源控件使用键盘的相关知识。</p>
+<h3 id="键盘通知"><a href="#键盘通知" class="headerlink" title="键盘通知"></a>键盘通知</h3><p>显示或隐藏键盘时，系统会发送以下4个通知:</p>
 <ul>
 <li><code>UIKeyboardWillShowNotification</code>// 即将显示键盘</li>
 <li><code>UIKeyboardDidShowNotification</code>// 已显示键盘</li>
@@ -344,11 +345,25 @@
 <p>通知中包括键盘的大小跟位置信息</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">// from 苹果提供的demo-- KeyboardAccessory</div><div class="line">- (void)keyboardWillShow:(NSNotification *)notification &#123;</div><div class="line">    NSDictionary *userInfo = [notification userInfo];</div><div class="line">    </div><div class="line">    // 位置信息</div><div class="line">	NSValue *keyboardFrameVal = [userInfo objectForKey:UIKeyboardFrameEndUserInfoKey];</div><div class="line">	CGRect keyboardFrame = [keyboardFrameVal CGRectValue];</div><div class="line">    // ...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>其中 <code>UIKeyboardFrameBeginUserInfoKey</code> and <code>UIKeyboardFrameEndUserInfoKey</code> 通知可以获取键盘的开始位置和结束位置。<code>UIKeyboardAnimationCurveUserInfoKey</code>和<code>UIKeyboardAnimationDurationUserInfoKey</code>用来获取动画类型与执行动画所用的时间。其中iOS9还添加了<code>UIKeyboardIsLocalUserInfoKey</code>通知，主要是考虑到iPad分屏功能(multitasking)会导致所有可见的应用在键盘弹出和隐藏时都会收到通知，通过该通知判断是否为本应用导致系统发送键盘通知。</p>
-<h2 id="自定义键盘"><a href="#自定义键盘" class="headerlink" title="自定义键盘"></a>自定义键盘</h2><p>通过自定义inputView和inputAccessoryView属性。</p>
-<p>[待补]</p>
-<h2 id="自定义视图使用键盘"><a href="#自定义视图使用键盘" class="headerlink" title="自定义视图使用键盘"></a>自定义视图使用键盘</h2><p>官方文档:<a href="https://developer.apple.com/library/content/documentation/StringsTextFonts/Conceptual/TextAndWebiPhoneOS/InputViews/InputViews.html#//apple_ref/doc/uid/TP40009542-CH12-SW2" target="_blank" rel="external">Custom Views for Data Input</a></p>
-<p>[待补]</p>
-<h2 id="安全隐患"><a href="#安全隐患" class="headerlink" title="安全隐患"></a>安全隐患</h2><p>主要有两个：</p>
+<h3 id="UITextField通知"><a href="#UITextField通知" class="headerlink" title="UITextField通知"></a>UITextField通知</h3><ul>
+<li><code>UITextFieldTextDidBeginEditingNotification</code> // 开始编辑</li>
+<li><code>UITextFieldTextDidEndEditingNotification</code> // 结束编辑状态</li>
+<li><code>UITextFieldTextDidChangeNotification</code> // 文本更新</li>
+</ul>
+<h3 id="基本设置"><a href="#基本设置" class="headerlink" title="基本设置"></a>基本设置</h3><ul>
+<li><code>secureTextEntry</code> // 是否设置问密文显示</li>
+<li><code>clearButtonMode</code> // 设置清除按钮显示原则(ps:其他两个支持输入的控件没有该特性)，也就是点击即可删除全部文本 </li>
+</ul>
+<h3 id="UITextField代理方法"><a href="#UITextField代理方法" class="headerlink" title="UITextField代理方法"></a>UITextField代理方法</h3><ul>
+<li><code>textField:shouldChangeCharactersInRange:replacementString</code> // 文本更新时调用，包括增删文本</li>
+<li><code>textFieldShouldClear</code> // 点击清楚按钮时是否清楚文本，返回YES则清除，否则不清除文本</li>
+<li><code>textFieldShouldReturn</code> // 点击’Return’按钮时调用，返回NO则忽略该操作。(不过，我试了下返回YES跟NO，目前没发现区别，欢迎交流👏)</li>
+<li><code>textFieldShouldBeginEditing</code>  // 将要开始编辑</li>
+<li><code>textFieldDidBeginEditing</code>  // 已经开始编辑</li>
+<li><code>textFieldShouldEndEditing</code>// 将要结束编辑</li>
+<li><code>textFieldDidEndEditing</code> // 已经结束编辑</li>
+</ul>
+<h2 id="原生键盘安全隐患"><a href="#原生键盘安全隐患" class="headerlink" title="原生键盘安全隐患"></a>原生键盘安全隐患</h2><p>主要有两个：</p>
 <p>1.键盘输入缓存(包括敏感信息)可能被第三方应用读取—&gt;解决方案:自定义键盘。</p>
 <p>2.原生键盘有按键效果，屏幕录制会泄露敏感信息—&gt;解决方案: 自定义键盘的按键不要有点击效果。</p>
 <p>接下来主要介绍下键盘输入缓存导致的安全隐患。其中包括自动更正特性和输入预测特性，使得系统会缓存输入记录。</p>
@@ -376,7 +391,64 @@
 <p>说明：iOS 键盘意外缓存了敏感信息。这个问题已通过改进启发法得到解决。</p>
 <p>CVE-2016-4746：法国的 Antoine M</p>
 </blockquote>
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="https://developer.apple.com/library/content/documentation/StringsTextFonts/Conceptual/TextAndWebiPhoneOS/KeyboardManagement/KeyboardManagement.html#//apple_ref/doc/uid/TP40009542-CH5-SW3" target="_blank" rel="external">Text Programming Guide for iOS</a></p>
+<h2 id="自定义键盘"><a href="#自定义键盘" class="headerlink" title="自定义键盘"></a>自定义键盘</h2><p>通过设置<code>inputView</code>属性。通过设置<code>inputAccessoryView</code>可以设置处于键盘上方的控件。</p>
+<h3 id="键盘基本功能"><a href="#键盘基本功能" class="headerlink" title="键盘基本功能"></a>键盘基本功能</h3><ol>
+<li>文本更新(点击按键输入文本，删除按键);</li>
+<li>密文显示设置;</li>
+<li>完成按钮;// 隐藏键盘，并可以在代理中设置响应响应事件</li>
+<li>隐藏键盘按钮; // 隐藏键盘</li>
+</ol>
+<h3 id="基本功能实现"><a href="#基本功能实现" class="headerlink" title="基本功能实现"></a>基本功能实现</h3><ol>
+<li>文本更新： 由于有输入源控件遵循了<code>UIKeyInput</code>协议，因而可以通过<code>insertText</code>,<code>deleteBackward</code>方法对文本进行更新。无输入源控件则是通过添加UITextField控件(<code>associatedKeyboard</code>)调用方法更新文本。</li>
+<li>密文显示：获取文本，然后通过文本长度转换为”●”符号显示，再更新到输入源控件上。其中原生具备输入源的控件中只有<code>UITextFiled</code>支持该特性，因而暂且实现的框架中不对其他两个具备输入源控件实现该特性。</li>
+<li>完成按钮：调用<code>resignFirstResponder</code>方法。</li>
+<li>隐藏键盘:  调用<code>resignFirstResponder</code>方法</li>
+</ol>
+<h3 id="随机键盘"><a href="#随机键盘" class="headerlink" title="随机键盘"></a>随机键盘</h3><p>第一种思路: 保存键值，打乱items顺序，修改item的键值。如下所示:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">// 思路一</div><div class="line">NSMutableArray *orderValueItmes = [NSMutableArray arrayWithCapacity:_randomItems.count];</div><div class="line">        [_randomItems enumerateObjectsUsingBlock:^(id&lt;JYKeyNote&gt; keyNote, NSUInteger idx, BOOL * _Nonnull stop) &#123;</div><div class="line">            [orderValueItmes addObject:[keyNote keyValue]];</div><div class="line">        &#125;];</div><div class="line">        _randomItems = [_randomItems shuffled];</div><div class="line">        [_randomItems enumerateObjectsUsingBlock:^(id&lt;JYKeyNote&gt; keyNote, NSUInteger idx, BOOL * _Nonnull stop) &#123;</div><div class="line">            if ([keyNote isKindOfClass:[UIButton class]]) &#123;</div><div class="line">                [(UIButton *)keyNote setTitle:orderValueItmes[idx] forState:UIControlStateNormal];</div><div class="line">            &#125; else if ([keyNote isKindOfClass:[UILabel class]]) &#123;</div><div class="line">                ((UILabel *)keyNote).text = orderValueItmes[idx];</div><div class="line">            &#125; else &#123;</div><div class="line">    </div><div class="line">            &#125;</div><div class="line">        &#125;];</div></pre></td></tr></table></figure>
+<p>第二种思路: 保存frame值，打乱item，修改item的frame。</p>
+<p>考虑到第一种思路即使可以对randomItem进行深拷贝，但数组中的元素还是无法深拷贝，因而会出现bug。所以最终通过保存frame值，修改Item的frame实现。具体代码可以看项目，由于frame无法存储到数组中，所以存储的可能有些ugly，欢迎拍砖。</p>
+<h3 id="遗留问题"><a href="#遗留问题" class="headerlink" title="遗留问题"></a>遗留问题</h3><ol>
+<li>不同输入源无法共用同一个自定义键盘对象。尝试共用，目前无法实现。</li>
+<li>frame存储到数组中。</li>
+</ol>
+<h2 id="无输入源控件使用键盘"><a href="#无输入源控件使用键盘" class="headerlink" title="无输入源控件使用键盘"></a>无输入源控件使用键盘</h2><p>官方文档:<a href="https://developer.apple.com/library/content/documentation/StringsTextFonts/Conceptual/TextAndWebiPhoneOS/InputViews/InputViews.html#//apple_ref/doc/uid/TP40009542-CH12-SW2" target="_blank" rel="external">Custom Views for Data Input</a></p>
+<p>使用场景： 为一些无输入源的控件添加输入响应。比如按钮，Label,UIView。</p>
+<h3 id="设置原生键盘"><a href="#设置原生键盘" class="headerlink" title="设置原生键盘"></a>设置原生键盘</h3><p>实现思路：在控件上添加UITextField控件，设为隐藏，给UIView添加手势，点击事件为UITextField 称为第一响应对象。从而变相实现给无输入源控件添加输入响应。 因而引入了<code>associateKeyboardTextField</code>属性。</p>
+<p>文本更新: 通过获取<code>associateTextfiled</code>的文本更新输入源的文本。默认实现了UILabel,UIbutton的更新，也可以通过updateDisplayText协议自己设置更新文本方案。</p>
+<h3 id="设置自定义键盘"><a href="#设置自定义键盘" class="headerlink" title="设置自定义键盘"></a>设置自定义键盘</h3><p>遵循上一章自定义键盘原则后，通过设置<code>associateTextFiled</code>的<code>inputView</code>设置自定义键盘。</p>
+<h3 id="实现细节"><a href="#实现细节" class="headerlink" title="实现细节"></a>实现细节</h3><ol>
+<li><p>UIView扩展添加属性associateKeyboardTextField，获取的时候对象变成UITextInputTraits对象?</p>
+<p>一开始没找到原因所在，所以暂时通过遍历subviews变相获取UITextfield。后面发现原来是动态绑定的关联策略问题导致，修改后如下所示:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">- (void)setAssociateKeyboardTextField:(UITextField *)associateKeyboardTextField &#123;</div><div class="line">    return objc_setAssociatedObject(self, &amp;associateKeyboardTextFieldKey, associateKeyboardTextField, OBJC_ASSOCIATION_RETAIN);// 原先是OBJC_ASSOCIATION_COPY_NONATOMIC</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>对原生键盘进行配置,遵循UITextInputTraits协议。但初始化对象时，默认值设置的样式跟原生的有区别。比如默认初始化时<code>returnKeyType</code>为 <code>UIReturnKeyDefault</code>，但弹出键盘时并不像原生的为return键，而是Go键，且选项中无法设置return键。—&gt; 解决方案，通过获取默认的键盘的相关参数的默认值，然后根据配置中的属性值如若与默认值相等，则不尽兴赋值处理。</p>
+</li>
+<li><p>设置初始文本时，要考虑到调用设置自定义键盘方法时，还没设置代理，当前只有在设置代理时设置键盘的初始文本。考虑到这一因素，也在设置代理时对文本作了初始化工作。</p>
+</li>
+</ol>
+<h2 id="JYKeyboard"><a href="#JYKeyboard" class="headerlink" title="JYKeyboard"></a>JYKeyboard</h2><p>这是封装好的自定义键盘使用库。本着<strong>原则</strong>： 简单好用，易扩展。<strong>项目地址</strong>: <a href="https://github.com/JolieYang/JYKeyboard" target="_blank" rel="external">JYKeyboard</a>  欢迎交流欢迎拍砖👏</p>
+<h3 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h3><p>1) 设置自定义键盘，包括具备输入源的控件：如UITextfiled等，与不具备输入源的控件：如UILabel等。</p>
+<p>2) 给不具备输入源控件设zhichi置系统键盘。</p>
+<h3 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h3><ul>
+<li>支持自定义键盘;</li>
+<li>支持无输入源控件设置系统键盘与自定义键盘;</li>
+<li>支持密文显示设置；</li>
+</ul>
+<h3 id="自定义键盘-1"><a href="#自定义键盘-1" class="headerlink" title="自定义键盘"></a>自定义键盘</h3><ol>
+<li>引入<code>JYKeyboard.h</code>头文件;</li>
+<li>自定义视图继承<code>JYAbstractKeyboard</code>；</li>
+<li>对键盘相应的响应事件进行绑定即可。</li>
+</ol>
+<p>具体可以参考<a href="https://github.com/JolieYang/JYKeyboard" target="_blank" rel="external">项目</a>中基于<code>JYAbstractKeyboard</code>实现的<code>AliKeyboard</code>。</p>
+<h3 id="设置自定义键盘-1"><a href="#设置自定义键盘-1" class="headerlink" title="设置自定义键盘"></a>设置自定义键盘</h3><h4 id="有输入源控件设置自定义键盘"><a href="#有输入源控件设置自定义键盘" class="headerlink" title="有输入源控件设置自定义键盘"></a>有输入源控件设置自定义键盘</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">- (void)viewDidLoad &#123;</div><div class="line">    [super viewDidLoad];</div><div class="line">    // Do any additional setup after loading the view, typically from a nib.</div><div class="line">  </div><div class="line">    AliKeyboard *textFieldKB = [AliKeyboard standardShuffledKeyboard];</div><div class="line">    self.inputTF.viewInputDelegate = self;</div><div class="line">    [self.inputTF setCustomKeyboard:textFieldKB];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="无输入源控件设置自定义键盘"><a href="#无输入源控件设置自定义键盘" class="headerlink" title="无输入源控件设置自定义键盘"></a>无输入源控件设置自定义键盘</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">- (void)viewDidLoad &#123;</div><div class="line">    [super viewDidLoad];</div><div class="line">    // Do any additional setup after loading the view, typically from a nib.</div><div class="line">  </div><div class="line">    AliKeyboard *labelKB = [AliKeyboard standardShuffledKeyboard];</div><div class="line">    [self.customLabel setCustomKeyboard:labelKB];</div><div class="line">    self.customLabel.viewInputDelegate = self;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="无输入源控件设置系统键盘"><a href="#无输入源控件设置系统键盘" class="headerlink" title="无输入源控件设置系统键盘"></a>无输入源控件设置系统键盘</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">- (void)viewDidLoad &#123;</div><div class="line">    [super viewDidLoad];</div><div class="line">    // Do any additional setup after loading the view, typically from a nib.</div><div class="line">  </div><div class="line">    [self.label noInputControlSetSystemKeyboardWithConfigBlock:^(JYKeyboardConfig *config) &#123;</div><div class="line">        // 配置系统键盘</div><div class="line">        config.keyboardType = UIKeyboardTypeNumberPad;</div><div class="line">    &#125;];</div><div class="line">    self.label.viewInputDelegate = self;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+</blockquote>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p>参考项目: <a href="https://github.com/iFindTA/NHKeyboardPro" target="_blank" rel="external"><strong>NHKeyboardPro</strong></a></p>
+<p>参考项目: <a href="https://github.com/ZhipingYang/UUKeyboardInputView" target="_blank" rel="external">UUKeyboardInputView</a></p>
+<p><a href="https://developer.apple.com/library/content/documentation/StringsTextFonts/Conceptual/TextAndWebiPhoneOS/KeyboardManagement/KeyboardManagement.html#//apple_ref/doc/uid/TP40009542-CH5-SW3" target="_blank" rel="external">Text Programming Guide for iOS</a></p>
 <p><a href="https://developer.apple.com/library/content/documentation/StringsTextFonts/Conceptual/TextAndWebiPhoneOS/InputViews/InputViews.html#//apple_ref/doc/uid/TP40009542-CH12-SW2" target="_blank" rel="external">Custom Views for Data Input</a></p>
 <p><a href="http://stackoverflow.com/questions/1955010/iphone-keyboard-security" target="_blank" rel="external">iPhone keyboard security–stackoverflow</a></p>
 <p><a href="http://www.voidcn.com/blog/yiyaaixuexi/article/p-379581.html" target="_blank" rel="external">iOS安全攻防（八）：键盘缓存与安全键盘—念茜</a></p>
@@ -580,7 +652,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#原生键盘"><span class="nav-number">1.</span> <span class="nav-text">原生键盘</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#键盘通知"><span class="nav-number">1.1.</span> <span class="nav-text">键盘通知</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义键盘"><span class="nav-number">2.</span> <span class="nav-text">自定义键盘</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义视图使用键盘"><span class="nav-number">3.</span> <span class="nav-text">自定义视图使用键盘</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安全隐患"><span class="nav-number">4.</span> <span class="nav-text">安全隐患</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#自动更正"><span class="nav-number">4.1.</span> <span class="nav-text">自动更正</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输入预测-Predictive-Input"><span class="nav-number">4.2.</span> <span class="nav-text">输入预测(Predictive Input)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#iOS10输入缓存安全改进"><span class="nav-number">4.3.</span> <span class="nav-text">iOS10输入缓存安全改进</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">5.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#原生键盘基本介绍"><span class="nav-number">1.</span> <span class="nav-text">原生键盘基本介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#键盘通知"><span class="nav-number">1.1.</span> <span class="nav-text">键盘通知</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UITextField通知"><span class="nav-number">1.2.</span> <span class="nav-text">UITextField通知</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基本设置"><span class="nav-number">1.3.</span> <span class="nav-text">基本设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UITextField代理方法"><span class="nav-number">1.4.</span> <span class="nav-text">UITextField代理方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原生键盘安全隐患"><span class="nav-number">2.</span> <span class="nav-text">原生键盘安全隐患</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#自动更正"><span class="nav-number">2.1.</span> <span class="nav-text">自动更正</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输入预测-Predictive-Input"><span class="nav-number">2.2.</span> <span class="nav-text">输入预测(Predictive Input)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#iOS10输入缓存安全改进"><span class="nav-number">2.3.</span> <span class="nav-text">iOS10输入缓存安全改进</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义键盘"><span class="nav-number">3.</span> <span class="nav-text">自定义键盘</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#键盘基本功能"><span class="nav-number">3.1.</span> <span class="nav-text">键盘基本功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基本功能实现"><span class="nav-number">3.2.</span> <span class="nav-text">基本功能实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#随机键盘"><span class="nav-number">3.3.</span> <span class="nav-text">随机键盘</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#遗留问题"><span class="nav-number">3.4.</span> <span class="nav-text">遗留问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#无输入源控件使用键盘"><span class="nav-number">4.</span> <span class="nav-text">无输入源控件使用键盘</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#设置原生键盘"><span class="nav-number">4.1.</span> <span class="nav-text">设置原生键盘</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置自定义键盘"><span class="nav-number">4.2.</span> <span class="nav-text">设置自定义键盘</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现细节"><span class="nav-number">4.3.</span> <span class="nav-text">实现细节</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JYKeyboard"><span class="nav-number">5.</span> <span class="nav-text">JYKeyboard</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用场景"><span class="nav-number">5.1.</span> <span class="nav-text">使用场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#特性"><span class="nav-number">5.2.</span> <span class="nav-text">特性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义键盘-1"><span class="nav-number">5.3.</span> <span class="nav-text">自定义键盘</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置自定义键盘-1"><span class="nav-number">5.4.</span> <span class="nav-text">设置自定义键盘</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#有输入源控件设置自定义键盘"><span class="nav-number">5.4.1.</span> <span class="nav-text">有输入源控件设置自定义键盘</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#无输入源控件设置自定义键盘"><span class="nav-number">5.4.2.</span> <span class="nav-text">无输入源控件设置自定义键盘</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#无输入源控件设置系统键盘"><span class="nav-number">5.4.3.</span> <span class="nav-text">无输入源控件设置系统键盘</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">6.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
             
 
           </div>

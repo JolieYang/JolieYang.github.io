@@ -1,0 +1,782 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="ps: Observable 被观察对象； Observers 观察者； 创建序列创建普通Observable序列1234567let myJust = &amp;#123; (element: String) -&amp;gt; Observable&amp;lt;String&amp;gt; in    return Observable.create &amp;#123; observer in        observer.o">
+<meta property="og:type" content="article">
+<meta property="og:title" content="RxSwift之操作介绍">
+<meta property="og:url" content="https://jolieyang.github.io/2017/06/05/RxSwift-Getting-Start-1/index.html">
+<meta property="og:site_name" content="JolieYang | Blog">
+<meta property="og:description" content="ps: Observable 被观察对象； Observers 观察者； 创建序列创建普通Observable序列1234567let myJust = &amp;#123; (element: String) -&amp;gt; Observable&amp;lt;String&amp;gt; in    return Observable.create &amp;#123; observer in        observer.o">
+<meta property="og:updated_time" content="2017-06-05T15:47:18.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="RxSwift之操作介绍">
+<meta name="twitter:description" content="ps: Observable 被观察对象； Observers 观察者； 创建序列创建普通Observable序列1234567let myJust = &amp;#123; (element: String) -&amp;gt; Observable&amp;lt;String&amp;gt; in    return Observable.create &amp;#123; observer in        observer.o">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://jolieyang.github.io/2017/06/05/RxSwift-Getting-Start-1/"/>
+
+
+
+
+
+  <title>RxSwift之操作介绍 | JolieYang | Blog</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">JolieYang | Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://jolieyang.github.io/2017/06/05/RxSwift-Getting-Start-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="JolieYang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JolieYang | Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                RxSwift之操作介绍
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-05T23:41:42+08:00">
+                2017-06-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/06/05/RxSwift-Getting-Start-1/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/06/05/RxSwift-Getting-Start-1/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>ps: Observable 被观察对象； Observers 观察者；</p>
+<h3 id="创建序列"><a href="#创建序列" class="headerlink" title="创建序列"></a>创建序列</h3><h4 id="创建普通Observable序列"><a href="#创建普通Observable序列" class="headerlink" title="创建普通Observable序列"></a>创建普通Observable序列</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> myJust = &#123; (element: <span class="type">String</span>) -&gt; <span class="type">Observable</span>&lt;<span class="type">String</span>&gt; <span class="keyword">in</span></div><div class="line">    <span class="keyword">return</span> <span class="type">Observable</span>.create &#123; observer <span class="keyword">in</span></div><div class="line">        observer.on(.next(element))</div><div class="line">        observer.on(.completed)</div><div class="line">        <span class="keyword">return</span> <span class="type">Disposables</span>.create()</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="Range序列"><a href="#Range序列" class="headerlink" title="Range序列"></a>Range序列</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 发送指定范围Integers</span></div><div class="line"><span class="type">Observable</span>.range(start: <span class="number">1</span>, <span class="built_in">count</span>: <span class="number">10</span>)</div><div class="line">    .subscribe &#123; <span class="built_in">print</span>($<span class="number">0</span>) &#125;</div><div class="line">    .disposed(by: disposeBag)</div></pre></td></tr></table></figure>
+<h4 id="RepeatElement序列"><a href="#RepeatElement序列" class="headerlink" title="RepeatElement序列"></a>RepeatElement序列</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="type">Observable</span>.repeatElement(<span class="string">"R"</span>)</div><div class="line">    .take(<span class="number">3</span>)</div><div class="line">    .subscribe(onNext: &#123; <span class="built_in">print</span>($<span class="number">0</span>) &#125;)</div><div class="line">    .disposed(by: disposeBag)</div></pre></td></tr></table></figure>
+<h4 id="Generate序列"><a href="#Generate序列" class="headerlink" title="Generate序列"></a>Generate序列</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 根据条件是否为真，生成元素组成序列</span></div><div class="line"><span class="type">Observable</span>.generate(</div><div class="line">    initialState: <span class="number">0</span>,</div><div class="line">    condition: &#123; $<span class="number">0</span> &lt; <span class="number">3</span> &#125;,</div><div class="line">    iterate: &#123; $<span class="number">0</span> + <span class="number">1</span> &#125;</div><div class="line">    )</div><div class="line">    .subscribe(onNext: &#123; <span class="built_in">print</span>($<span class="number">0</span>) &#125;)</div><div class="line">    .disposed(by: disposeBag)</div></pre></td></tr></table></figure>
+<h4 id="deferred"><a href="#deferred" class="headerlink" title="deferred"></a>deferred</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 通过工厂方法创建Observable序列，为每一个订阅者生成一个新的序列</span></div><div class="line"><span class="keyword">let</span> deferredSequence = <span class="type">Observable</span>&lt;<span class="type">String</span>&gt;.deferred &#123;</div><div class="line">    <span class="built_in">print</span>(<span class="string">"Creating <span class="subst">\(<span class="built_in">count</span>)</span>"</span>)</div><div class="line">    <span class="built_in">count</span> += <span class="number">1</span></div><div class="line">    </div><div class="line">    <span class="keyword">return</span> <span class="type">Observable</span>.create &#123; observer <span class="keyword">in</span></div><div class="line">        <span class="built_in">print</span>(<span class="string">"Emitting..."</span>)</div><div class="line">        observer.onNext(<span class="string">"🐶"</span>)</div><div class="line">        observer.onNext(<span class="string">"🐱"</span>)</div><div class="line">        observer.onNext(<span class="string">"🐵"</span>)</div><div class="line">        <span class="keyword">return</span> <span class="type">Disposables</span>.create()</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="error序列"><a href="#error序列" class="headerlink" title="error序列"></a>error序列</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 不发送任何元素，立刻返回一个错误</span></div><div class="line"><span class="type">Observable</span>&lt;<span class="type">Int</span>&gt;.error(<span class="type">TestError</span>.test)</div><div class="line">    .subscribe &#123; <span class="built_in">print</span>($<span class="number">0</span>) &#125;</div><div class="line">    .disposed(by: disposeBag)</div></pre></td></tr></table></figure>
+<h4 id="Never序列"><a href="#Never序列" class="headerlink" title="Never序列"></a>Never序列</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 序列永远不会被执行也不会传递任何事件</span></div><div class="line"><span class="keyword">let</span> neverSequence = <span class="type">Observable</span>&lt;<span class="type">String</span>&gt;.never()</div></pre></td></tr></table></figure>
+<h4 id="Empty序列"><a href="#Empty序列" class="headerlink" title="Empty序列"></a>Empty序列</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 序列只传递complete事件</span></div><div class="line"><span class="type">Observable</span>&lt;<span class="type">Int</span>&gt;.empty()</div><div class="line">    .subscribe(&#123; ( event ) <span class="keyword">in</span></div><div class="line">        <span class="built_in">print</span>(event)</div><div class="line">    &#125;)</div><div class="line">    .disposed(by: disposeBag)</div></pre></td></tr></table></figure>
+<h4 id="Just序列"><a href="#Just序列" class="headerlink" title="Just序列"></a>Just序列</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 只包含一个元素的序列</span></div><div class="line"><span class="type">Observable</span>.just(<span class="string">"Rose"</span>)</div><div class="line">    .subscribe(&#123; ( event ) <span class="keyword">in</span></div><div class="line">        <span class="built_in">print</span>(event)</div><div class="line">    &#125;)</div></pre></td></tr></table></figure>
+<h4 id="Of序列"><a href="#Of序列" class="headerlink" title="Of序列"></a>Of序列</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 包含一系列元素</span></div><div class="line"><span class="type">Observable</span>.of(<span class="string">"🐶"</span>, <span class="string">"🐱"</span>, <span class="string">"🐭"</span>, <span class="string">"🐹"</span>)</div><div class="line">        .subscribe(onNext: &#123; element <span class="keyword">in</span></div><div class="line">            <span class="built_in">print</span>(element)</div><div class="line">        &#125;)</div></pre></td></tr></table></figure>
+<h4 id="from序列"><a href="#from序列" class="headerlink" title="from序列"></a>from序列</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 通过序列对象(包括数组，字典，Set)创建Observable序列</span></div><div class="line"><span class="type">Observable</span>.from([<span class="string">"R"</span>, <span class="string">"O"</span>, <span class="string">"S"</span>, <span class="string">"E"</span>])</div><div class="line">        .subscribe(onNext: &#123; <span class="built_in">print</span>($<span class="number">0</span>) &#125;)</div><div class="line">        .disposed(by: disposeBag)</div></pre></td></tr></table></figure>
+<h3 id="Subject"><a href="#Subject" class="headerlink" title="Subject"></a>Subject</h3><blockquote>
+<p>Subject可以看作是代理或者桥梁。既是订阅者又是订阅源，也就是既可以订阅其他Observable对象，又可以向订阅者发送事件。</p>
+</blockquote>
+<p>其中<code>PublishSubject</code>，<code>ReplaySubject</code>，<code>BehaviorSubject</code>即将被清除时也不会自动发送完成(Completed)事件。</p>
+<h4 id="PublishSubject"><a href="#PublishSubject" class="headerlink" title="PublishSubject"></a>PublishSubject</h4><p><code>publishSubject</code>遵循了<code>ObserverType</code>协议。</p>
+<p>广播事件给所有的订阅者</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">example(<span class="string">"PublishSubject"</span>) &#123;</div><div class="line">    <span class="keyword">let</span> disposeBag = <span class="type">DisposeBag</span>()</div><div class="line">    <span class="keyword">let</span> subject = <span class="type">PublishSubject</span>&lt;<span class="type">String</span>&gt;()</div><div class="line">    </div><div class="line">    subject.addObserver(<span class="string">"1"</span>).disposed(by: disposeBag)</div><div class="line">    subject.onNext(<span class="string">"🐶"</span>)</div><div class="line">    subject.onNext(<span class="string">"🐱"</span>)</div><div class="line">    </div><div class="line">    subject.addObserver(<span class="string">"2"</span>).disposed(by: disposeBag)</div><div class="line">    subject.onNext(<span class="string">"🅰️"</span>) <span class="comment">// 广播给两个订阅者</span></div><div class="line">    subject.onNext(<span class="string">"🅱️"</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="ReplaySubject"><a href="#ReplaySubject" class="headerlink" title="ReplaySubject"></a>ReplaySubject</h4><p>广播事件给所有订阅者，并会补发发送事件给新的订阅者。通过<code>bufferSize</code>可以指定给新的订阅者缓存几个已发送事件。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">example(<span class="string">"ReplaySubject"</span>) &#123;</div><div class="line">    <span class="keyword">let</span> disposeBag = <span class="type">DisposeBag</span>()</div><div class="line">    <span class="keyword">let</span> subject = <span class="type">ReplaySubject</span>&lt;<span class="type">String</span>&gt;.create(bufferSize: <span class="number">1</span>) <span class="comment">// 指定缓存大小</span></div><div class="line">    </div><div class="line">    subject.addObserver(<span class="string">"1"</span>).disposed(by: disposeBag)</div><div class="line">    subject.onNext(<span class="string">"🐶"</span>)</div><div class="line">    subject.onNext(<span class="string">"🐱"</span>)</div><div class="line">    </div><div class="line">    subject.addObserver(<span class="string">"2"</span>).disposed(by: disposeBag)</div><div class="line">    subject.onNext(<span class="string">"🅰️"</span>)</div><div class="line">    subject.onNext(<span class="string">"🅱️"</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="BehaviorSubject"><a href="#BehaviorSubject" class="headerlink" title="BehaviorSubject"></a>BehaviorSubject</h4><p>广播所有事件给订阅者，发送最近的一次发送事件给新的订阅者，如果没有最近的发送事件则发送默认值。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">example(<span class="string">"BehaviorSubject"</span>) &#123;</div><div class="line">    <span class="keyword">let</span> disposeBag = <span class="type">DisposeBag</span>()</div><div class="line">    <span class="keyword">let</span> subject = <span class="type">BehaviorSubject</span>(value: <span class="string">"🔴"</span>) <span class="comment">// 指定默认值</span></div><div class="line">    </div><div class="line">    subject.addObserver(<span class="string">"1"</span>).disposed(by: disposeBag) <span class="comment">// 此时添加新订阅者时无最近事件，则会发送默认值</span></div><div class="line">    subject.onNext(<span class="string">"🐶"</span>)</div><div class="line">    subject.onNext(<span class="string">"🐱"</span>)</div><div class="line">    </div><div class="line">    subject.addObserver(<span class="string">"2"</span>).disposed(by: disposeBag)<span class="comment">// 最近事件发送🐱</span></div><div class="line">    subject.onNext(<span class="string">"🅰️"</span>)</div><div class="line">    subject.onNext(<span class="string">"🅱️"</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="Variable"><a href="#Variable" class="headerlink" title="Variable"></a>Variable</h4><p>基于<code>BehaviorSubject</code>的封装，也是发送最近的发送事件或默认值给新的订阅者。但<code>Variable</code>会保留当前值状态，并且永远都不会发送错误(Error)事件，然而，它会在析构(deinit)的时候自动发送Completed事件。</p>
+<p>调用<code>Variable</code>实例的<code>asObservable</code>方法获取<code>BehaviorSubject</code>序列。<code>Variable</code>并没有实现<code>on</code>操作符，所以通过暴露<code>value</code>属性设置当前值于获取当前值。通过设置一个新的值就可以将这个值添加到<code>BehaviorSubject</code>序列中。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">example(<span class="string">"Variable"</span>) &#123;</div><div class="line">    <span class="keyword">let</span> disposeBag = <span class="type">DisposeBag</span>()</div><div class="line">    <span class="keyword">let</span> variable = <span class="type">Variable</span>(<span class="string">"🔴"</span>)</div><div class="line">    </div><div class="line">    variable.asObservable().addObserver(<span class="string">"1"</span>).disposed(by: disposeBag)</div><div class="line">    variable.value = <span class="string">"🐶"</span></div><div class="line">    variable.value = <span class="string">"🐱"</span></div><div class="line">    </div><div class="line">    variable.asObservable().addObserver(<span class="string">"2"</span>).disposed(by: disposeBag)</div><div class="line">    variable.value = <span class="string">"🅰️"</span></div><div class="line">    variable.value = <span class="string">"🅱️"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="Combination操作"><a href="#Combination操作" class="headerlink" title="Combination操作"></a>Combination操作</h3><p>通过操作符可以将多个观察源转化为一个观察源</p>
+<h4 id="startWith"><a href="#startWith" class="headerlink" title="startWith"></a>startWith</h4><p>在开始发送事件元素前发送指定序列的元素</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">example(<span class="string">"startWith"</span>) &#123;</div><div class="line">    <span class="keyword">let</span> disposeBag = <span class="type">DisposeBag</span>()</div><div class="line">    </div><div class="line">    <span class="type">Observable</span>.of(<span class="string">"🐶"</span>, <span class="string">"🐱"</span>, <span class="string">"🐭"</span>, <span class="string">"🐹"</span>)</div><div class="line">        .startWith(<span class="string">"1️⃣"</span>)</div><div class="line">        .startWith(<span class="string">"2️⃣"</span>)</div><div class="line">        .startWith(<span class="string">"3️⃣"</span>, <span class="string">"🅰️"</span>, <span class="string">"🅱️"</span>)</div><div class="line">        .subscribe(onNext: &#123; <span class="built_in">print</span>($<span class="number">0</span>) &#125;)</div><div class="line">        .disposed(by: disposeBag)</div><div class="line">&#125;</div><div class="line">--- startWith example ---</div><div class="line"><span class="number">3</span>️⃣</div><div class="line">🅰️</div><div class="line">🅱️</div><div class="line"><span class="number">2</span>️⃣</div><div class="line"><span class="number">1</span>️⃣</div><div class="line">🐶</div><div class="line">🐱</div><div class="line">🐭</div><div class="line">🐹</div></pre></td></tr></table></figure>
+<h4 id="merge"><a href="#merge" class="headerlink" title="merge"></a>merge</h4><p>将多个源序列中的元素组合成一个新的<code>Observable</code>序列。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">example(<span class="string">"merge"</span>) &#123;</div><div class="line">    <span class="keyword">let</span> disposeBag = <span class="type">DisposeBag</span>()</div><div class="line">    </div><div class="line">    <span class="keyword">let</span> subject1 = <span class="type">PublishSubject</span>&lt;<span class="type">String</span>&gt;()</div><div class="line">    <span class="keyword">let</span> subject2 = <span class="type">PublishSubject</span>&lt;<span class="type">String</span>&gt;()</div><div class="line">    <span class="keyword">let</span> subject3 = <span class="type">PublishSubject</span>&lt;<span class="type">String</span>&gt;()</div><div class="line">    </div><div class="line">    <span class="type">Observable</span>.of(subject1, subject2, subject3)</div><div class="line">        .merge()</div><div class="line">        .subscribe(onNext: &#123; <span class="built_in">print</span>($<span class="number">0</span>) &#125;)</div><div class="line">        .disposed(by: disposeBag)</div><div class="line">    </div><div class="line">    subject1.onNext(<span class="string">"🅰️"</span>)</div><div class="line">    </div><div class="line">    subject2.onNext(<span class="string">"🆎"</span>)</div><div class="line">    </div><div class="line">    subject3.onNext(<span class="string">"Rose"</span>)</div><div class="line">    </div><div class="line">    subject1.onNext(<span class="string">"🅱️"</span>)</div><div class="line">&#125;</div><div class="line">--- merge example ---</div><div class="line">🅰️</div><div class="line">🆎</div><div class="line"><span class="type">Rose</span></div><div class="line">🅱️</div></pre></td></tr></table></figure>
+<h4 id="zip"><a href="#zip" class="headerlink" title="zip"></a>zip</h4><p>将多个序列中的元素根据一定的原则组合在一起，序列之间的元素一一对应后再合并。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">example(<span class="string">"zip"</span>) &#123;</div><div class="line">    <span class="keyword">let</span> disposeBag = <span class="type">DisposeBag</span>()</div><div class="line">    </div><div class="line">    <span class="keyword">let</span> stringSubject = <span class="type">PublishSubject</span>&lt;<span class="type">String</span>&gt;()</div><div class="line">    <span class="keyword">let</span> intSubject = <span class="type">PublishSubject</span>&lt;<span class="type">Int</span>&gt;()</div><div class="line">    <span class="keyword">let</span> secondStringSubject = <span class="type">PublishSubject</span>&lt;<span class="type">String</span>&gt;()</div><div class="line">    </div><div class="line">    <span class="type">Observable</span>.<span class="built_in">zip</span>(stringSubject, intSubject,  secondStringSubject) &#123; stringElement, intElement, anotherElement <span class="keyword">in</span></div><div class="line">        <span class="string">"<span class="subst">\(stringElement)</span> <span class="subst">\(intElement)</span> <span class="subst">\(anotherElement)</span>"</span></div><div class="line">        &#125;</div><div class="line">        .subscribe(onNext: &#123; <span class="built_in">print</span>($<span class="number">0</span>) &#125;)</div><div class="line">        .disposed(by: disposeBag)</div><div class="line">    </div><div class="line">    stringSubject.onNext(<span class="string">"🅰️"</span>)</div><div class="line">    stringSubject.onNext(<span class="string">"🅱️"</span>)</div><div class="line">    </div><div class="line">    intSubject.onNext(<span class="number">1</span>)</div><div class="line">    intSubject.onNext(<span class="number">2</span>)</div><div class="line">    </div><div class="line">    secondStringSubject.onNext(<span class="string">"Rose"</span>)</div><div class="line">&#125;</div><div class="line">--- <span class="built_in">zip</span> example ---</div><div class="line">🅰️ <span class="number">1</span> <span class="type">Rose</span></div></pre></td></tr></table></figure>
+<h4 id="combineLatest"><a href="#combineLatest" class="headerlink" title="combineLatest"></a>combineLatest</h4><p>将多个序列的元素按一定的原则组合在一起形成一个新的<code>Observable</code>序列，当每一个源序列至少发送一个元素时，combine序列就开始发送第一个元素，并且接下来任意一个序列发送一个元素，combine序列都会使用每一个源序列中最新的元素组合发送新元素。ps:<code>combineLates</code>还支持传入数组以及任意集合型的<code>Observables</code>序列。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line">example(<span class="string">"combineLatest"</span>) &#123;</div><div class="line">    <span class="keyword">let</span> disposeBag = <span class="type">DisposeBag</span>()</div><div class="line">    </div><div class="line">    <span class="keyword">let</span> stringSubject = <span class="type">PublishSubject</span>&lt;<span class="type">String</span>&gt;()</div><div class="line">    <span class="keyword">let</span> intSubject = <span class="type">PublishSubject</span>&lt;<span class="type">Int</span>&gt;()</div><div class="line">    </div><div class="line">    <span class="type">Observable</span>.combineLatest(stringSubject, intSubject) &#123; stringElement, intElement <span class="keyword">in</span></div><div class="line">            <span class="string">"<span class="subst">\(stringElement)</span> <span class="subst">\(intElement)</span>"</span></div><div class="line">        &#125;</div><div class="line">        .subscribe(onNext: &#123; <span class="built_in">print</span>($<span class="number">0</span>) &#125;)</div><div class="line">        .disposed(by: disposeBag)</div><div class="line">    </div><div class="line">    stringSubject.onNext(<span class="string">"A"</span>)</div><div class="line">    stringSubject.onNext(️<span class="string">"B"</span>)</div><div class="line">    </div><div class="line">    intSubject.onNext(<span class="number">1</span>)</div><div class="line">    intSubject.onNext(<span class="number">2</span>)</div><div class="line">    </div><div class="line">    stringSubject.onNext(<span class="string">"AB"</span>)</div><div class="line">&#125;</div><div class="line"></div><div class="line">example(<span class="string">"Array.combineLatest"</span>) &#123;</div><div class="line">    <span class="keyword">let</span> disposeBag = <span class="type">DisposeBag</span>()</div><div class="line">    </div><div class="line">    </div><div class="line">    <span class="keyword">let</span> stringObservable = <span class="type">Observable</span>.just(<span class="string">"Heart"</span>)</div><div class="line">    <span class="keyword">let</span> fruitObservable = <span class="type">Observable</span>.from([<span class="string">"Apple"</span>, <span class="string">"Orange"</span>])</div><div class="line">    <span class="keyword">let</span> animalObservable = <span class="type">Observable</span>.of(<span class="string">"Dog"</span>, <span class="string">"Cat"</span>, <span class="string">"Mouse"</span>)</div><div class="line">   </div><div class="line">    <span class="type">Observable</span>.combineLatest([stringObservable, fruitObservable, animalObservable]) &#123;</div><div class="line">        <span class="string">"<span class="subst">\($<span class="number">0</span>[<span class="number">0</span>])</span> <span class="subst">\($<span class="number">0</span>[<span class="number">1</span>])</span> <span class="subst">\($<span class="number">0</span>[<span class="number">2</span>])</span>"</span></div><div class="line">        &#125;</div><div class="line">        .subscribe(onNext: &#123; <span class="built_in">print</span>($<span class="number">0</span>) &#125;)</div><div class="line">        .disposed(by: disposeBag)</div><div class="line">&#125;</div><div class="line">--- <span class="type">Array</span>.combineLatest example ---</div><div class="line"><span class="type">Heart</span> <span class="type">Apple</span> <span class="type">Dog</span></div><div class="line"><span class="type">Heart</span> <span class="type">Orange</span> <span class="type">Dog</span></div><div class="line"><span class="type">Heart</span> <span class="type">Orange</span> <span class="type">Cat</span></div><div class="line"><span class="type">Heart</span> <span class="type">Orange</span> <span class="type">Mouse</span></div></pre></td></tr></table></figure>
+<h4 id="switchLatest"><a href="#switchLatest" class="headerlink" title="switchLatest"></a>switchLatest</h4><p>将事件序列的序列切换到最新的一条序列当中</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">example(<span class="string">"switchLatest"</span>) &#123;</div><div class="line">    <span class="keyword">let</span> disposeBag = <span class="type">DisposeBag</span>()</div><div class="line">    </div><div class="line">    <span class="keyword">let</span> subject1 = <span class="type">BehaviorSubject</span>(value: <span class="string">"⚽️"</span>)</div><div class="line">    <span class="keyword">let</span> subject2 = <span class="type">BehaviorSubject</span>(value: <span class="string">"🍎"</span>)</div><div class="line">    </div><div class="line">    <span class="keyword">let</span> variable = <span class="type">Variable</span>(subject1)</div><div class="line">    </div><div class="line">    variable.asObservable()</div><div class="line">        .switchLatest()</div><div class="line">        .subscribe(onNext: &#123; <span class="built_in">print</span>($<span class="number">0</span>) &#125;)</div><div class="line">        .disposed(by: disposeBag)</div><div class="line">    </div><div class="line">    subject1.onNext(<span class="string">"🏈"</span>)</div><div class="line">    subject1.onNext(<span class="string">"🏀"</span>)</div><div class="line">    </div><div class="line">    variable.value = subject2</div><div class="line">    </div><div class="line">    subject1.onNext(<span class="string">"⚾️"</span>)</div><div class="line">    </div><div class="line">    subject2.onNext(<span class="string">"🍐"</span>)</div><div class="line">&#125;</div><div class="line">--- switchLatest example ---</div><div class="line">⚽️</div><div class="line">🏈</div><div class="line">🏀</div><div class="line">🍎</div><div class="line">🍐</div></pre></td></tr></table></figure>
+<h3 id="Transform转换操作"><a href="#Transform转换操作" class="headerlink" title="Transform转换操作"></a>Transform转换操作</h3><h4 id="map"><a href="#map" class="headerlink" title="map"></a>map</h4><p>对序列中的每个元素进行转换</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">example(<span class="string">"map"</span>) &#123;</div><div class="line">    <span class="keyword">let</span> disposeBag = <span class="type">DisposeBag</span>()</div><div class="line">    <span class="type">Observable</span>.of(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)</div><div class="line">        .<span class="built_in">map</span> &#123; $<span class="number">0</span> * $<span class="number">0</span> &#125;</div><div class="line">        .subscribe(onNext: &#123; <span class="built_in">print</span>($<span class="number">0</span>) &#125;)</div><div class="line">        .disposed(by: disposeBag)</div><div class="line">&#125;</div><div class="line">--- <span class="built_in">map</span> example ---</div><div class="line"><span class="number">1</span></div><div class="line"><span class="number">4</span></div><div class="line"><span class="number">9</span></div></pre></td></tr></table></figure>
+<h4 id="flatMap-amp-amp-flatMapLatest"><a href="#flatMap-amp-amp-flatMapLatest" class="headerlink" title="flatMap &amp;&amp; flatMapLatest"></a>flatMap &amp;&amp; flatMapLatest</h4><p><code>map</code>做转换时容易出现“升维”的情况，即转变之后从一个序列变成了一个序列的序列。</p>
+<p>flatMapLatest则是只获取最新的一个元素</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line">example(<span class="string">"flatMap and flatMapLatest"</span>) &#123;</div><div class="line">    <span class="keyword">let</span> disposeBag = <span class="type">DisposeBag</span>()</div><div class="line">    </div><div class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">Player</span> </span>&#123;</div><div class="line">        <span class="keyword">var</span> score: <span class="type">Variable</span>&lt;<span class="type">Int</span>&gt;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="keyword">let</span> 👦🏻 = <span class="type">Player</span>(score: <span class="type">Variable</span>(<span class="number">80</span>))</div><div class="line">    <span class="keyword">let</span> 👧🏼 = <span class="type">Player</span>(score: <span class="type">Variable</span>(<span class="number">90</span>))</div><div class="line">    </div><div class="line">    <span class="keyword">let</span> player = <span class="type">Variable</span>(👦🏻)</div><div class="line">    </div><div class="line">    player.asObservable()</div><div class="line">        .flatMap &#123; $<span class="number">0</span>.score.asObservable() &#125; <span class="comment">// Change flatMap to flatMapLatest and observe change in printed output</span></div><div class="line">        .subscribe(onNext: &#123; <span class="built_in">print</span>($<span class="number">0</span>) &#125;)</div><div class="line">        .disposed(by: disposeBag)</div><div class="line">    </div><div class="line">    👦🏻.score.value = <span class="number">85</span></div><div class="line">    </div><div class="line">    player.value = 👧🏼</div><div class="line">    </div><div class="line">    👦🏻.score.value = <span class="number">95</span> <span class="comment">// Will be printed when using flatMap, but will not be printed when using flatMapLatest</span></div><div class="line">    </div><div class="line">    👧🏼.score.value = <span class="number">100</span></div><div class="line">&#125;</div><div class="line">--- flatMap example ---</div><div class="line"><span class="number">80</span></div><div class="line"><span class="number">85</span></div><div class="line"><span class="number">90</span></div><div class="line"><span class="number">95</span></div><div class="line"><span class="number">100</span></div><div class="line">--- flatMapLatest example ---</div><div class="line"><span class="number">80</span></div><div class="line"><span class="number">85</span></div><div class="line"><span class="number">90</span></div><div class="line"><span class="number">100</span></div></pre></td></tr></table></figure>
+<h4 id="scan"><a href="#scan" class="headerlink" title="scan"></a>scan</h4><p>累计每次的运算结果，作为下次运算的输入值</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">example(<span class="string">"scan"</span>) &#123;</div><div class="line">    <span class="keyword">let</span> disposeBag = <span class="type">DisposeBag</span>()</div><div class="line">    </div><div class="line">    <span class="type">Observable</span>.of(<span class="number">10</span>, <span class="number">100</span>, <span class="number">1000</span>)</div><div class="line">        .scan(<span class="number">1</span>) &#123; aggregateValue, newValue <span class="keyword">in</span></div><div class="line">            aggregateValue + newValue</div><div class="line">        &#125;</div><div class="line">        .subscribe(onNext: &#123; <span class="built_in">print</span>($<span class="number">0</span>) &#125;)</div><div class="line">        .disposed(by: disposeBag)</div><div class="line">&#125;</div><div class="line">--- scan example ---</div><div class="line"><span class="number">11</span></div><div class="line"><span class="number">111</span></div><div class="line"><span class="number">1111</span></div></pre></td></tr></table></figure>
+<h3 id="其它操作"><a href="#其它操作" class="headerlink" title="其它操作"></a>其它操作</h3><h4 id="发送事件"><a href="#发送事件" class="headerlink" title="发送事件"></a>发送事件</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="type">Observable</span>&lt;<span class="type">String</span>&gt;.create &#123; observerOfString -&gt; <span class="type">Disposable</span> <span class="keyword">in</span></div><div class="line">    <span class="built_in">print</span>(<span class="string">"Observable created"</span>)</div><div class="line">    observerOfString.on(.next(<span class="string">"😉"</span>)) <span class="comment">// 发送事件数据信号</span></div><div class="line">    observerOfString.on(.completed) <span class="comment">// 发送事件完成信号</span></div><div class="line">    <span class="keyword">return</span> <span class="type">Disposables</span>.create()</div><div class="line">    &#125;</div><div class="line">    .subscribe &#123; event <span class="keyword">in</span></div><div class="line">        <span class="built_in">print</span>(event)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="type">Observable</span>&lt;<span class="type">String</span>&gt;.create(&#123; (observerOfString ) -&gt; <span class="type">Disposable</span> <span class="keyword">in</span></div><div class="line">    observerOfString.onNext(<span class="string">"Hello"</span>)</div><div class="line">    observerOfString.onCompleted()</div><div class="line">    <span class="keyword">return</span> <span class="type">Disposables</span>.create()</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<h4 id="订阅"><a href="#订阅" class="headerlink" title="订阅"></a>订阅</h4><p>被观察对象只有存在订阅者时才会执行订阅闭包中的事件。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">someObservable.subscribe(</div><div class="line">    onNext: &#123; <span class="built_in">print</span>(<span class="string">"Element:"</span>, $<span class="number">0</span>) &#125;,</div><div class="line">    onError: &#123; <span class="built_in">print</span>(<span class="string">"Error:"</span>, $<span class="number">0</span>) &#125;,</div><div class="line">    onCompleted: &#123; <span class="built_in">print</span>(<span class="string">"Completed"</span>) &#125;,</div><div class="line">    onDisposed: &#123; <span class="built_in">print</span>(<span class="string">"Disposed"</span>) &#125;</div><div class="line">)</div></pre></td></tr></table></figure>
+<h4 id="doOn副作用"><a href="#doOn副作用" class="headerlink" title="doOn副作用"></a>doOn副作用</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 每一次发送事件时执行并不对事件做任何处理返回原始事件</span></div><div class="line"><span class="type">Observable</span>.of(<span class="string">"R"</span>, <span class="string">"O"</span>, <span class="string">"S"</span>, <span class="string">"E"</span>)</div><div class="line">    .<span class="keyword">do</span>(onNext: &#123; <span class="built_in">print</span>(<span class="string">"do Next:"</span>, $<span class="number">0</span>) &#125;, onError: &#123; <span class="built_in">print</span>(<span class="string">"do Error:"</span>, $<span class="number">0</span>) &#125;, onCompleted: &#123; <span class="built_in">print</span>(<span class="string">"do Completed"</span>) &#125;)</div><div class="line">    .subscribe(onNext: &#123; <span class="built_in">print</span>($<span class="number">0</span>) &#125;)</div><div class="line">    .disposed(by: disposeBag)</div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/05/11/Custom-Security-Keyboard/" rel="next" title="自定义安全键盘">
+                <i class="fa fa-chevron-left"></i> 自定义安全键盘
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="JolieYang" />
+          <p class="site-author-name" itemprop="name">JolieYang</p>
+           
+              <p class="site-description motion-element" itemprop="description">最好的种树时间是十年前，其次是现在。永远不会太迟，除非你已经放弃了。</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/jolieyang" target="_blank" title="Github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://segmentfault.com/u/jolie_yang" target="_blank" title="Segmentfault">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Segmentfault
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建序列"><span class="nav-number">1.</span> <span class="nav-text">创建序列</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#创建普通Observable序列"><span class="nav-number">1.1.</span> <span class="nav-text">创建普通Observable序列</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Range序列"><span class="nav-number">1.2.</span> <span class="nav-text">Range序列</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#RepeatElement序列"><span class="nav-number">1.3.</span> <span class="nav-text">RepeatElement序列</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Generate序列"><span class="nav-number">1.4.</span> <span class="nav-text">Generate序列</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#deferred"><span class="nav-number">1.5.</span> <span class="nav-text">deferred</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#error序列"><span class="nav-number">1.6.</span> <span class="nav-text">error序列</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Never序列"><span class="nav-number">1.7.</span> <span class="nav-text">Never序列</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Empty序列"><span class="nav-number">1.8.</span> <span class="nav-text">Empty序列</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Just序列"><span class="nav-number">1.9.</span> <span class="nav-text">Just序列</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Of序列"><span class="nav-number">1.10.</span> <span class="nav-text">Of序列</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#from序列"><span class="nav-number">1.11.</span> <span class="nav-text">from序列</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Subject"><span class="nav-number">2.</span> <span class="nav-text">Subject</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#PublishSubject"><span class="nav-number">2.1.</span> <span class="nav-text">PublishSubject</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ReplaySubject"><span class="nav-number">2.2.</span> <span class="nav-text">ReplaySubject</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#BehaviorSubject"><span class="nav-number">2.3.</span> <span class="nav-text">BehaviorSubject</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Variable"><span class="nav-number">2.4.</span> <span class="nav-text">Variable</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Combination操作"><span class="nav-number">3.</span> <span class="nav-text">Combination操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#startWith"><span class="nav-number">3.1.</span> <span class="nav-text">startWith</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#merge"><span class="nav-number">3.2.</span> <span class="nav-text">merge</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#zip"><span class="nav-number">3.3.</span> <span class="nav-text">zip</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#combineLatest"><span class="nav-number">3.4.</span> <span class="nav-text">combineLatest</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#switchLatest"><span class="nav-number">3.5.</span> <span class="nav-text">switchLatest</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Transform转换操作"><span class="nav-number">4.</span> <span class="nav-text">Transform转换操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#map"><span class="nav-number">4.1.</span> <span class="nav-text">map</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#flatMap-amp-amp-flatMapLatest"><span class="nav-number">4.2.</span> <span class="nav-text">flatMap && flatMapLatest</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#scan"><span class="nav-number">4.3.</span> <span class="nav-text">scan</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其它操作"><span class="nav-number">5.</span> <span class="nav-text">其它操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#发送事件"><span class="nav-number">5.1.</span> <span class="nav-text">发送事件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#订阅"><span class="nav-number">5.2.</span> <span class="nav-text">订阅</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#doOn副作用"><span class="nav-number">5.3.</span> <span class="nav-text">doOn副作用</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">JolieYang</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://https-jolieyang-github-io.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://jolieyang.github.io/2017/06/05/RxSwift-Getting-Start-1/';
+          this.page.identifier = '2017/06/05/RxSwift-Getting-Start-1/';
+          this.page.title = 'RxSwift之操作介绍';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://https-jolieyang-github-io.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
